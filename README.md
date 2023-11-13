@@ -1,4 +1,8 @@
-# Lukajaa Nuxt Template
+# Bay Clock 3
 
-My Nuxt Template used for personal projects. It includes TailwindCSS, Prettier, ESLint, TypeScript, and more.
-Preview: [https://template.lucaskchang.com](https://template.lucaskchang.com)
+Third and possibly final iteration of Bay Clock. Currently in development.
+
+[Visit Here](https://bc3.lucaskchang.com)
+
+Docs (Coming Soon): [https://docs.bayclock.org](https://docs.bayclock.org)
+

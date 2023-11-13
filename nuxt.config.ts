@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/eslint-module',
     '@nuxt/ui',
+    '@nuxtjs/google-fonts',
     '@pinia/nuxt',
     '@vueuse/nuxt',
     'nuxt-gtag',
@@ -22,5 +23,10 @@ export default defineNuxtConfig({
   },
   gtag: {
     id: 'G-QNLZ5NY7HH',
+  },
+  googleFonts: {
+    families: {
+      Inter: true,
+    },
   },
 });

@@ -12,7 +12,7 @@
         }"
       />
       <div
-        class="-mt-[30px] flex h-full flex-row items-center justify-between px-4 text-lg font-semibold tracking-tight text-white dark:text-white"
+        class="-mt-[24px] flex h-full flex-row items-center justify-between px-4 font-medium tracking-tight text-white dark:text-white md:-mt-[28px]"
       >
         <span>{{ block }}</span>
         <span>

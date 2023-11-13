@@ -1,9 +1,11 @@
 <template>
   <div
-    class="flex flex-col justify-between text-6xl font-bold tracking-tight md:flex-row md:px-2 md:pt-2 md:text-7xl"
+    class="flex flex-col justify-between text-6xl font-bold md:flex-row md:px-2 md:pt-2 md:text-7xl"
   >
-    <div v-if="showClock" class="flex flex-row md:flex-col">{{ clock }}</div>
-    <div v-if="showStatus" class="flex flex-row md:flex-col">
+    <div v-if="showClock" class="flex flex-row tracking-tighter md:flex-col">
+      {{ clock }}
+    </div>
+    <div v-if="showStatus" class="flex flex-row tracking-tight md:flex-col">
       {{ statusMessage }}
     </div>
   </div>
@@ -29,10 +31,18 @@
 <script setup lang="ts">
 import { useScheduleStore } from '~/stores/schedule';
 import { useStylesStore } from '~/stores/styles';
+import { useNowStore } from '~/stores/now';
 
-const now = useNow();
-const clock = useDateFormat(now, 'h:mm:ss A');
-const date = useDateFormat(now, 'ddd MMMM D YYYY');
+const nowStore = useNowStore();
+const { time } = storeToRefs(nowStore);
+const { updateTimeLoop } = nowStore;
+
+onMounted(() => {
+  updateTimeLoop();
+});
+
+const clock = useDateFormat(time, 'h:mm:ss A');
+const date = useDateFormat(time, 'ddd MMMM D YYYY');
 const scheduleStore = useScheduleStore();
 const stylesStore = useStylesStore();
 const { schedule } = storeToRefs(scheduleStore);
@@ -47,18 +57,18 @@ const statusMessage = computed(() => {
     return 'Weekend';
   }
   const schoolStartTime = Object.values(schedule)[0].start;
-  if (now.value.getTime() < schoolStartTime) {
+  if (time.value.getTime() < schoolStartTime) {
     return `School starts in ${Math.floor(
-      (schoolStartTime - now.value.getTime()) / 1000 / 60,
+      (schoolStartTime - time.value.getTime()) / 1000 / 60,
     )} minutes`;
   }
   for (const timeframe of Object.values(schedule)) {
     if (
-      now.value.getTime() >= timeframe.start &&
-      now.value.getTime() <= timeframe.end
+      time.value.getTime() >= timeframe.start &&
+      time.value.getTime() <= timeframe.end
     ) {
       return `${Math.floor(
-        (timeframe.end - now.value.getTime()) / 1000 / 60,
+        (timeframe.end - time.value.getTime()) / 1000 / 60,
       )} minutes left`;
     }
   }

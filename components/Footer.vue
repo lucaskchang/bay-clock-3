@@ -12,7 +12,7 @@
     </p>
     <p>
       <a
-        class="font-semibold text-blue-400"
+        class="font-semibold text-blue-400 hover:text-blue-500"
         href="https://github.com/lukajaa/bay-clock-3"
         target="_blank"
       >
@@ -26,7 +26,7 @@
       </span>
       /
       <a
-        class="font-semibold text-blue-400"
+        class="font-semibold text-blue-400 hover:text-blue-500"
         href="https://forms.gle/khAXGXiUMoAoskKQA"
         target="_blank"
       >

@@ -15,7 +15,7 @@
     >
       <div class="w-full">
         <UTabs
-          :items="items"
+          :items="tabs"
           orientation="vertical"
           :ui="{
             base: 'h-full',
@@ -31,6 +31,7 @@
           <template #item="{ item }">
             <p class="mb-4 text-2xl font-bold">{{ item.label }}</p>
             <div v-if="item.label === 'Classes'" class="space-y-4">
+              <p class="text-xl font-semibold">Classes</p>
               <UInput
                 v-for="name in Object.keys(blockNames).splice(0, 6)"
                 :key="name"
@@ -38,6 +39,7 @@
                 :placeholder="name"
               />
               <UDivider />
+              <p class="text-xl font-semibold">Other</p>
               <UInput
                 v-for="name in Object.keys(blockNames).splice(6, 9)"
                 :key="name"
@@ -45,7 +47,7 @@
                 :placeholder="name"
               />
             </div>
-            <div v-else-if="item.label === 'Clubs'" class="space-y-4">
+            <div v-else-if="item.label === 'Clubs'">
               <div class="flex flex-col space-y-4">
                 <div
                   v-for="day in Object.keys(clubs)"
@@ -62,11 +64,13 @@
               </div>
             </div>
             <div v-else-if="item.label === 'Activities'" class="space-y-4">
+              <p class="text-xl font-semibold">Name</p>
               <UInput
                 v-model="activityName"
                 placeholder="Activities + Sports/Drama"
                 class="w-full"
               />
+              <p class="text-xl font-semibold">Schedule</p>
               <div class="flex flex-col space-y-4">
                 <div
                   v-for="day in Object.keys(activityDays)"
@@ -96,11 +100,60 @@
                 </div>
               </div>
             </div>
-            <div v-else-if="item.label === 'Immersives'" class="space-y-4">
+            <div v-else-if="item.label === 'Immersives'">
+              <p class="mb-2 text-xl font-semibold">Immersive Name</p>
               <UInput
                 v-model="immersiveName"
                 placeholder="Immersive"
                 class="w-full"
+              />
+            </div>
+            <div v-else-if="item.label === 'Extras'">
+              <p class="mb-2 text-xl font-semibold">Flex Class</p>
+              <div class="flex flex-row space-x-4">
+                <div class="flex flex-col">
+                  <URadioGroup
+                    v-model="grade"
+                    legend="Choose your grade"
+                    :options="grades"
+                  />
+                </div>
+                <div v-if="grade != '0'" class="flex flex-col">
+                  <URadioGroup
+                    v-model="hasSpecialFlex"
+                    :legend="'Do you have ' + specialFlexName + '?'"
+                    :options="[
+                      { value: 'Yes', label: 'Yes' },
+                      { value: 'No', label: 'No' },
+                    ]"
+                  />
+                </div>
+                <div v-if="hasSpecialFlex === 'Yes'" class="flex flex-col">
+                  <URadioGroup
+                    v-model="flexBlock"
+                    legend="Flex Block"
+                    :options="blocks"
+                  />
+                </div>
+                <div
+                  v-if="flexBlock && hasSpecialFlex === 'Yes'"
+                  class="flex flex-col"
+                >
+                  <URadioGroup
+                    v-model="specialFlexDay"
+                    legend="Day of week"
+                    :options="days"
+                  />
+                </div>
+              </div>
+              <p class="my-2 text-xl font-semibold">Advisory</p>
+              <URadioGroup
+                v-model="advisoryDay"
+                legend="Day of week"
+                :options="[
+                  { value: 'Tuesday', label: 'Tuesday' },
+                  { value: 'Thursday', label: 'Thursday' },
+                ]"
               />
             </div>
             <div
@@ -138,14 +191,90 @@ const {
   activitySchedule,
   activityName,
   immersiveName,
+  grade,
+  hasSpecialFlex,
+  flexBlock,
+  specialFlexDay,
+  advisoryDay,
 } = storeToRefs(customScheduleStore);
 
+const specialFlexName = computed(() => {
+  if (grade.value === '9') return '9th Grade Seminar';
+  if (grade.value === '10') return 'Choices';
+  if (grade.value === '11') return 'College Counseling';
+  if (grade.value === '12') return 'College Counseling';
+});
+
 const isOpen = ref(false);
-const items = [
+const tabs = [
   { label: 'Classes' },
   { label: 'Clubs' },
   { label: 'Activities' },
   { label: 'Immersives' },
   { label: 'Extras' },
+];
+const grades = [
+  { value: '9', label: '9th' },
+  { value: '10', label: '10th' },
+  { value: '11', label: '11th' },
+  { value: '12', label: '12th' },
+];
+// const days = [
+//   { value: 'Monday', label: 'Monday' },
+//   { value: 'Tuesday', label: 'Tuesday' },
+//   { value: 'Wednesday', label: 'Wednesday' },
+//   { value: 'Thursday', label: 'Thursday' },
+//   { value: 'Friday', label: 'Friday' },
+//   { value: 'Saturday', label: 'Saturday' },
+//   { value: 'Sunday', label: 'Sunday' },
+// ];
+
+const days = computed(() => {
+  if (flexBlock.value === 'A') {
+    return [
+      { value: 'Monday', label: 'Monday' },
+      { value: 'Tuesday', label: 'Tuesday' },
+      { value: 'Thursday', label: 'Thursday' },
+    ];
+  } else if (flexBlock.value === 'B') {
+    return [
+      { value: 'Monday', label: 'Monday' },
+      { value: 'Tuesday', label: 'Tuesday' },
+      { value: 'Thursday', label: 'Thursday' },
+    ];
+  } else if (flexBlock.value === 'C') {
+    return [
+      { value: 'Monday', label: 'Monday' },
+      { value: 'Wednesday', label: 'Wednesday' },
+      { value: 'Thursday', label: 'Thursday' },
+    ];
+  } else if (flexBlock.value === 'D') {
+    return [
+      { value: 'Monday', label: 'Monday' },
+      { value: 'Wednesday', label: 'Wednesday' },
+      { value: 'Friday', label: 'Friday' },
+    ];
+  } else if (flexBlock.value === 'E') {
+    return [
+      { value: 'Tuesday', label: 'Tuesday' },
+      { value: 'Wednesday', label: 'Wednesday' },
+      { value: 'Friday', label: 'Friday' },
+    ];
+  } else if (flexBlock.value === 'F') {
+    return [
+      { value: 'Tuesday', label: 'Tuesday' },
+      { value: 'Wednesday', label: 'Wednesday' },
+      { value: 'Friday', label: 'Friday' },
+    ];
+  }
+});
+
+const blocks = [
+  { value: 'A', label: 'A' },
+  { value: 'B', label: 'B' },
+  { value: 'C', label: 'C' },
+  { value: 'D', label: 'D' },
+  { value: 'E', label: 'E' },
+  { value: 'F', label: 'F' },
 ];
 </script>

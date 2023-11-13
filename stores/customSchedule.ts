@@ -45,6 +45,13 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
   const activityName = ref('Activities + Sports/Drama');
   const immersiveName = ref('');
 
+  const grade = ref('0');
+  const hasSpecialFlex = ref('No');
+  const flexBlock = ref('');
+  const specialFlexDay = ref('');
+
+  const advisoryDay = ref('');
+
   return {
     blockNames,
     clubs,
@@ -52,5 +59,10 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
     activitySchedule,
     activityName,
     immersiveName,
+    grade,
+    hasSpecialFlex,
+    flexBlock,
+    specialFlexDay,
+    advisoryDay,
   };
 });

@@ -8,7 +8,7 @@
       trailing-icon="i-heroicons-chevron-down-20-solid"
     />
     <template #item="{ item }">
-      <a :href="item.icon" target="_blank" class="h-full w-full p-2 text-left">
+      <a :href="item.icon" target="_blank" class="h-full w-full p-1 text-left">
         {{ item.label }}
       </a>
     </template>

@@ -1,4 +1,5 @@
 import { useCustomScheduleStore } from './customSchedule';
+import { useNowStore } from './now';
 import regularSchedule from '~/assets/data/regular_schedule.json';
 import specialSchedules from '~/assets/data/special_schedules.json';
 import immersiveSchedule from '~/assets/data/immersive_schedule.json';
@@ -6,6 +7,7 @@ import breaks from '~/assets/data/breaks.json';
 
 export const useScheduleStore = defineStore('schedule', () => {
   const customScheduleStore = useCustomScheduleStore();
+  const nowStore = useNowStore();
   const {
     blockNames,
     clubs,
@@ -14,7 +16,7 @@ export const useScheduleStore = defineStore('schedule', () => {
     activityName,
     immersiveName,
   } = storeToRefs(customScheduleStore);
-  const time = useNow();
+  const { time } = storeToRefs(nowStore);
 
   const isWeekend = ref(time.value.getDay() === 0 || time.value.getDay() === 6);
   const isSpecialSchedule = ref(false);
@@ -22,8 +24,6 @@ export const useScheduleStore = defineStore('schedule', () => {
   const breakName = ref('');
   const daysLeft = ref(0);
   const schedule = computed(() => {
-    console.log('schedule computed');
-
     let unparsedSchedule: Record<
       string,
       {

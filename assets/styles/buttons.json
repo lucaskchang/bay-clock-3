@@ -1,0 +1,6 @@
+{
+  "base": "m-1",
+  "rounded": "rounded-full",
+  "padding": { "sm": "px-4 py-2" },
+  "size": { "sm": "text-sm" }
+}

@@ -1,9 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   app: {
     head: {
-      title: 'Lukajaa Nuxt Template',
+      title: 'Bay Clock 3',
     },
   },
   css: ['@/assets/styles/main.scss'],
@@ -11,9 +11,10 @@ export default defineNuxtConfig({
     strict: true,
   },
   modules: [
-    '@nuxtjs/tailwindcss',
     '@nuxtjs/eslint-module',
-    '@nuxtjs/color-mode',
+    '@nuxt/ui',
+    '@pinia/nuxt',
+    '@vueuse/nuxt',
     'nuxt-gtag',
   ],
   colorMode: {

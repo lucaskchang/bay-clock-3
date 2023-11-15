@@ -15,6 +15,11 @@ export const useScheduleStore = defineStore('schedule', () => {
     activitySchedule,
     activityName,
     immersiveName,
+    hasSpecialFlex,
+    flexBlock,
+    specialFlexDay,
+    specialFlexName,
+    advisoryDay,
   } = storeToRefs(customScheduleStore);
   const { time } = storeToRefs(nowStore);
 
@@ -24,6 +29,7 @@ export const useScheduleStore = defineStore('schedule', () => {
   const breakName = ref('');
   const daysLeft = ref(0);
   const schedule = computed(() => {
+    const day = useDateFormat(time.value, 'dddd');
     let unparsedSchedule: Record<
       string,
       {
@@ -31,6 +37,18 @@ export const useScheduleStore = defineStore('schedule', () => {
         end: { hour: number; minute: number };
       }
     > = regularSchedule[time.value.getDay()];
+
+    if (day.value === 'Tuesday' && advisoryDay.value === 'Thursday') {
+      delete unparsedSchedule['Group Advisory/1-on-1s'];
+    } else if (day.value === 'Thursday' && advisoryDay.value === 'Tuesday') {
+      delete unparsedSchedule['Group Advisory/1-on-1s'];
+    }
+
+    if (hasSpecialFlex.value === 'Yes' && day.value === specialFlexDay.value) {
+      unparsedSchedule[specialFlexName.value] =
+        unparsedSchedule[flexBlock.value];
+      delete unparsedSchedule[flexBlock.value];
+    }
 
     // check for special schedule
     for (const [date, specialSchedule] of Object.entries(specialSchedules)) {
@@ -64,7 +82,6 @@ export const useScheduleStore = defineStore('schedule', () => {
 
     // convert schedule to timestamps
     const parsedSchedule = {} as Record<string, { start: number; end: number }>;
-    const day = useDateFormat(time.value, 'dddd');
     for (const [block, timeframe] of Object.entries(unparsedSchedule)) {
       let blockName = block;
       if (blockNames.value[blockName]) {

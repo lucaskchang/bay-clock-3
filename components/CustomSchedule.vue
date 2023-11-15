@@ -195,15 +195,9 @@ const {
   hasSpecialFlex,
   flexBlock,
   specialFlexDay,
+  specialFlexName,
   advisoryDay,
 } = storeToRefs(customScheduleStore);
-
-const specialFlexName = computed(() => {
-  if (grade.value === '9') return '9th Grade Seminar';
-  if (grade.value === '10') return 'Choices';
-  if (grade.value === '11') return 'College Counseling';
-  if (grade.value === '12') return 'College Counseling';
-});
 
 const isOpen = ref(false);
 const tabs = [

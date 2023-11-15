@@ -56,13 +56,13 @@ const statusMessage = computed(() => {
   if (scheduleStore.isWeekend) {
     return 'Weekend';
   }
-  const schoolStartTime = Object.values(schedule)[0].start;
+  const schoolStartTime = Object.values(schedule.value)[0].start;
   if (time.value.getTime() < schoolStartTime) {
     return `School starts in ${Math.floor(
       (schoolStartTime - time.value.getTime()) / 1000 / 60,
     )} minutes`;
   }
-  for (const timeframe of Object.values(schedule)) {
+  for (const timeframe of Object.values(schedule.value)) {
     if (
       time.value.getTime() >= timeframe.start &&
       time.value.getTime() <= timeframe.end

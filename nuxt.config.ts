@@ -22,7 +22,7 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
   gtag: {
-    id: 'G-QNLZ5NY7HH',
+    id: 'G-FVNXPL0FCK',
   },
   googleFonts: {
     families: {

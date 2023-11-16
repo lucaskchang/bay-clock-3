@@ -54,7 +54,8 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
     if (grade.value === '10') return 'Choices';
     if (grade.value === '11') return 'College Counseling';
     if (grade.value === '12') return 'College Counseling';
-  });
+  }) as Ref<string>;
+  const customSpecialFlexName = ref('');
 
   const advisoryDay = ref('');
 
@@ -70,6 +71,7 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
     flexBlock,
     specialFlexDay,
     specialFlexName,
+    customSpecialFlexName,
     advisoryDay,
   };
 });

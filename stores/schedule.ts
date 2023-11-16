@@ -1,9 +1,20 @@
 import { useCustomScheduleStore } from './customSchedule';
 import { useNowStore } from './now';
-import regularSchedule from '~/assets/data/regular_schedule.json';
+import regularScheduleJSON from '~/assets/data/regular_schedule.json';
 import specialSchedules from '~/assets/data/special_schedules.json';
 import immersiveSchedule from '~/assets/data/immersive_schedule.json';
 import breaks from '~/assets/data/breaks.json';
+
+const regularSchedule = regularScheduleJSON as Record<
+  string,
+  Record<
+    string,
+    {
+      start: { hour: number; minute: number };
+      end: { hour: number; minute: number };
+    }
+  >
+>;
 
 export const useScheduleStore = defineStore('schedule', () => {
   const customScheduleStore = useCustomScheduleStore();
@@ -19,6 +30,7 @@ export const useScheduleStore = defineStore('schedule', () => {
     flexBlock,
     specialFlexDay,
     specialFlexName,
+    customSpecialFlexName,
     advisoryDay,
   } = storeToRefs(customScheduleStore);
   const { time } = storeToRefs(nowStore);
@@ -36,18 +48,30 @@ export const useScheduleStore = defineStore('schedule', () => {
         start: { hour: number; minute: number };
         end: { hour: number; minute: number };
       }
-    > = regularSchedule[time.value.getDay()];
+    > = {};
 
-    if (day.value === 'Tuesday' && advisoryDay.value === 'Thursday') {
-      delete unparsedSchedule['Group Advisory/1-on-1s'];
-    } else if (day.value === 'Thursday' && advisoryDay.value === 'Tuesday') {
-      delete unparsedSchedule['Group Advisory/1-on-1s'];
-    }
-
-    if (hasSpecialFlex.value === 'Yes' && day.value === specialFlexDay.value) {
-      unparsedSchedule[specialFlexName.value] =
-        unparsedSchedule[flexBlock.value];
-      delete unparsedSchedule[flexBlock.value];
+    // load regular schedule
+    for (const [name, timeframe] of Object.entries(
+      regularSchedule[day.value],
+    )) {
+      if (name === 'Group Advisory/1-on-1s') {
+        if (day.value === advisoryDay.value) {
+          unparsedSchedule[name] = timeframe;
+        }
+      } else if (name === flexBlock.value) {
+        if (
+          hasSpecialFlex.value === 'Yes' &&
+          day.value === specialFlexDay.value
+        ) {
+          unparsedSchedule[
+            customSpecialFlexName.value || specialFlexName.value
+          ] = timeframe;
+        } else {
+          unparsedSchedule[name] = timeframe;
+        }
+      } else {
+        unparsedSchedule[name] = timeframe;
+      }
     }
 
     // check for special schedule
@@ -67,6 +91,7 @@ export const useScheduleStore = defineStore('schedule', () => {
       }
     }
 
+    // check for breaks
     for (const [name, timeframe] of Object.entries(breaks)) {
       const breakStart = new Date(timeframe.start);
       const breakEnd = new Date(timeframe.end);
@@ -93,9 +118,9 @@ export const useScheduleStore = defineStore('schedule', () => {
       } else if (
         (blockName === 'Immersive Morning' ||
           blockName === 'Immersive Afternoon') &&
-        immersiveName
+        immersiveName.value
       ) {
-        return immersiveName;
+        blockName = immersiveName.value;
       }
       parsedSchedule[blockName] = {
         start: new Date().setHours(

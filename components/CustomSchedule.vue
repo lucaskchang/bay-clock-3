@@ -46,6 +46,11 @@
                 v-model="blockNames[name]"
                 :placeholder="name"
               />
+              <UInput
+                v-if="specialFlexName"
+                v-model="customSpecialFlexName"
+                :placeholder="specialFlexName"
+              />
             </div>
             <div v-else-if="item.label === 'Clubs'">
               <div class="flex flex-col space-y-4">
@@ -196,6 +201,7 @@ const {
   flexBlock,
   specialFlexDay,
   specialFlexName,
+  customSpecialFlexName,
   advisoryDay,
 } = storeToRefs(customScheduleStore);
 

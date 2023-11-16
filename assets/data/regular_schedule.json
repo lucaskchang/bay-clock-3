@@ -1,5 +1,5 @@
-[
-  {
+{
+  "Sunday": {
     "Morning Meeting": {
       "start": {"hour": 8, "minute": 30},
       "end": {"hour": 8, "minute": 55}
@@ -29,7 +29,7 @@
       "end": {"hour": 15, "minute": 40}
     }
   },
-  {
+  "Monday": {
     "Morning Meeting": {
       "start": {"hour": 8, "minute": 30},
       "end": {"hour": 8, "minute": 55}
@@ -59,7 +59,7 @@
       "end": {"hour": 15, "minute": 40}
     }
   },
-  {
+  "Tuesday": {
     "Group Advisory/1-on-1s": {
       "start": {"hour": 8, "minute": 30},
       "end": {"hour": 8, "minute": 55}
@@ -85,7 +85,7 @@
       "end": {"hour": 15, "minute": 5}
     }
   },
-  {
+  "Wednesday": {
     "Morning Meeting": {
       "start": {"hour": 8, "minute": 30},
       "end": {"hour": 8, "minute": 55}
@@ -108,14 +108,14 @@
     },
     "F": {
       "start": {"hour": 13, "minute": 50},
-      "end": {"hour": 15, "minute": 5}
+      "end": {"hour": 21, "minute": 5}
     },
     "Tutorial": {
-      "start": {"hour": 15, "minute": 10},
-      "end": {"hour": 15, "minute": 40}
+      "start": {"hour": 21, "minute": 10},
+      "end": {"hour": 22, "minute": 40}
     }
   },
-  {
+  "Thursday": {
     "Group Advisory/1-on-1s": {
       "start": {"hour": 8, "minute": 30},
       "end": {"hour": 8, "minute": 55}
@@ -141,7 +141,7 @@
       "end": {"hour": 15, "minute": 20}
     }
   },
-  {
+  "Friday": {
     "Morning Meeting": {
       "start": {"hour": 8, "minute": 30},
       "end": {"hour": 8, "minute": 55}
@@ -175,7 +175,7 @@
       "end": {"hour": 23, "minute": 20}
     }
   },
-  {
+  "Saturday": {
     "Morning Meeting": {
       "start": {"hour": 8, "minute": 30},
       "end": {"hour": 8, "minute": 55}
@@ -209,4 +209,4 @@
       "end": {"hour": 23, "minute": 20}
     }
   }
-]
+}

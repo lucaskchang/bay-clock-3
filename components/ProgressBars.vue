@@ -16,6 +16,7 @@
       >
         <span>{{ block }}</span>
         <span>
+          {{ new Date(timeframe.start) }}
           {{ useDateFormat(timeframe.start, 'h:mm').value }} -
           {{ useDateFormat(timeframe.end, 'h:mm').value }}
         </span>

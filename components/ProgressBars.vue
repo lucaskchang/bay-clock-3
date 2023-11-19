@@ -6,8 +6,13 @@
         :ui="{
           progress: {
             size: { md: 'h-6 md:h-8' },
-            rounded: 'rounded-full [&::-webkit-progress-bar]:rounded-full',
-            bar: '[&::-webkit-progress-value]:rounded-full [&::-moz-progress-bar]:rounded-full',
+            rounded: isProgressRounded
+              ? 'rounded-full [&::-webkit-progress-bar]:rounded-full'
+              : 'rounded [&::-webkit-progress-bar]:rounded',
+            bar: isProgressRounded
+              ? '[&::-webkit-progress-value]:rounded-full [&::-moz-progress-bar]:rounded-full'
+              : '[&::-webkit-progress-value]:rounded [&::-moz-progress-bar]:rounded',
+            color: `text-${progressColor} dark:text-${progressColor}`,
           },
         }"
       />
@@ -26,7 +31,11 @@
 
 <script setup lang="ts">
 import { useScheduleStore } from '@/stores/schedule';
+import { useStylesStore } from '@/stores/styles';
 import { useNowStore } from '~/stores/now';
+
+const stylesStore = useStylesStore();
+const { progressColor, isProgressRounded } = storeToRefs(stylesStore);
 
 const nowStore = useNowStore();
 const { time } = storeToRefs(nowStore);

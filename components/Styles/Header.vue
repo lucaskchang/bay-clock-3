@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="mr-2 text-xl font-semibold">Toggle Elements</p>
+    <p class="text-xl font-semibold">Toggle Elements</p>
     <div class="mt-2 flex gap-4">
       <div class="flex flex-row items-center">
         <p class="mr-2">Clock</p>

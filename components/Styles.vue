@@ -18,6 +18,8 @@
           <template #item="{ item }">
             <p class="mb-4 text-2xl font-bold">{{ item.label }}</p>
             <StylesHeader v-if="item.label === 'Header'" />
+            <StylesBars v-if="item.label === 'Bars'" />
+            <StylesOther v-if="item.label === 'Other'" />
             <div
               class="flex flex-row justify-between gap-2 justify-self-end pt-4"
             >

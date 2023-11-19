@@ -12,6 +12,7 @@ module.exports = {
     '@nuxtjs/eslint-config-typescript',
     'plugin:prettier/recommended',
     'plugin:vue/vue3-essential',
+    'plugin:jsonc/recommended-with-json'
   ],
   rules: {
     semi: [2, 'always'],

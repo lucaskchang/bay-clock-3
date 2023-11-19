@@ -71,7 +71,7 @@
         <p class="mt-4 text-xl font-bold">New in v3.0</p>
         <p class="text-lg font-semibold">Features</p>
         <p>
-          🔗 Revert useful links dashboard to dropdown (sometimes simpler is
+          🔗 Reverted useful links dashboard to dropdown (sometimes simpler is
           better)
         </p>
         <p>
@@ -81,6 +81,9 @@
         <p>✍️ Option to add custom names for tutorial and morning meeting</p>
         <p>💪 Customizable 'special flex class'</p>
         <p>🧑‍🤝‍🧑 Option to specify which day you have group advisory</p>
+        <p>🖌️ New color palette (36 more colors)</p>
+        <p>🔵 Added option for unrounded progress bars</p>
+        <p>🌙 Automatic dark mode</p>
         <p class="text-lg font-semibold">Code Upgrades</p>
         <p>📦 Upgraded all packages to latest versions</p>
         <p>

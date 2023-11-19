@@ -4,5 +4,15 @@ export const useStylesStore = defineStore('styles', () => {
   const showDate = ref(true);
   const showIndicator = ref(true);
 
-  return { showClock, showStatus, showDate, showIndicator };
+  const progressColor = ref('blue-400');
+  const isProgressRounded = ref(true);
+
+  return {
+    showClock,
+    showStatus,
+    showDate,
+    showIndicator,
+    progressColor,
+    isProgressRounded,
+  };
 });

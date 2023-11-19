@@ -15,7 +15,9 @@
         class="-mt-[24px] flex h-full flex-row items-center justify-between overflow-x-clip whitespace-nowrap px-4 font-medium tracking-tight text-black dark:text-white md:-mt-[28px]"
       >
         <span>
-          {{ block }}
+          {{ timeframe.start }}
+          {{ timeframe.end }}
+          {{ time }}
         </span>
         <span>
           {{ useDateFormat(timeframe.start, 'h:mm').value }} -

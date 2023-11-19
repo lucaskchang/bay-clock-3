@@ -1,5 +1,5 @@
 <template>
-  <div class="my-12 space-y-6 px-1 md:space-y-10 lg:px-8">
+  <div class="my-12 space-y-6 px-1 md:space-y-10 lg:px-12">
     <div v-for="(timeframe, block) of schedule" :key="block">
       <UProgress
         :value="blockProgresses[block]"
@@ -14,11 +14,7 @@
       <div
         class="-mt-[24px] flex h-full flex-row items-center justify-between overflow-x-clip whitespace-nowrap px-4 font-medium tracking-tight text-black dark:text-white md:-mt-[28px]"
       >
-        <span>
-          {{ timeframe.start }}
-          {{ timeframe.end }}
-          {{ time }}
-        </span>
+        <span>{{ block }}</span>
         <span>
           {{ useDateFormat(timeframe.start, 'h:mm').value }} -
           {{ useDateFormat(timeframe.end, 'h:mm').value }}

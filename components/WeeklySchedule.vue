@@ -14,15 +14,22 @@
       }"
     >
       <div class="flex min-h-[384px] w-full flex-row gap-4 p-8">
-        <div v-for="n in 5" :key="n" class="flex w-1/5 flex-col gap-4">
-          <p class="text-center text-2xl font-semibold">Monday</p>
+        <div
+          v-for="(schedule, day) of weeklySchedule"
+          :key="day"
+          class="flex w-1/5 flex-col gap-4"
+        >
+          <p class="text-center text-2xl font-semibold">{{ day }}</p>
           <div
-            v-for="i in 7"
-            :key="i"
-            class="h-48 w-full rounded-lg bg-blue-300 pl-2 pt-1"
+            v-for="(timeframe, block) of schedule"
+            :key="block"
+            class="h-28 w-full rounded-lg pl-2 pt-1"
+            :class="colors[Object.keys(schedule).indexOf(block)]"
           >
-            <p class="text-2xl font-semibold">Block {{ i }}</p>
-            <p class="text-xl font-semibold">8:00 - 9:00</p>
+            <p class="text-2xl font-semibold">{{ block }}</p>
+            <p class="text-xl font-semibold">
+              {{ timeframe.start }} - {{ timeframe.end }}
+            </p>
           </div>
         </div>
       </div>
@@ -31,7 +38,218 @@
 </template>
 
 <script setup lang="ts">
+import { useCustomScheduleStore } from '@/stores/customSchedule';
+import { useNowStore } from '@/stores/now';
 import buttonStyling from '~/assets/styles/buttons.json';
+import regularScheduleJSON from '~/assets/data/regular_schedule.json';
+import specialSchedules from '~/assets/data/special_schedules.json';
+import immersiveSchedule from '~/assets/data/immersive_schedule.json';
+import breaks from '~/assets/data/breaks.json';
+
+const customScheduleStore = useCustomScheduleStore();
+const nowStore = useNowStore();
+const {
+  blockNames,
+  clubs,
+  activityDays,
+  activitySchedule,
+  activityName,
+  immersiveName,
+  hasSpecialFlex,
+  flexBlock,
+  specialFlexDay,
+  specialFlexName,
+  customSpecialFlexName,
+  advisoryDay,
+  showOneOnOnes,
+} = storeToRefs(customScheduleStore);
+const { time } = storeToRefs(nowStore);
+
+const regularSchedule = regularScheduleJSON as Record<
+  string,
+  Record<
+    string,
+    {
+      start: { hour: number; minute: number };
+      end: { hour: number; minute: number };
+    }
+  >
+>;
+
+const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+const colors = [
+  'bg-blue-300',
+  'bg-green-300',
+  'bg-yellow-300',
+  'bg-red-300',
+  'bg-purple-300',
+  'bg-pink-300',
+  'bg-indigo-300',
+  'bg-orange-300',
+  'bg-teal-300',
+];
+const weeklySchedule = computed(() => {
+  const output = {} as Record<
+    string,
+    Record<
+      string,
+      {
+        start: string;
+        end: string;
+        length: number;
+      }
+    >
+  >;
+  for (const dayOfWeek of days) {
+    const dayDate = new Date(time.value);
+    const today = dayDate.getDay();
+    const diff = dayDate.getDate() - today + days.indexOf(dayOfWeek) + 1;
+    dayDate.setDate(diff);
+
+    const day = useDateFormat(dayDate, 'dddd');
+    let isBreak = false;
+    let unparsedSchedule: Record<
+      string,
+      {
+        start: { hour: number; minute: number };
+        end: { hour: number; minute: number };
+      }
+    > = {};
+
+    // load regular schedule
+    for (const [name, timeframe] of Object.entries(
+      regularSchedule[day.value],
+    )) {
+      if (name === 'Group Advisory/1-on-1s') {
+        if (!advisoryDay.value) {
+          unparsedSchedule[name] = timeframe;
+        } else if (day.value === advisoryDay.value) {
+          unparsedSchedule['Group Advisory'] = timeframe;
+        } else if (showOneOnOnes.value === 'Yes') {
+          unparsedSchedule['Advisor 1-on-1'] = timeframe;
+        }
+      } else if (name === flexBlock.value) {
+        if (
+          hasSpecialFlex.value === 'Yes' &&
+          day.value === specialFlexDay.value
+        ) {
+          unparsedSchedule[
+            customSpecialFlexName.value || specialFlexName.value
+          ] = timeframe;
+        } else {
+          unparsedSchedule[name] = timeframe;
+        }
+      } else {
+        unparsedSchedule[name] = timeframe;
+      }
+    }
+
+    // check for special schedule
+    for (const [date, specialSchedule] of Object.entries(specialSchedules)) {
+      const specialScheduleDate = new Date(date);
+      if (dayDate.toDateString() === specialScheduleDate.toDateString()) {
+        unparsedSchedule = specialSchedule;
+      }
+    }
+
+    // check for immersives
+    for (const date of immersiveSchedule.dates) {
+      const startDate = new Date(date.start);
+      const endDate = new Date(date.end);
+      if (dayDate >= startDate && dayDate <= endDate) {
+        unparsedSchedule = immersiveSchedule.schedule;
+      }
+    }
+
+    // check for breaks
+    for (const [name, timeframe] of Object.entries(breaks)) {
+      const breakStart = new Date(timeframe.start);
+      const breakEnd = new Date(timeframe.end);
+      if (dayDate >= breakStart && dayDate <= breakEnd) {
+        unparsedSchedule = {
+          [name]: 'All Day',
+        };
+        isBreak = true;
+      }
+    }
+
+    // convert schedule to timestamps
+    const parsedSchedule: Record<
+      string,
+      {
+        start: string;
+        end: string;
+        length: number;
+      }
+    > = {};
+    for (const [block, timeframe] of Object.entries(unparsedSchedule)) {
+      let blockName = block;
+      if (blockNames.value[blockName]) {
+        blockName = blockNames.value[blockName];
+      } else if (blockName === 'Lunch') {
+        if (clubs.value[day.value]) {
+          blockName = clubs.value[day.value];
+        }
+      } else if (
+        (blockName === 'Immersive Morning' ||
+          blockName === 'Immersive Afternoon') &&
+        immersiveName.value
+      ) {
+        blockName = immersiveName.value;
+      }
+      if (timeframe === 'All Day') {
+        parsedSchedule[blockName] = {
+          start: 'All Day',
+          end: 'All Day',
+          length: 100,
+        };
+        continue;
+      }
+      parsedSchedule[blockName] = {
+        start: `${
+          timeframe.start.hour > 12
+            ? timeframe.start.hour - 12
+            : timeframe.start.hour
+        }:${timeframe.start.minute.toString().padStart(2, '0')}`,
+        end: `${
+          timeframe.end.hour > 12 ? timeframe.end.hour - 12 : timeframe.end.hour
+        }:${timeframe.end.minute.toString().padStart(2, '0')}`,
+        length:
+          timeframe.end.hour * 60 +
+          timeframe.end.minute -
+          (timeframe.start.hour * 60 + timeframe.start.minute),
+      };
+    }
+
+    // check for activities
+    if (activityDays.value[day.value] && !isBreak) {
+      parsedSchedule[activityName.value || 'Activities + Sports/Drama'] = {
+        start: activitySchedule.value[day.value].start,
+        end: activitySchedule.value[day.value].end,
+        length:
+          parseInt(activitySchedule.value[day.value].end.split(':')[0]) * 60 +
+          parseInt(activitySchedule.value[day.value].end.split(':')[1]) -
+          (parseInt(activitySchedule.value[day.value].start.split(':')[0]) *
+            60 +
+            parseInt(activitySchedule.value[day.value].start.split(':')[1])),
+      };
+    }
+    output[dayOfWeek] = parsedSchedule;
+  }
+  return output;
+}) as ComputedRef<
+  Record<
+    string,
+    Record<
+      string,
+      {
+        start: string;
+        end: string;
+        length: number;
+      }
+    >
+  >
+>;
 
 const isOpen = ref(false);
 </script>

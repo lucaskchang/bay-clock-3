@@ -32,6 +32,7 @@ export const useScheduleStore = defineStore('schedule', () => {
     specialFlexName,
     customSpecialFlexName,
     advisoryDay,
+    showOneOnOnes,
   } = storeToRefs(customScheduleStore);
   const { time } = storeToRefs(nowStore);
 
@@ -55,8 +56,12 @@ export const useScheduleStore = defineStore('schedule', () => {
       regularSchedule[day.value],
     )) {
       if (name === 'Group Advisory/1-on-1s') {
-        if (day.value === advisoryDay.value) {
+        if (!advisoryDay.value) {
           unparsedSchedule[name] = timeframe;
+        } else if (advisoryDay.value === day.value) {
+          unparsedSchedule['Group Advisory'] = timeframe;
+        } else if (showOneOnOnes.value === 'Yes') {
+          unparsedSchedule['Advisor 1-on-1'] = timeframe;
         }
       } else if (name === flexBlock.value) {
         if (
@@ -79,6 +84,7 @@ export const useScheduleStore = defineStore('schedule', () => {
       const specialScheduleDate = new Date(date);
       if (time.value.toDateString() === specialScheduleDate.toDateString()) {
         unparsedSchedule = specialSchedule;
+        isSpecialSchedule.value = true;
       }
     }
 

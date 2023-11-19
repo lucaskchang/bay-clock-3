@@ -7,7 +7,6 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
     E: 'E',
     F: 'F',
     'Morning Meeting': 'Morning Meeting',
-    'Group Advisory/1-on-1s': 'Group Advisory/1-on-1s',
     Tutorial: 'Tutorial',
   });
 
@@ -58,6 +57,7 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
   const customSpecialFlexName = ref('');
 
   const advisoryDay = ref('');
+  const showOneOnOnes = ref('No');
 
   return {
     blockNames,
@@ -73,5 +73,6 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
     specialFlexName,
     customSpecialFlexName,
     advisoryDay,
+    showOneOnOnes,
   };
 });

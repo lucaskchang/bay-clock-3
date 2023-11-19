@@ -14,43 +14,10 @@
       }"
     >
       <div class="w-full">
-        <UTabs
-          :items="items"
-          orientation="vertical"
-          :ui="{
-            base: 'h-full',
-            wrapper: 'flex gap-4',
-            container: 'pt-2 pb-4 pr-4',
-            list: {
-              width: 'w-48',
-              rounded: 'rounded-none rounded-l-lg',
-              tab: { base: 'justify-start', size: 'text-md', height: 'h-12' },
-            },
-          }"
-        >
+        <UTabs :items="items" orientation="vertical" :ui="tabsStyling">
           <template #item="{ item }">
             <p class="mb-4 text-2xl font-bold">{{ item.label }}</p>
-            <div v-if="item.label === 'Header'">
-              <p class="mr-2 text-xl font-semibold">Toggle Elements</p>
-              <div class="mt-2 flex gap-4">
-                <div class="flex flex-row items-center">
-                  <p class="mr-2">Clock</p>
-                  <UToggle v-model="showClock" />
-                </div>
-                <div class="flex flex-row items-center">
-                  <p class="mr-2">Time Left</p>
-                  <UToggle v-model="showStatus" />
-                </div>
-                <div class="flex flex-row items-center">
-                  <p class="mr-2">Date</p>
-                  <UToggle v-model="showDate" />
-                </div>
-                <div class="flex flex-row items-center">
-                  <p class="mr-2">Special Schedule Indicator</p>
-                  <UToggle v-model="showIndicator" />
-                </div>
-              </div>
-            </div>
+            <StylesHeader v-if="item.label === 'Header'" />
             <div
               class="flex flex-row justify-between gap-2 justify-self-end pt-4"
             >
@@ -76,11 +43,7 @@
 
 <script setup lang="ts">
 import buttonStyling from '~/assets/styles/buttons.json';
-import { useStylesStore } from '~/stores/styles';
-
-const stylesStore = useStylesStore();
-const { showClock, showStatus, showDate, showIndicator } =
-  storeToRefs(stylesStore);
+import tabsStyling from '~/assets/styles/tabs.json';
 
 const isOpen = ref(false);
 const items = [

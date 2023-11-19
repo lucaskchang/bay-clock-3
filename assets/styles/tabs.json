@@ -1,0 +1,10 @@
+{
+  "base": "h-full",
+  "wrapper": "flex gap-4",
+  "container": "pt-2 pb-4 pr-4",
+  "list": {
+    "width": "w-48",
+    "rounded": "rounded-none rounded-l-lg",
+    "tab": { "base": "justify-start", "size": "text-md", "height": "h-12" }
+  }
+}

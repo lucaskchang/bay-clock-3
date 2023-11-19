@@ -127,6 +127,7 @@ export const useScheduleStore = defineStore('schedule', () => {
           timeframe.start.hour,
           timeframe.start.minute,
           0,
+          0,
         ),
         end: new Date().setHours(timeframe.end.hour, timeframe.end.minute, 0),
       };
@@ -139,10 +140,12 @@ export const useScheduleStore = defineStore('schedule', () => {
           Number(activitySchedule.value[day.value].start.split(':')[0]),
           Number(activitySchedule.value[day.value].start.split(':')[1]),
           0,
+          0,
         ),
         end: new Date().setHours(
           Number(activitySchedule.value[day.value].end.split(':')[0]),
           Number(activitySchedule.value[day.value].end.split(':')[1]),
+          0,
           0,
         ),
       };

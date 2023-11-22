@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="text-xl font-semibold">Toggle Elements</p>
+    <p class="text-xl font-semibold">Theme</p>
     <div class="flex flex-row items-center">
       <p class="mr-2">Dark Mode</p>
       <UToggle v-model="isDark" />

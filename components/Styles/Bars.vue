@@ -2,10 +2,23 @@
   <div>
     <p class="mr-2 text-xl font-semibold">Color</p>
     <UPopover :open="isOpen">
-      <UButton color="white" label="Choose Color" @click="isOpen = !isOpen" />
-
+      <UButton
+        icon="i-heroicons-paint-brush"
+        variant="solid"
+        label="Choose Color"
+        :ui="{
+          variant: {
+            solid: `bg-${progressColor} hover:bg-${progressHoverColor} ${
+              parseInt(progressColor.split('-')[1]) <= 200
+                ? 'text-black'
+                : 'text-white'
+            }`,
+          },
+        }"
+        @click="isOpen = !isOpen"
+      />
       <template #panel>
-        <div class="flex w-72 flex-wrap p-3">
+        <div class="flex w-64 flex-wrap p-2">
           <div v-for="color in colors.bg" :key="color">
             <div
               class="h-6 w-6 cursor-pointer"
@@ -34,7 +47,8 @@ import { useStylesStore } from '@/stores/styles';
 import colors from '~/assets/styles/colors.json';
 
 const stylesStore = useStylesStore();
-const { progressColor, isProgressRounded } = storeToRefs(stylesStore);
+const { progressColor, progressHoverColor, isProgressRounded } =
+  storeToRefs(stylesStore);
 
 const isOpen = ref(false);
 </script>

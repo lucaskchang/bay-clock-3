@@ -1,9 +1,17 @@
 <template>
   <div>
     <UButton
-      variant="outline"
-      :ui="buttonStyling"
-      color="black"
+      :ui="{
+        ...buttonStyling,
+        rounded: `rounded${isWeeklyRounded ? '-full' : ''}`,
+        variant: {
+          solid: `bg-${weeklyButtonColor} hover:bg-${weeklyButtonHoverColor} ${
+            parseInt(weeklyButtonColor.split('-')[1]) <= 200
+              ? 'text-black'
+              : 'text-white'
+          }`,
+        },
+      }"
       label="Weekly Schedule"
       @click="isOpen = true"
     />
@@ -24,7 +32,7 @@
             v-for="(timeframe, block) of schedule"
             :key="block"
             class="h-28 w-full rounded-lg pl-2 pt-1"
-            :class="colors[Object.keys(schedule).indexOf(block)]"
+            :class="colorKey[block]"
           >
             <p class="text-2xl font-semibold">{{ block }}</p>
             <p class="text-xl font-semibold">
@@ -38,6 +46,7 @@
 </template>
 
 <script setup lang="ts">
+import { useStylesStore } from '~/stores/styles';
 import { useCustomScheduleStore } from '@/stores/customSchedule';
 import { useNowStore } from '@/stores/now';
 import buttonStyling from '~/assets/styles/buttons.json';
@@ -45,6 +54,10 @@ import regularScheduleJSON from '~/assets/data/regular_schedule.json';
 import specialSchedules from '~/assets/data/special_schedules.json';
 import immersiveSchedule from '~/assets/data/immersive_schedule.json';
 import breaks from '~/assets/data/breaks.json';
+
+const stylesStore = useStylesStore();
+const { weeklyButtonColor, weeklyButtonHoverColor, isWeeklyRounded } =
+  storeToRefs(stylesStore);
 
 const customScheduleStore = useCustomScheduleStore();
 const nowStore = useNowStore();
@@ -78,16 +91,22 @@ const regularSchedule = regularScheduleJSON as Record<
 
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 const colors = [
-  'bg-blue-300',
-  'bg-green-300',
-  'bg-yellow-300',
-  'bg-red-300',
-  'bg-purple-300',
-  'bg-pink-300',
-  'bg-indigo-300',
-  'bg-orange-300',
-  'bg-teal-300',
+  'bg-red-500',
+  'bg-yellow-500',
+  'bg-green-500',
+  'bg-blue-500',
+  'bg-purple-500',
+  'bg-orange-500',
+  'bg-pink-500',
+  'bg-indigo-500',
+  'bg-cyan-500',
+  'bg-lime-500',
+  'bg-rose-500',
 ];
+
+const colorKey = ref({}) as Ref<Record<string, string>>;
+const colorKeyIndex = ref(0);
+
 const weeklySchedule = computed(() => {
   const output = {} as Record<
     string,
@@ -219,6 +238,10 @@ const weeklySchedule = computed(() => {
           timeframe.end.minute -
           (timeframe.start.hour * 60 + timeframe.start.minute),
       };
+      if (!colorKey.value[blockName]) {
+        colorKey.value[blockName] = colors[colorKeyIndex.value];
+        colorKeyIndex.value++;
+      }
     }
 
     // check for activities
@@ -233,6 +256,11 @@ const weeklySchedule = computed(() => {
             60 +
             parseInt(activitySchedule.value[day.value].start.split(':')[1])),
       };
+      if (!colorKey.value[activityName.value || 'Activities + Sports/Drama']) {
+        colorKey.value[activityName.value || 'Activities + Sports/Drama'] =
+          colors[colorKeyIndex.value];
+        colorKeyIndex.value++;
+      }
     }
     output[dayOfWeek] = parsedSchedule;
   }

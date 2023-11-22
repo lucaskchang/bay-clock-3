@@ -57,10 +57,16 @@ const statusMessage = computed(() => {
     return 'Weekend';
   }
   const schoolStartTime = Object.values(schedule.value)[0].start;
+  const schoolEndTime = Object.values(schedule.value)[
+    Object.values(schedule.value).length - 1
+  ].end;
   if (time.value.getTime() < schoolStartTime) {
     return `School starts in ${Math.floor(
       (schoolStartTime - time.value.getTime()) / 1000 / 60,
     )} minutes`;
+  }
+  if (time.value.getTime() > schoolEndTime) {
+    return 'School is over';
   }
   for (const timeframe of Object.values(schedule.value)) {
     if (
@@ -72,6 +78,10 @@ const statusMessage = computed(() => {
       )} minutes left`;
     }
   }
-  return 'School is over';
+  return 'Passing';
+});
+
+useHead({
+  titleTemplate: statusMessage,
 });
 </script>

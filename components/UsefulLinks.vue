@@ -1,17 +1,7 @@
 <template>
   <UDropdown :items="items" mode="hover">
     <UButton
-      :ui="{
-        ...buttonStyling,
-        rounded: `rounded${isLinksRounded ? '-full' : ''}`,
-        variant: {
-          solid: `bg-${linksButtonColor} hover:bg-${linksButtonHoverColor} ${
-            parseInt(linksButtonColor.split('-')[1]) <= 200
-              ? 'text-black'
-              : 'text-white'
-          }`,
-        },
-      }"
+      :ui="buttonUIs.links"
       label="Useful Links"
       trailing-icon="i-heroicons-chevron-down-20-solid"
     />
@@ -24,12 +14,10 @@
 </template>
 
 <script setup lang="ts">
-import buttonStyling from '~/assets/styles/buttons.json';
 import { useStylesStore } from '~/stores/styles';
 
 const stylesStore = useStylesStore();
-const { linksButtonColor, linksButtonHoverColor, isLinksRounded } =
-  storeToRefs(stylesStore);
+const { buttonUIs } = storeToRefs(stylesStore);
 
 const items = [
   [

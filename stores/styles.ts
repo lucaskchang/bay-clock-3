@@ -1,13 +1,38 @@
+import buttonStyling from '~/assets/styles/buttons.json';
+
+type Styles = {
+  color: string;
+  isRounded: boolean;
+};
+
 function getHoverColor(color: string) {
-  const colorName = color.split('-')[0];
-  const colorValue = color.split('-')[1];
+  let hoverColor = '';
+  const colorName = color.split('-')[1];
+  const colorValue = color.split('-')[2];
   if (colorValue === '50') {
-    return `${colorName}-100`;
+    hoverColor = `${colorName}-100`;
   } else if (colorValue === '900') {
-    return `${colorName}-950`;
+    hoverColor = `${colorName}-950`;
   } else {
-    return `${colorName}-${parseInt(colorValue) + 100}`;
+    hoverColor = `${colorName}-${parseInt(colorValue) + 100}`;
   }
+  return hoverColor;
+}
+
+function getButtonStyles(styles: Styles) {
+  const color = styles.color;
+  const hoverColor = getHoverColor(color);
+  return {
+    ...buttonStyling,
+    rounded: styles.isRounded ? 'rounded-full' : 'rounded',
+    variant: {
+      solid: `${color} hover:bg-${hoverColor} dark:${color} dark:hover:bg-${hoverColor} ${
+        parseInt(color.split('-')[2]) >= 400
+          ? 'text-white dark:text-white'
+          : 'text-black dark:text-black'
+      }`,
+    },
+  };
 }
 
 export const useStylesStore = defineStore('styles', () => {
@@ -19,35 +44,45 @@ export const useStylesStore = defineStore('styles', () => {
 
   // progress bar styles
   const progressColor = ref('blue-400');
-  const progressHoverColor = computed(() => getHoverColor(progressColor.value));
+  const progressHoverColor = computed(() =>
+    getHoverColor('bg-' + progressColor.value),
+  );
   const isProgressRounded = ref(true);
 
   // button styles
-  const linksButtonColor = ref('blue-400');
-  const lunchButtonColor = ref('blue-400');
-  const scheduleButtonColor = ref('blue-400');
-  const stylesButtonColor = ref('blue-400');
-  const weeklyButtonColor = ref('blue-400');
-  const linksButtonHoverColor = computed(() =>
-    getHoverColor(linksButtonColor.value),
-  );
-  const lunchButtonHoverColor = computed(() =>
-    getHoverColor(lunchButtonColor.value),
-  );
-  const scheduleButtonHoverColor = computed(() =>
-    getHoverColor(scheduleButtonColor.value),
-  );
-  const stylesButtonHoverColor = computed(() =>
-    getHoverColor(stylesButtonColor.value),
-  );
-  const weeklyButtonHoverColor = computed(() =>
-    getHoverColor(weeklyButtonColor.value),
-  );
-  const isLinksRounded = ref(true);
-  const isLunchRounded = ref(true);
-  const isScheduleRounded = ref(true);
-  const isStylesRounded = ref(true);
-  const isWeeklyRounded = ref(true);
+  const buttonStyles = ref({
+    links: {
+      color: 'bg-blue-400',
+      isRounded: true,
+    },
+    lunch: {
+      color: 'bg-blue-400',
+      isRounded: true,
+    },
+    schedule: {
+      color: 'bg-blue-400',
+      isRounded: true,
+    },
+    styles: {
+      color: 'bg-blue-400',
+      isRounded: true,
+    },
+    weekly: {
+      color: 'bg-blue-400',
+      isRounded: true,
+    },
+  });
+  const buttonUIs = computed(() => {
+    return {
+      links: getButtonStyles(buttonStyles.value.links),
+      lunch: getButtonStyles(buttonStyles.value.lunch),
+      schedule: getButtonStyles(buttonStyles.value.schedule),
+      styles: getButtonStyles(buttonStyles.value.styles),
+      weekly: getButtonStyles(buttonStyles.value.weekly),
+    };
+  });
+
+  const useDetailedTime = ref(false);
 
   return {
     showClock,
@@ -57,20 +92,8 @@ export const useStylesStore = defineStore('styles', () => {
     progressColor,
     progressHoverColor,
     isProgressRounded,
-    linksButtonColor,
-    lunchButtonColor,
-    scheduleButtonColor,
-    stylesButtonColor,
-    weeklyButtonColor,
-    linksButtonHoverColor,
-    lunchButtonHoverColor,
-    scheduleButtonHoverColor,
-    stylesButtonHoverColor,
-    weeklyButtonHoverColor,
-    isLinksRounded,
-    isLunchRounded,
-    isScheduleRounded,
-    isStylesRounded,
-    isWeeklyRounded,
+    buttonStyles,
+    buttonUIs,
+    useDetailedTime,
   };
 });

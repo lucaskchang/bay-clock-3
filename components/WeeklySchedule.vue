@@ -1,17 +1,7 @@
 <template>
   <div>
     <UButton
-      :ui="{
-        ...buttonStyling,
-        rounded: `rounded${isWeeklyRounded ? '-full' : ''}`,
-        variant: {
-          solid: `bg-${weeklyButtonColor} hover:bg-${weeklyButtonHoverColor} ${
-            parseInt(weeklyButtonColor.split('-')[1]) <= 200
-              ? 'text-black'
-              : 'text-white'
-          }`,
-        },
-      }"
+      :ui="buttonUIs.weekly"
       label="Weekly Schedule"
       @click="isOpen = true"
     />
@@ -49,15 +39,13 @@
 import { useStylesStore } from '~/stores/styles';
 import { useCustomScheduleStore } from '@/stores/customSchedule';
 import { useNowStore } from '@/stores/now';
-import buttonStyling from '~/assets/styles/buttons.json';
 import regularScheduleJSON from '~/assets/data/regular_schedule.json';
 import specialSchedules from '~/assets/data/special_schedules.json';
 import immersiveSchedule from '~/assets/data/immersive_schedule.json';
 import breaks from '~/assets/data/breaks.json';
 
 const stylesStore = useStylesStore();
-const { weeklyButtonColor, weeklyButtonHoverColor, isWeeklyRounded } =
-  storeToRefs(stylesStore);
+const { buttonUIs } = storeToRefs(stylesStore);
 
 const customScheduleStore = useCustomScheduleStore();
 const nowStore = useNowStore();

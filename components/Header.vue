@@ -46,7 +46,7 @@ const date = useDateFormat(time, 'ddd MMMM D YYYY');
 const scheduleStore = useScheduleStore();
 const stylesStore = useStylesStore();
 const { schedule } = storeToRefs(scheduleStore);
-const { showClock, showStatus, showDate, showIndicator } =
+const { showClock, showStatus, showDate, showIndicator, useDetailedTime } =
   storeToRefs(stylesStore);
 
 const statusMessage = computed(() => {
@@ -57,9 +57,10 @@ const statusMessage = computed(() => {
     return 'Weekend';
   }
   const schoolStartTime = Object.values(schedule.value)[0].start;
-  const schoolEndTime = Object.values(schedule.value)[
-    Object.values(schedule.value).length - 1
-  ].end;
+  const schoolEndTime = Object.values(schedule.value).reduce(
+    (acc, curr) => Math.max(acc, curr.end),
+    0,
+  );
   if (time.value.getTime() < schoolStartTime) {
     return `School starts in ${Math.floor(
       (schoolStartTime - time.value.getTime()) / 1000 / 60,
@@ -73,9 +74,21 @@ const statusMessage = computed(() => {
       time.value.getTime() >= timeframe.start &&
       time.value.getTime() <= timeframe.end
     ) {
-      return `${Math.floor(
-        (timeframe.end - time.value.getTime()) / 1000 / 60,
-      )} minutes left`;
+      if (useDetailedTime.value) {
+        const timeLeft = timeframe.end - time.value.getTime();
+        return `
+          ${Math.floor(timeLeft / 1000 / 60 / 60)}:${Math.floor(
+            (timeLeft / 1000 / 60) % 60,
+          )
+            .toString()
+            .padStart(2, '0')}:${Math.floor((timeLeft / 1000) % 60)
+            .toString()
+            .padStart(2, '0')} left`;
+      } else {
+        return `${Math.floor(
+          (timeframe.end - time.value.getTime()) / 1000 / 60,
+        )} minutes left`;
+      }
     }
   }
   return 'Passing';

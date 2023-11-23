@@ -1,20 +1,6 @@
 <template>
   <div>
-    <UButton
-      :ui="{
-        ...buttonStyling,
-        rounded: `rounded${isStylesRounded ? '-full' : ''}`,
-        variant: {
-          solid: `bg-${stylesButtonColor} hover:bg-${stylesButtonHoverColor} ${
-            parseInt(stylesButtonColor.split('-')[1]) <= 200
-              ? 'text-black'
-              : 'text-white'
-          }`,
-        },
-      }"
-      label="Customize"
-      @click="isOpen = true"
-    />
+    <UButton :ui="buttonUIs.styles" label="Customize" @click="isOpen = true" />
     <UModal
       v-model="isOpen"
       :ui="{
@@ -53,13 +39,11 @@
 </template>
 
 <script setup lang="ts">
-import buttonStyling from '~/assets/styles/buttons.json';
 import tabsStyling from '~/assets/styles/tabs.json';
 import { useStylesStore } from '~/stores/styles';
 
 const stylesStore = useStylesStore();
-const { stylesButtonColor, stylesButtonHoverColor, isStylesRounded } =
-  storeToRefs(stylesStore);
+const { buttonUIs } = storeToRefs(stylesStore);
 
 const isOpen = ref(false);
 const items = [

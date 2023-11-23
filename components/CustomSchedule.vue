@@ -1,17 +1,7 @@
 <template>
   <div>
     <UButton
-      :ui="{
-        ...buttonStyling,
-        rounded: `rounded${isScheduleRounded ? '-full' : ''}`,
-        variant: {
-          solid: `bg-${scheduleButtonColor} hover:bg-${scheduleButtonHoverColor} ${
-            parseInt(scheduleButtonColor.split('-')[1]) <= 200
-              ? 'text-black'
-              : 'text-white'
-          }`,
-        },
-      }"
+      :ui="buttonUIs.schedule"
       label="Custom Schedule"
       @click="isOpen = true"
     />
@@ -54,13 +44,11 @@
 </template>
 
 <script setup lang="ts">
-import buttonStyling from '~/assets/styles/buttons.json';
 import tabsStyling from '~/assets/styles/tabs.json';
 import { useStylesStore } from '~/stores/styles';
 
 const stylesStore = useStylesStore();
-const { scheduleButtonColor, scheduleButtonHoverColor, isScheduleRounded } =
-  storeToRefs(stylesStore);
+const { buttonUIs } = storeToRefs(stylesStore);
 
 const isOpen = ref(false);
 const tabs = [

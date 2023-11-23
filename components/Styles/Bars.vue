@@ -8,7 +8,7 @@
         label="Choose Color"
         :ui="{
           variant: {
-            solid: `bg-${progressColor} hover:bg-${progressHoverColor} ${
+            solid: `bg-${progressColor} hover:bg-${progressHoverColor} dark:bg-${progressColor} dark:hover:bg-${progressHoverColor} ${
               parseInt(progressColor.split('-')[1]) <= 200
                 ? 'text-black'
                 : 'text-white'

@@ -82,7 +82,7 @@
         <p>💪 Customizable 'special flex class'</p>
         <p>🧑‍🤝‍🧑 Option to specify which day you have group advisory</p>
         <p>🖌️ New color palette (36 more colors)</p>
-        <p>🔵 Added option for unrounded progress bars</p>
+        <p>🔵 Added option for unrounded progress bars and buttons</p>
         <p>🌙 Automatic dark mode</p>
         <p class="text-lg font-semibold">Code Upgrades</p>
         <p>📦 Upgraded all packages to latest versions</p>

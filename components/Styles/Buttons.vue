@@ -18,14 +18,13 @@
               <div v-for="color in colors.bg" :key="color">
                 <div
                   class="h-6 w-6 cursor-pointer"
-                  :class="color"
+                  :class="{
+                    [color]: true,
+                    'border-2 border-white':
+                      buttonStyles[button].color === color,
+                  }"
                   @click="buttonStyles[button].color = color"
-                >
-                  <div
-                    v-if="buttonStyles[button].color === color"
-                    class="h-6 w-6 border-2 border-white"
-                  ></div>
-                </div>
+                />
               </div>
             </div>
           </template>
@@ -47,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import { useStylesStore } from '@/stores/styles';
+import { useStylesStore } from '~/stores/styles';
 import colors from '~/assets/styles/colors.json';
 
 const stylesStore = useStylesStore();

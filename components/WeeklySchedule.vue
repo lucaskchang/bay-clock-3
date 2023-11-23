@@ -11,11 +11,13 @@
         width: 'sm:max-w-7xl',
       }"
     >
-      <div class="flex min-h-[384px] w-full flex-row gap-4 p-8">
+      <div
+        class="flex min-h-[384px] w-full flex-row gap-4 overflow-x-scroll p-8"
+      >
         <div
           v-for="(schedule, day) of weeklySchedule"
           :key="day"
-          class="flex w-1/5 flex-col gap-4"
+          class="flex w-2/3 flex-col gap-4 md:w-1/5"
         >
           <p class="text-center text-2xl font-semibold">{{ day }}</p>
           <div
@@ -24,8 +26,8 @@
             class="h-28 w-full rounded-lg pl-2 pt-1"
             :class="colorKey[block]"
           >
-            <p class="text-2xl font-semibold">{{ block }}</p>
-            <p class="text-xl font-semibold">
+            <p class="text-xl font-semibold md:text-2xl">{{ block }}</p>
+            <p class="text-lg font-semibold md:text-xl">
               {{ timeframe.start }} - {{ timeframe.end }}
             </p>
           </div>
@@ -37,8 +39,8 @@
 
 <script setup lang="ts">
 import { useStylesStore } from '~/stores/styles';
-import { useCustomScheduleStore } from '@/stores/customSchedule';
-import { useNowStore } from '@/stores/now';
+import { useCustomScheduleStore } from '~/stores/customSchedule';
+import { useNowStore } from '~/stores/now';
 import regularScheduleJSON from '~/assets/data/regular_schedule.json';
 import specialSchedules from '~/assets/data/special_schedules.json';
 import immersiveSchedule from '~/assets/data/immersive_schedule.json';
@@ -79,17 +81,17 @@ const regularSchedule = regularScheduleJSON as Record<
 
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 const colors = [
-  'bg-red-500',
-  'bg-yellow-500',
-  'bg-green-500',
-  'bg-blue-500',
-  'bg-purple-500',
-  'bg-orange-500',
-  'bg-pink-500',
-  'bg-indigo-500',
-  'bg-cyan-500',
-  'bg-lime-500',
-  'bg-rose-500',
+  'bg-red-400',
+  'bg-yellow-400',
+  'bg-green-400',
+  'bg-blue-400',
+  'bg-purple-400',
+  'bg-orange-400',
+  'bg-pink-400',
+  'bg-indigo-400',
+  'bg-cyan-400',
+  'bg-lime-400',
+  'bg-rose-400',
 ];
 
 const colorKey = ref({}) as Ref<Record<string, string>>;

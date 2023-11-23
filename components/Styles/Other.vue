@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { useStylesStore } from '@/stores/styles';
+import { useStylesStore } from '~/stores/styles';
 const colorMode = useColorMode();
 
 const stylesStore = useStylesStore();

@@ -9,9 +9,9 @@
         :ui="{
           variant: {
             solid: `bg-${progressColor} hover:bg-${progressHoverColor} dark:bg-${progressColor} dark:hover:bg-${progressHoverColor} ${
-              parseInt(progressColor.split('-')[1]) <= 200
-                ? 'text-black'
-                : 'text-white'
+              parseInt(progressColor.split('-')[1]) >= 400
+                ? 'text-white dark:text-white'
+                : 'text-black dark:text-black'
             }`,
           },
         }"
@@ -22,14 +22,13 @@
           <div v-for="color in colors.bg" :key="color">
             <div
               class="h-6 w-6 cursor-pointer"
-              :class="color"
+              :class="{
+                [color]: true,
+                'border-2 border-white':
+                  progressColor === color.replace('bg-', ''),
+              }"
               @click="progressColor = color.replace('bg-', '')"
-            >
-              <div
-                v-if="progressColor === color.replace('bg-', '')"
-                class="h-6 w-6 border-2 border-white"
-              ></div>
-            </div>
+            />
           </div>
         </div>
       </template>
@@ -43,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { useStylesStore } from '@/stores/styles';
+import { useStylesStore } from '~/stores/styles';
 import colors from '~/assets/styles/colors.json';
 
 const stylesStore = useStylesStore();

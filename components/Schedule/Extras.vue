@@ -58,7 +58,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCustomScheduleStore } from '@/stores/customSchedule';
+import { useCustomScheduleStore } from '~/stores/customSchedule';
 
 const customScheduleStore = useCustomScheduleStore();
 const {
@@ -70,13 +70,6 @@ const {
   advisoryDay,
   showOneOnOnes,
 } = storeToRefs(customScheduleStore);
-
-const grades = [
-  { value: '9', label: '9th' },
-  { value: '10', label: '10th' },
-  { value: '11', label: '11th' },
-  { value: '12', label: '12th' },
-];
 
 const days = computed(() => {
   if (flexBlock.value === 'A') {
@@ -125,5 +118,12 @@ const blocks = [
   { value: 'D', label: 'D' },
   { value: 'E', label: 'E' },
   { value: 'F', label: 'F' },
+];
+
+const grades = [
+  { value: '9', label: '9th' },
+  { value: '10', label: '10th' },
+  { value: '11', label: '11th' },
+  { value: '12', label: '12th' },
 ];
 </script>

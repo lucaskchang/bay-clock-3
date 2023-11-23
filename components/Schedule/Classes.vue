@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCustomScheduleStore } from '@/stores/customSchedule';
+import { useCustomScheduleStore } from '~/stores/customSchedule';
 
 const customScheduleStore = useCustomScheduleStore();
 const { blockNames, specialFlexName, customSpecialFlexName } =

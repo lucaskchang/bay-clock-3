@@ -5,7 +5,7 @@
         :value="blockProgresses[block]"
         :ui="{
           progress: {
-            size: { md: 'h-6 md:h-8' },
+            size: { md: 'h-8' },
             rounded: isProgressRounded
               ? 'rounded-full [&::-webkit-progress-bar]:rounded-full'
               : 'rounded [&::-webkit-progress-bar]:rounded',
@@ -17,7 +17,7 @@
         }"
       />
       <div
-        class="-mt-[24px] flex h-full flex-row items-center justify-between overflow-x-clip whitespace-nowrap px-4 font-medium tracking-tight text-black dark:text-white md:-mt-[28px]"
+        class="-mt-7 flex h-full flex-row items-center justify-between overflow-x-clip whitespace-nowrap px-4 font-medium tracking-tight text-black dark:text-white"
       >
         <span>{{ block }}</span>
         <span>
@@ -30,8 +30,8 @@
 </template>
 
 <script setup lang="ts">
-import { useScheduleStore } from '@/stores/schedule';
-import { useStylesStore } from '@/stores/styles';
+import { useScheduleStore } from '~/stores/schedule';
+import { useStylesStore } from '~/stores/styles';
 import { useNowStore } from '~/stores/now';
 
 const stylesStore = useStylesStore();

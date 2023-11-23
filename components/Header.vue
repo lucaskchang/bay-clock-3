@@ -50,6 +50,7 @@ const { showClock, showStatus, showDate, showIndicator, useDetailedTime } =
   storeToRefs(stylesStore);
 
 const statusMessage = computed(() => {
+  const timeNum = time.value.getTime();
   if (scheduleStore.isBreak) {
     return scheduleStore.breakName;
   }
@@ -61,32 +62,35 @@ const statusMessage = computed(() => {
     (acc, curr) => Math.max(acc, curr.end),
     0,
   );
-  if (time.value.getTime() < schoolStartTime) {
+  if (timeNum < schoolStartTime) {
     return `School starts in ${Math.floor(
-      (schoolStartTime - time.value.getTime()) / 1000 / 60,
+      (schoolStartTime - timeNum) / 1000 / 60,
     )} minutes`;
   }
-  if (time.value.getTime() > schoolEndTime) {
+  if (timeNum > schoolEndTime) {
     return 'School is over';
   }
   for (const timeframe of Object.values(schedule.value)) {
-    if (
-      time.value.getTime() >= timeframe.start &&
-      time.value.getTime() <= timeframe.end
-    ) {
+    if (timeNum >= timeframe.start && timeNum <= timeframe.end) {
       if (useDetailedTime.value) {
-        const timeLeft = timeframe.end - time.value.getTime();
-        return `
-          ${Math.floor(timeLeft / 1000 / 60 / 60)}:${Math.floor(
-            (timeLeft / 1000 / 60) % 60,
-          )
-            .toString()
-            .padStart(2, '0')}:${Math.floor((timeLeft / 1000) % 60)
-            .toString()
-            .padStart(2, '0')} left`;
+        const timeLeft = timeframe.end - timeNum;
+        const hours =
+          Math.floor(timeLeft / 1000 / 60 / 60) > 0
+            ? `${Math.floor(timeLeft / 1000 / 60 / 60)}:`
+            : '';
+        const minutes = hours
+          ? Math.floor((timeLeft / 1000 / 60) % 60)
+              .toString()
+              .padStart(2, '0')
+          : Math.floor((timeLeft / 1000 / 60) % 60).toString();
+        const seconds = Math.floor((timeLeft / 1000) % 60)
+          .toString()
+          .padStart(2, '0');
+
+        return `${hours}${minutes}:${seconds} left`;
       } else {
-        return `${Math.floor(
-          (timeframe.end - time.value.getTime()) / 1000 / 60,
+        return `${Math.ceil(
+          (timeframe.end - timeNum) / 1000 / 60,
         )} minutes left`;
       }
     }

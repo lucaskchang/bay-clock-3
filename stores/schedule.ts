@@ -140,7 +140,7 @@ export const useScheduleStore = defineStore('schedule', () => {
     }
 
     // check for activities
-    if (activityDays.value[day.value]) {
+    if (activityDays.value[day.value] && isBreak.value === false) {
       parsedSchedule[activityName.value || 'Activities + Sports/Drama'] = {
         start: new Date().setHours(
           Number(activitySchedule.value[day.value].start.split(':')[0]),

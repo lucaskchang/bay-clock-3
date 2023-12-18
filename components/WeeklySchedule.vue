@@ -27,9 +27,12 @@
             :class="colorKey[block]"
           >
             <p class="text-xl font-semibold md:text-2xl">{{ block }}</p>
-            <p class="text-lg font-semibold md:text-xl">
-              {{ timeframe.start }} - {{ timeframe.end }}
-            </p>
+            <div class="text-lg font-semibold md:text-xl">
+              <p v-if="timeframe.start === '0:00' && timeframe.end === '11:59'">
+                All Day
+              </p>
+              <p v-else>{{ timeframe.start }} - {{ timeframe.end }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -81,10 +84,10 @@ const regularSchedule = regularScheduleJSON as Record<
 
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 const colors = [
+  'bg-blue-400',
   'bg-red-400',
   'bg-yellow-400',
   'bg-green-400',
-  'bg-blue-400',
   'bg-purple-400',
   'bg-orange-400',
   'bg-pink-400',
@@ -176,7 +179,16 @@ const weeklySchedule = computed(() => {
       const breakEnd = new Date(timeframe.end);
       if (dayDate >= breakStart && dayDate <= breakEnd) {
         unparsedSchedule = {
-          [name]: 'All Day',
+          [name]: {
+            start: {
+              hour: 0,
+              minute: 0,
+            },
+            end: {
+              hour: 23,
+              minute: 59,
+            },
+          },
         };
         isBreak = true;
       }
@@ -205,14 +217,6 @@ const weeklySchedule = computed(() => {
         immersiveName.value
       ) {
         blockName = immersiveName.value;
-      }
-      if (timeframe === 'All Day') {
-        parsedSchedule[blockName] = {
-          start: 'All Day',
-          end: 'All Day',
-          length: 100,
-        };
-        continue;
       }
       parsedSchedule[blockName] = {
         start: `${

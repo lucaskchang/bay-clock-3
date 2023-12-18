@@ -1,5 +1,5 @@
 <template>
-  <div class="my-12 space-y-6 px-1 md:space-y-10 lg:px-12">
+  <div class="my-12 space-y-6 px-1 md:space-y-12 lg:px-12">
     <div v-for="(timeframe, block) of schedule" :key="block">
       <UProgress
         :value="blockProgresses[block]"

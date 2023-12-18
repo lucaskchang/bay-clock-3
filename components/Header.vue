@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col justify-between text-6xl font-bold md:flex-row md:px-2 md:pt-2 md:text-7xl"
+    class="flex flex-col justify-between text-5xl font-bold md:flex-row md:px-2 md:pt-2 md:text-6xl"
   >
     <div v-if="showClock" class="flex flex-row tracking-tighter md:flex-col">
       {{ clock }}
@@ -10,7 +10,7 @@
     </div>
   </div>
   <div
-    class="flex flex-col justify-between text-4xl font-bold tracking-tight text-gray-600 dark:text-gray-400 md:flex-row md:px-2 md:text-5xl"
+    class="flex flex-col justify-between text-3xl font-bold tracking-tight text-gray-600 dark:text-gray-400 md:flex-row md:px-2 md:text-4xl"
   >
     <div v-if="showDate" class="flex-row md:flex-col">{{ date }}</div>
     <div

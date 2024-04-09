@@ -10,8 +10,7 @@
       }"
     >
       <div class="w-full">
-        <img src="https://www.bayclock.org/menu/1.jpg" class="rounded-t-lg" />
-        <img src="https://www.bayclock.org/menu/2.jpg" class="rounded-b-lg" />
+        <img src="https://www.bayclock.org/menu/1.jpg" class="rounded-lg" />
       </div>
     </UModal>
   </div>

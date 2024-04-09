@@ -16,8 +16,6 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
     Wednesday: '',
     Thursday: '',
     Friday: '',
-    Saturday: '',
-    Sunday: '',
   });
 
   const activityDays: Ref<Record<string, boolean>> = ref({
@@ -26,8 +24,6 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
     Wednesday: true,
     Thursday: true,
     Friday: true,
-    Saturday: true,
-    Sunday: true,
   });
 
   const activitySchedule: Ref<Record<string, { start: string; end: string }>> =
@@ -59,6 +55,50 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
   const advisoryDay = ref('');
   const showOneOnOnes = ref('No');
 
+  function $reset() {
+    blockNames.value = {
+      A: 'A',
+      B: 'B',
+      C: 'C',
+      D: 'D',
+      E: 'E',
+      F: 'F',
+      'Morning Meeting': 'Morning Meeting',
+      Tutorial: 'Tutorial',
+    };
+    clubs.value = {
+      Monday: '',
+      Tuesday: '',
+      Wednesday: '',
+      Thursday: '',
+      Friday: '',
+    };
+    activityDays.value = {
+      Monday: true,
+      Tuesday: true,
+      Wednesday: true,
+      Thursday: true,
+      Friday: true,
+    };
+    activitySchedule.value = {
+      Monday: { start: '15:50', end: '17:30' },
+      Tuesday: { start: '15:50', end: '17:30' },
+      Wednesday: { start: '15:50', end: '17:30' },
+      Thursday: { start: '15:50', end: '17:30' },
+      Friday: { start: '15:50', end: '17:30' },
+      Saturday: { start: '15:50', end: '17:30' },
+      Sunday: { start: '15:50', end: '17:30' },
+    };
+    activityName.value = 'Activities + Sports/Drama';
+    immersiveName.value = '';
+    grade.value = '0';
+    hasSpecialFlex.value = 'No';
+    flexBlock.value = '';
+    specialFlexDay.value = '';
+    advisoryDay.value = '';
+    showOneOnOnes.value = 'No';
+  }
+
   return {
     blockNames,
     clubs,
@@ -74,5 +114,6 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
     customSpecialFlexName,
     advisoryDay,
     showOneOnOnes,
+    $reset,
   };
 });

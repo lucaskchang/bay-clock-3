@@ -19,7 +19,8 @@
       <div
         class="-mt-7 flex h-full flex-row items-center justify-between overflow-x-clip whitespace-nowrap px-4 font-medium tracking-tight text-black dark:text-white"
       >
-        <span>{{ block }}</span>
+        <span v-if="isImmersive && (block.slice(0, 6) === 'REMOVE' || block.slice(0, 6) === 'DELETE')">{{ block.slice(6) }}</span>
+        <span v-else>{{ block }}</span>
         <span>
           {{ useDateFormat(timeframe.start, 'h:mm').value }} -
           {{ useDateFormat(timeframe.end, 'h:mm').value }}
@@ -41,7 +42,7 @@ const nowStore = useNowStore();
 const { time } = storeToRefs(nowStore);
 
 const scheduleStore = useScheduleStore();
-const { schedule } = storeToRefs(scheduleStore);
+const { schedule, isImmersive } = storeToRefs(scheduleStore);
 
 const blockProgresses = computed(() => {
   const progresses: Record<string, number> = {};

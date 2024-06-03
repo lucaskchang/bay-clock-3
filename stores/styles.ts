@@ -84,6 +84,38 @@ export const useStylesStore = defineStore('styles', () => {
 
   const useDetailedTime = ref(false);
 
+  function $reset() {
+    showClock.value = true;
+    showStatus.value = true;
+    showDate.value = true;
+    showIndicator.value = true;
+    progressColor.value = 'blue-400';
+    isProgressRounded.value = true;
+    buttonStyles.value = {
+      links: {
+        color: 'bg-blue-400',
+        isRounded: true,
+      },
+      lunch: {
+        color: 'bg-blue-400',
+        isRounded: true,
+      },
+      schedule: {
+        color: 'bg-blue-400',
+        isRounded: true,
+      },
+      styles: {
+        color: 'bg-blue-400',
+        isRounded: true,
+      },
+      weekly: {
+        color: 'bg-blue-400',
+        isRounded: true,
+      },
+    };
+    useDetailedTime.value = false;
+  }
+
   return {
     showClock,
     showStatus,
@@ -95,5 +127,6 @@ export const useStylesStore = defineStore('styles', () => {
     buttonStyles,
     buttonUIs,
     useDetailedTime,
+    $reset,
   };
 });

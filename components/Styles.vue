@@ -6,6 +6,7 @@
       :ui="{
         width: 'sm:max-w-4xl',
       }"
+      prevent-close
     >
       <div class="w-full">
         <UTabs :items="items" orientation="vertical" :ui="tabsStyling">
@@ -20,19 +21,72 @@
             >
               <div>
                 <UButton size="lg" label="Save" @click="isOpen = false" />
-                <UButton size="lg" variant="ghost" label="Reset" />
+                <UButton
+                  size="lg"
+                  variant="ghost"
+                  label="Reset"
+                  @click="isResetOpen = true"
+                />
               </div>
               <div>
                 <UButton
                   size="lg"
                   color="red"
                   label="Cancel"
-                  @click="isOpen = false"
+                  @click="cancelChanges()"
                 />
               </div>
             </div>
           </template>
         </UTabs>
+      </div>
+    </UModal>
+    <UModal v-model="isResetOpen">
+      <div class="p-4">
+        <p class="text-2xl font-semibold">Are you sure?</p>
+        <p>All schedules will be reset to their defaults.</p>
+        <div class="mt-4 flex flex-row gap-2">
+          <UButton
+            size="lg"
+            label="Yes, reset"
+            @click="
+              isResetOpen = false;
+              stylesStore.$reset();
+              isOpen = false;
+            "
+          />
+          <UButton
+            size="lg"
+            color="red"
+            variant="ghost"
+            label="Nevermind"
+            @click="isResetOpen = false"
+          />
+        </div>
+      </div>
+    </UModal>
+    <UModal v-model="isCancelOpen">
+      <div class="p-4">
+        <p class="text-2xl font-semibold">Are you sure?</p>
+        <p>Any changes you made will be lost.</p>
+        <div class="mt-4 flex flex-row gap-2">
+          <UButton
+            size="lg"
+            label="Yes, cancel changes"
+            @click="
+              isCancelOpen = false;
+              isOpen = false;
+              revert();
+            "
+          />
+          <UButton
+            size="lg"
+            color="red"
+            variant="ghost"
+            label="Nevermind"
+            @click="isCancelOpen = false"
+          />
+        </div>
       </div>
     </UModal>
   </div>
@@ -46,6 +100,8 @@ const stylesStore = useStylesStore();
 const { buttonUIs } = storeToRefs(stylesStore);
 
 const isOpen = ref(false);
+const isResetOpen = ref(false);
+const isCancelOpen = ref(false);
 const items = [
   { label: 'Header' },
   { label: 'Bars' },
@@ -53,4 +109,59 @@ const items = [
   { label: 'Presets' },
   { label: 'Other' },
 ];
+
+let initialStyles = {
+  showClock: stylesStore.showClock,
+  showStatus: stylesStore.showStatus,
+  showDate: stylesStore.showDate,
+  showIndicator: stylesStore.showIndicator,
+  progressColor: stylesStore.progressColor,
+  isProgressRounded: stylesStore.isProgressRounded,
+  buttonStyles: stylesStore.buttonStyles,
+  useDetailedTime: stylesStore.useDetailedTime,
+}
+
+function cancelChanges() {
+  const newStyles = {
+    showClock: stylesStore.showClock,
+    showStatus: stylesStore.showStatus,
+    showDate: stylesStore.showDate,
+    showIndicator: stylesStore.showIndicator,
+    progressColor: stylesStore.progressColor,
+    isProgressRounded: stylesStore.isProgressRounded,
+    buttonStyles: stylesStore.buttonStyles,
+    useDetailedTime: stylesStore.useDetailedTime,
+  }
+  if (JSON.stringify(newStyles) === JSON.stringify(initialStyles)) {
+    isOpen.value = false;
+  } else {
+    isCancelOpen.value = true;
+  }
+}
+
+function revert() {
+  stylesStore.showClock = initialStyles.showClock;
+  stylesStore.showStatus = initialStyles.showStatus;
+  stylesStore.showDate = initialStyles.showDate;
+  stylesStore.showIndicator = initialStyles.showIndicator;
+  stylesStore.progressColor = initialStyles.progressColor;
+  stylesStore.isProgressRounded = initialStyles.isProgressRounded;
+  stylesStore.buttonStyles = initialStyles.buttonStyles;
+  stylesStore.useDetailedTime = initialStyles.useDetailedTime;
+}
+
+watch(isOpen, (value) => {
+  if (value) {
+    initialStyles = {
+      showClock: stylesStore.showClock,
+      showStatus: stylesStore.showStatus,
+      showDate: stylesStore.showDate,
+      showIndicator: stylesStore.showIndicator,
+      progressColor: stylesStore.progressColor,
+      isProgressRounded: stylesStore.isProgressRounded,
+      buttonStyles: stylesStore.buttonStyles,
+      useDetailedTime: stylesStore.useDetailedTime,
+    }
+  }
+});
 </script>

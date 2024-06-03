@@ -39,6 +39,7 @@ export const useScheduleStore = defineStore('schedule', () => {
   const isWeekend = ref(time.value.getDay() === 0 || time.value.getDay() === 6);
   const isSpecialSchedule = ref(false);
   const isBreak = ref(false);
+  const isImmersive = ref(false);
   const breakName = ref('');
   const daysLeft = ref(0);
   const schedule = computed(() => {
@@ -94,6 +95,7 @@ export const useScheduleStore = defineStore('schedule', () => {
       const endDate = new Date(date.end);
       if (time.value >= startDate && time.value <= endDate) {
         unparsedSchedule = immersiveSchedule.schedule;
+        isImmersive.value = true;
       }
     }
 
@@ -121,12 +123,12 @@ export const useScheduleStore = defineStore('schedule', () => {
         if (clubs.value[day.value]) {
           blockName = clubs.value[day.value];
         }
-      } else if (
-        (blockName === 'Immersive Morning' ||
-          blockName === 'Immersive Afternoon') &&
-        immersiveName.value
-      ) {
-        blockName = immersiveName.value;
+      }
+      // gimmicky way to handle immersives so that you can display the morning and afternoon immersives with the same block
+      else if (blockName === 'REMOVEImmersive' && immersiveName.value) {
+        blockName = 'REMOVE' + immersiveName.value;
+      } else if (blockName === 'DELETEImmersive' && immersiveName.value) {
+        blockName = 'DELETE' + immersiveName.value;
       }
       parsedSchedule[blockName] = {
         start: new Date().setHours(
@@ -164,6 +166,7 @@ export const useScheduleStore = defineStore('schedule', () => {
     isWeekend,
     isSpecialSchedule,
     isBreak,
+    isImmersive,
     breakName,
     daysLeft,
   };

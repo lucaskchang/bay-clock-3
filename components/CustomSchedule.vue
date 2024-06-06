@@ -25,7 +25,7 @@
               class="flex flex-row justify-between gap-2 justify-self-end pt-4"
             >
               <div>
-                <UButton size="lg" label="Save" @click="isOpen = false" />
+                <UButton size="lg" label="Save" @click="saveChanges()" />
                 <UButton
                   size="lg"
                   variant="ghost"
@@ -117,23 +117,8 @@ const tabs = [
   { label: 'Extras' },
 ];
 
-let initialSchedule = {
-  blockNames: customScheduleStore.blockNames,
-  clubs: customScheduleStore.clubs,
-  activityDays: customScheduleStore.activityDays,
-  activitySchedule: customScheduleStore.activitySchedule,
-  activityName: customScheduleStore.activityName,
-  immersiveName: customScheduleStore.immersiveName,
-  grade: customScheduleStore.grade,
-  hasSpecialFlex: customScheduleStore.hasSpecialFlex,
-  flexBlock: customScheduleStore.flexBlock,
-  specialFlexDay: customScheduleStore.specialFlexDay,
-  advisoryDay: customScheduleStore.advisoryDay,
-  showOneOnOnes: customScheduleStore.showOneOnOnes,
-};
-
-function cancelChanges() {
-  const newSchedule = {
+function getCurrentScheduleState() {
+  return {
     blockNames: customScheduleStore.blockNames,
     clubs: customScheduleStore.clubs,
     activityDays: customScheduleStore.activityDays,
@@ -147,6 +132,18 @@ function cancelChanges() {
     advisoryDay: customScheduleStore.advisoryDay,
     showOneOnOnes: customScheduleStore.showOneOnOnes,
   };
+}
+
+function saveChanges() {
+  isOpen.value = false;
+  const schedule = getCurrentScheduleState();
+  localStorage.setItem('customSchedule', JSON.stringify(schedule));
+}
+
+let initialSchedule = getCurrentScheduleState();
+
+function cancelChanges() {
+  const newSchedule = getCurrentScheduleState();
   if (JSON.stringify(newSchedule) === JSON.stringify(initialSchedule)) {
     isOpen.value = false;
   } else {
@@ -172,20 +169,7 @@ function revert() {
 
 watch(isOpen, (value) => {
   if (value) {
-    initialSchedule = {
-      blockNames: customScheduleStore.blockNames,
-      clubs: customScheduleStore.clubs,
-      activityDays: customScheduleStore.activityDays,
-      activitySchedule: customScheduleStore.activitySchedule,
-      activityName: customScheduleStore.activityName,
-      immersiveName: customScheduleStore.immersiveName,
-      grade: customScheduleStore.grade,
-      hasSpecialFlex: customScheduleStore.hasSpecialFlex,
-      flexBlock: customScheduleStore.flexBlock,
-      specialFlexDay: customScheduleStore.specialFlexDay,
-      advisoryDay: customScheduleStore.advisoryDay,
-      showOneOnOnes: customScheduleStore.showOneOnOnes,
-    };
+    initialSchedule = getCurrentScheduleState();
   }
 });
 </script>

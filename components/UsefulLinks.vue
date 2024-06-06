@@ -10,7 +10,37 @@
         {{ item.label }}
       </a>
     </template>
+    <template #add="{ item }">
+      <UIcon :name="item.icon" class="flex-shrink-0 h-4 w-4 text-gray-400 dark:text-gray-500" />
+      <span class="truncate">Add Link</span>
+    </template>
   </UDropdown>
+      <UModal v-model="isOpen">
+      <div class="p-4">
+        <p class="text-2xl font-semibold">Add a new link</p>
+        <div class="space-y-4 mt-4">
+          <UInput v-model="name" label="Name" placeholder="Link Name" />
+          <UInput v-model="url" label="URL" placeholder="Link URL" />
+        </div>
+        <div class="mt-4 flex flex-row">
+          <UButton
+            size="lg"
+            label="Add"
+            @click="
+              addNewLink();
+            "
+          />
+          <UButton
+            class="ms-auto"
+            size="lg"
+            color="red"
+            variant="ghost"
+            label="Cancel"
+            @click="isOpen = false"
+          />
+        </div>
+      </div>
+    </UModal>
 </template>
 
 <script setup lang="ts">
@@ -19,38 +49,76 @@ import { useStylesStore } from '~/stores/styles';
 const stylesStore = useStylesStore();
 const { buttonUIs } = storeToRefs(stylesStore);
 
-const items = [
-  [
-    {
-      label: 'Bay Site',
-      icon: 'https://www.bayschoolsf.org/',
-      click: 'Placeholder',
-    },
-    {
-      label: 'Canvas',
-      icon: 'https://bayschoolsf.instructure.com/',
-      click: 'Placeholder',
-    },
-    {
-      label: 'My Bay',
-      icon: 'https://bayschoolsf.myschoolapp.com/',
-      click: 'Placeholder',
-    },
-    {
-      label: 'Announcement Digest',
-      icon: 'https://docs.google.com/document/d/1c5YzT06GTn5CdX_7X7jZ2Ghhd5pK1aHhRRbOY78cr2M/',
-      click: 'Placeholder',
-    },
-    {
-      label: 'Bay Riptide',
-      icon: 'https://sites.google.com/bayschoolsf.org/the-bay-riptide/',
-      click: 'Placeholder',
-    },
-    {
-      label: 'Bay Calendar',
-      icon: 'https://www.bayschoolsf.org/calendar',
-      click: 'Placeholder',
-    },
-  ],
-];
+const isOpen = ref(false);
+const url = ref('');
+const name = ref('');
+
+const customLinks: Ref<{ label: string; icon: string; click: string }[]> = ref([]);
+
+function addNewLink() {
+  customLinks.value.push({
+    label: name.value,
+    icon: url.value,
+    click: 'Placeholder',
+  });
+  localStorage.setItem('customLinks', JSON.stringify(customLinks.value));
+  name.value = '';
+  url.value = '';
+  isOpen.value = false;
+}
+
+const items = computed(() => {
+  return [
+    [
+      {
+        label: 'Bay Site',
+        icon: 'https://www.bayschoolsf.org/',
+        click: 'Placeholder',
+      },
+      {
+        label: 'Canvas',
+        icon: 'https://bayschoolsf.instructure.com/',
+        click: 'Placeholder',
+      },
+      {
+        label: 'My Bay',
+        icon: 'https://bayschoolsf.myschoolapp.com/',
+        click: 'Placeholder',
+      },
+      {
+        label: 'Announcement Digest',
+        icon: 'https://docs.google.com/document/d/1c5YzT06GTn5CdX_7X7jZ2Ghhd5pK1aHhRRbOY78cr2M/',
+        click: 'Placeholder',
+      },
+      {
+        label: 'Bay Riptide',
+        icon: 'https://sites.google.com/bayschoolsf.org/the-bay-riptide/',
+        click: 'Placeholder',
+      },
+      {
+        label: 'Bay Calendar',
+        icon: 'https://www.bayschoolsf.org/calendar',
+        click: 'Placeholder',
+      }
+    ],
+    [
+      ...customLinks.value,
+      {
+        label: 'Add New Link',
+        icon: 'i-heroicons-plus',
+        click: () => {
+          isOpen.value = true;
+        },
+        slot: 'add',
+      }
+    ]
+  ];
+})
+
+onMounted(() => {
+  const storedCustomLinks = localStorage.getItem('customLinks');
+  if (storedCustomLinks) {
+    customLinks.value = JSON.parse(storedCustomLinks);
+  }
+});
 </script>

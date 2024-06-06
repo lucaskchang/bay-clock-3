@@ -20,7 +20,7 @@
               class="flex flex-row justify-between gap-2 justify-self-end pt-4"
             >
               <div>
-                <UButton size="lg" label="Save" @click="isOpen = false" />
+                <UButton size="lg" label="Save" @click="saveChanges()" />
                 <UButton
                   size="lg"
                   variant="ghost"
@@ -110,19 +110,8 @@ const items = [
   { label: 'Other' },
 ];
 
-let initialStyles = {
-  showClock: stylesStore.showClock,
-  showStatus: stylesStore.showStatus,
-  showDate: stylesStore.showDate,
-  showIndicator: stylesStore.showIndicator,
-  progressColor: stylesStore.progressColor,
-  isProgressRounded: stylesStore.isProgressRounded,
-  buttonStyles: stylesStore.buttonStyles,
-  useDetailedTime: stylesStore.useDetailedTime,
-}
-
-function cancelChanges() {
-  const newStyles = {
+function getCurrentStylesState() {
+  return {
     showClock: stylesStore.showClock,
     showStatus: stylesStore.showStatus,
     showDate: stylesStore.showDate,
@@ -131,7 +120,19 @@ function cancelChanges() {
     isProgressRounded: stylesStore.isProgressRounded,
     buttonStyles: stylesStore.buttonStyles,
     useDetailedTime: stylesStore.useDetailedTime,
-  }
+  };
+}
+
+function saveChanges() {
+  isOpen.value = false;
+  const styles = getCurrentStylesState();
+  localStorage.setItem('styles', JSON.stringify(styles));
+}
+
+let initialStyles = getCurrentStylesState();
+
+function cancelChanges() {
+  const newStyles = getCurrentStylesState();
   if (JSON.stringify(newStyles) === JSON.stringify(initialStyles)) {
     isOpen.value = false;
   } else {
@@ -152,16 +153,7 @@ function revert() {
 
 watch(isOpen, (value) => {
   if (value) {
-    initialStyles = {
-      showClock: stylesStore.showClock,
-      showStatus: stylesStore.showStatus,
-      showDate: stylesStore.showDate,
-      showIndicator: stylesStore.showIndicator,
-      progressColor: stylesStore.progressColor,
-      isProgressRounded: stylesStore.isProgressRounded,
-      buttonStyles: stylesStore.buttonStyles,
-      useDetailedTime: stylesStore.useDetailedTime,
-    }
+    initialStyles = getCurrentStylesState();
   }
 });
 </script>

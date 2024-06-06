@@ -14,16 +14,22 @@
   >
     <div v-if="showDate" class="flex-row md:flex-col">{{ date }}</div>
     <div
-      v-if="scheduleStore.isSpecialSchedule && showIndicator"
+      v-if="isSpecialSchedule && showIndicator"
       class="flex-row md:flex-col"
     >
       SPECIAL SCHEDULE
     </div>
     <div
-      v-else-if="scheduleStore.isBreak && showIndicator"
+      v-else-if="isBreak && showIndicator"
       class="flex-row md:flex-col"
     >
-      {{ scheduleStore.daysLeft }} days left
+      {{ daysLeft }} days left
+    </div>
+    <div
+      v-else-if="isImmersive && showIndicator"
+      class="flex-row md:flex-col"
+    >
+      IMMERSIVE
     </div>
   </div>
 </template>
@@ -45,7 +51,7 @@ const clock = useDateFormat(time, 'h:mm:ss A');
 const date = useDateFormat(time, 'ddd MMMM D YYYY');
 const scheduleStore = useScheduleStore();
 const stylesStore = useStylesStore();
-const { schedule } = storeToRefs(scheduleStore);
+const { schedule, isSpecialSchedule, isBreak, daysLeft, isImmersive } = storeToRefs(scheduleStore);
 const { showClock, showStatus, showDate, showIndicator, useDetailedTime } =
   storeToRefs(stylesStore);
 
@@ -56,6 +62,10 @@ const statusMessage = computed(() => {
   }
   if (scheduleStore.isWeekend) {
     return 'Weekend';
+  }
+  // If schedule is empty, show loading message -- this is a temporary fix because breaks take a bit to load for some reason?
+  if (Object.keys(schedule.value).length === 0) {
+    return 'Loading...';
   }
   const schoolStartTime = Object.values(schedule.value)[0].start;
   const schoolEndTime = Object.values(schedule.value).reduce(

@@ -158,6 +158,7 @@ export const useScheduleStore = defineStore('schedule', () => {
         ),
       };
     }
+
     return parsedSchedule;
   }) as ComputedRef<Record<string, { start: number; end: number }>>;
 

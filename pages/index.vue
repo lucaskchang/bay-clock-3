@@ -30,7 +30,7 @@ onMounted(() => {
     customScheduleStore.advisoryDay = schedule.advisoryDay;
     customScheduleStore.showOneOnOnes = schedule.showOneOnOnes;
   }
-  
+
   const styles = localStorage.getItem('styles');
   if (styles) {
     const style = JSON.parse(styles);

@@ -26,7 +26,13 @@
             class="h-28 w-full rounded-lg pl-2 pt-1"
             :class="colorKey[block]"
           >
-            <p class="text-xl font-semibold md:text-2xl">{{ block }}</p>
+            <p
+              v-if="isImmersive && (block.slice(0, 6) === 'REMOVE' || block.slice(0, 6) === 'DELETE')"
+              class="text-xl font-semibold md:text-2xl"
+            >
+              {{ block.slice(6) }}
+            </p>
+            <p v-else class="text-lg font-semibold md:text-xl">{{ block }}</p>
             <div class="text-lg font-semibold md:text-xl">
               <p v-if="timeframe.start === '0:00' && timeframe.end === '11:59'">
                 All Day
@@ -100,6 +106,8 @@ const colors = [
 const colorKey = ref({}) as Ref<Record<string, string>>;
 const colorKeyIndex = ref(0);
 
+const isImmersive = ref(false);
+
 const weeklySchedule = computed(() => {
   const output = {} as Record<
     string,
@@ -170,6 +178,7 @@ const weeklySchedule = computed(() => {
       const endDate = new Date(date.end);
       if (dayDate >= startDate && dayDate <= endDate) {
         unparsedSchedule = immersiveSchedule.schedule;
+        isImmersive.value = true;
       }
     }
 

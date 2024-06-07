@@ -1,3 +1,5 @@
+import activityScheduleJSON from '~/assets/data/activity_schedule.json';
+
 export const useCustomScheduleStore = defineStore('customSchedule', () => {
   const blockNames: Ref<Record<string, string>> = ref({
     A: 'A',
@@ -27,15 +29,7 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
   });
 
   const activitySchedule: Ref<Record<string, { start: string; end: string }>> =
-    ref({
-      Monday: { start: '15:50', end: '17:30' },
-      Tuesday: { start: '15:50', end: '17:30' },
-      Wednesday: { start: '15:50', end: '17:30' },
-      Thursday: { start: '15:50', end: '17:30' },
-      Friday: { start: '15:50', end: '17:30' },
-      Saturday: { start: '15:50', end: '17:30' },
-      Sunday: { start: '15:50', end: '17:30' },
-    });
+    ref(activityScheduleJSON);
 
   const activityName = ref('Activities + Sports/Drama');
   const immersiveName = ref('');

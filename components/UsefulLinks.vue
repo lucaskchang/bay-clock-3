@@ -1,5 +1,5 @@
 <template>
-  <UDropdown :items="items" mode="hover">
+  <UDropdown :items="items">
     <UButton
       :ui="buttonUIs.links"
       label="Useful Links"
@@ -10,9 +10,19 @@
         {{ item.label }}
       </a>
     </template>
+
+    <template #custom="{ item }">
+      <a :href="item.icon" target="_blank" class="h-full w-full p-1 text-left">
+        <span class="truncate">{{ item.label }}</span>
+      </a>
+      <UIcon name="i-heroicons-x-mark" class="flex-shrink-0 h-4 w-4 text-red-400 dark:text-red-500 ms-auto hover:text-red-600" @click="removeLink(item)" />
+    </template>
+
     <template #add="{ item }">
       <UIcon :name="item.icon" class="flex-shrink-0 h-4 w-4 text-gray-400 dark:text-gray-500" />
-      <span class="truncate">Add Link</span>
+      <div class="h-full w-full p-1 pl-0 text-left">
+        <span class="truncate">Add Link</span>
+      </div>
     </template>
   </UDropdown>
       <UModal v-model="isOpen">
@@ -27,7 +37,7 @@
             size="lg"
             label="Add"
             @click="
-              addNewLink();
+              addLink();
             "
           />
           <UButton
@@ -53,18 +63,27 @@ const isOpen = ref(false);
 const url = ref('');
 const name = ref('');
 
-const customLinks: Ref<{ label: string; icon: string; click: string }[]> = ref([]);
+const customLinks: Ref<{ label: string; icon: string; click: string, slot: string }[]> = ref([]);
 
-function addNewLink() {
+function addLink() {
   customLinks.value.push({
     label: name.value,
     icon: url.value,
     click: 'Placeholder',
+    slot: 'custom'
   });
   localStorage.setItem('customLinks', JSON.stringify(customLinks.value));
   name.value = '';
   url.value = '';
   isOpen.value = false;
+}
+
+function removeLink(item: { label: string; icon: string; click: string, slot: string }) {
+  // delay so that the click event doesn't trigger the add link modal
+  setTimeout(() => {
+    customLinks.value = customLinks.value.filter((link) => link !== item);
+    localStorage.setItem('customLinks', JSON.stringify(customLinks.value));
+  }, 100);
 }
 
 const items = computed(() => {
@@ -108,6 +127,7 @@ const items = computed(() => {
         icon: 'i-heroicons-plus',
         click: () => {
           isOpen.value = true;
+          console.log('add new link')
         },
         slot: 'add',
       }

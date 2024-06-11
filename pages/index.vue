@@ -3,6 +3,8 @@
     <Header />
     <ProgressBars />
     <ButtonBar />
+    
+    <UNotifications />
   </div>
 </template>
 

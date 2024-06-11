@@ -11,6 +11,7 @@
         width: 'sm:max-w-4xl',
       }"
       prevent-close
+      @close="closePrevented"
     >
       <div class="w-full">
         <UTabs :items="tabs" orientation="vertical" :ui="tabsStyling">
@@ -116,6 +117,11 @@ const tabs = [
   { label: 'Immersives' },
   { label: 'Extras' },
 ];
+const notification = useToast();
+
+function closePrevented() {
+  console.log('Close prevented');
+}
 
 function getCurrentScheduleState() {
   return {
@@ -138,6 +144,14 @@ function saveChanges() {
   isOpen.value = false;
   const schedule = getCurrentScheduleState();
   localStorage.setItem('customSchedule', JSON.stringify(schedule));
+
+  notification.add({
+    icon: 'i-heroicons-check-badge',
+    title: 'Changes Saved',
+    description: `All new changes to your schedule have been saved.`,
+    color: 'green',
+    timeout: 2000,
+  });
 }
 
 let initialSchedule = getCurrentScheduleState();
@@ -165,6 +179,13 @@ function revert() {
   customScheduleStore.advisoryDay = initialSchedule.advisoryDay;
   customScheduleStore.showOneOnOnes = initialSchedule.showOneOnOnes;
   isOpen.value = false;
+  notification.add({
+    icon: 'i-heroicons-check-badge',
+    title: 'Changes Cancelled',
+    description: 'All changes have been cancelled.',
+    color: 'red',
+    timeout: 2000,
+  });
 }
 
 watch(isOpen, (value) => {

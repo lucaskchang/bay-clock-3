@@ -62,10 +62,21 @@ const { buttonUIs } = storeToRefs(stylesStore);
 const isOpen = ref(false);
 const url = ref('');
 const name = ref('');
+const notification = useToast();
 
 const customLinks: Ref<{ label: string; icon: string; click: string, slot: string }[]> = ref([]);
 
 function addLink() {
+  if (name.value === '' || url.value === '') {
+    notification.add({
+      icon: 'i-heroicons-exclamation-triangle',
+      title: 'Complete Form',
+      description: `You have incomplete fields.`,
+      color: 'red',
+      timeout: 2000,
+    })
+    return;
+  }
   customLinks.value.push({
     label: name.value,
     icon: url.value,
@@ -73,12 +84,29 @@ function addLink() {
     slot: 'custom'
   });
   localStorage.setItem('customLinks', JSON.stringify(customLinks.value));
-  name.value = '';
-  url.value = '';
+
+  notification.add({
+    icon: 'i-heroicons-check-badge',
+    title: 'Link Added',
+    description: `${name.value} (${url.value}) has been added to useful links.`,
+    color: 'green',
+    timeout: 2000,
+  });
   isOpen.value = false;
+  setTimeout(() => {
+    name.value = '';
+    url.value = '';
+  }, 250);
 }
 
 function removeLink(item: { label: string; icon: string; click: string, slot: string }) {
+  notification.add({
+    icon: 'i-heroicons-x-circle',
+    title: 'Link Removed',
+    description: `${item.label} (${item.icon}) has been removed.`,
+    color: 'red',
+    timeout: 2000,
+  })
   // delay so that the click event doesn't trigger the add link modal
   setTimeout(() => {
     customLinks.value = customLinks.value.filter((link) => link !== item);
@@ -127,7 +155,6 @@ const items = computed(() => {
         icon: 'i-heroicons-plus',
         click: () => {
           isOpen.value = true;
-          console.log('add new link')
         },
         slot: 'add',
       }

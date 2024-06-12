@@ -4,6 +4,16 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Bay Clock 3',
+      htmlAttrs: {
+        lang: 'en',
+      },
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/ico',
+          href: '/favicon.ico'
+        }
+      ]
     },
   },
   css: ['@/assets/styles/main.scss'],

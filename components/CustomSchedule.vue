@@ -11,7 +11,6 @@
         width: 'sm:max-w-4xl',
       }"
       prevent-close
-      @close="closePrevented"
     >
       <div class="w-full">
         <UTabs :items="tabs" orientation="vertical" :ui="tabsStyling">
@@ -55,11 +54,7 @@
           <UButton
             size="lg"
             label="Yes, reset"
-            @click="
-              isResetOpen = false;
-              customScheduleStore.$reset();
-              isOpen = false;
-            "
+            @click="resetSchedule();"
           />
           <UButton
             size="lg"
@@ -119,16 +114,20 @@ const tabs = [
 ];
 const notification = useToast();
 
-function closePrevented() {
-  console.log('Close prevented');
-}
-
 function getCurrentScheduleState() {
   return {
-    blockNames: customScheduleStore.blockNames,
-    clubs: customScheduleStore.clubs,
-    activityDays: customScheduleStore.activityDays,
-    activitySchedule: customScheduleStore.activitySchedule,
+    blockNames: {
+      ...customScheduleStore.blockNames,
+    },
+    clubs: {
+      ...customScheduleStore.clubs,
+    },
+    activityDays: {
+      ...customScheduleStore.activityDays,
+    },
+    activitySchedule: {
+      ...customScheduleStore.activitySchedule,
+    },
     activityName: customScheduleStore.activityName,
     immersiveName: customScheduleStore.immersiveName,
     grade: customScheduleStore.grade,
@@ -137,8 +136,22 @@ function getCurrentScheduleState() {
     specialFlexDay: customScheduleStore.specialFlexDay,
     advisoryDay: customScheduleStore.advisoryDay,
     showOneOnOnes: customScheduleStore.showOneOnOnes,
-  };
+  }
 }
+
+function resetSchedule() {
+  isResetOpen.value = false;
+  customScheduleStore.$reset();
+  isOpen.value = false;
+  notification.add({
+    icon: 'i-heroicons-arrow-path',
+    title: 'Changes Saved',
+    description: `Your schedule has been reset to its defaults.`,
+    color: 'blue',
+    timeout: 2000,
+  });
+}
+
 
 function saveChanges() {
   isOpen.value = false;
@@ -159,6 +172,7 @@ let initialSchedule = getCurrentScheduleState();
 function cancelChanges() {
   const newSchedule = getCurrentScheduleState();
   if (JSON.stringify(newSchedule) === JSON.stringify(initialSchedule)) {
+    console.log(newSchedule.blockNames, initialSchedule.blockNames);
     isOpen.value = false;
   } else {
     isCancelOpen.value = true;
@@ -180,9 +194,9 @@ function revert() {
   customScheduleStore.showOneOnOnes = initialSchedule.showOneOnOnes;
   isOpen.value = false;
   notification.add({
-    icon: 'i-heroicons-check-badge',
+    icon: 'i-heroicons-x-circle',
     title: 'Changes Cancelled',
-    description: 'All changes have been cancelled.',
+    description: 'All new changes to your schedule have been cancelled.',
     color: 'red',
     timeout: 2000,
   });

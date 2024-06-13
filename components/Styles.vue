@@ -49,11 +49,7 @@
           <UButton
             size="lg"
             label="Yes, reset"
-            @click="
-              isResetOpen = false;
-              stylesStore.$reset();
-              isOpen = false;
-            "
+            @click="resetStyles()"
           />
           <UButton
             size="lg"
@@ -109,6 +105,7 @@ const items = [
   { label: 'Presets' },
   { label: 'Other' },
 ];
+const notification = useToast();
 
 function getCurrentStylesState() {
   return {
@@ -118,15 +115,39 @@ function getCurrentStylesState() {
     showIndicator: stylesStore.showIndicator,
     progressColor: stylesStore.progressColor,
     isProgressRounded: stylesStore.isProgressRounded,
-    buttonStyles: stylesStore.buttonStyles,
+    buttonStyles: {
+      ...stylesStore.buttonStyles,
+    },
     useDetailedTime: stylesStore.useDetailedTime,
   };
+}
+
+function resetStyles() {
+  isResetOpen.value = false;
+  stylesStore.$reset();
+  isOpen.value = false;
+
+   notification.add({
+    icon: 'i-heroicons-arrow-path',
+    title: 'Changes Saved',
+    description: `Your styles have been reset to its defaults.`,
+    color: 'blue',
+    timeout: 2000,
+  });
 }
 
 function saveChanges() {
   isOpen.value = false;
   const styles = getCurrentStylesState();
   localStorage.setItem('styles', JSON.stringify(styles));
+
+   notification.add({
+    icon: 'i-heroicons-check-badge',
+    title: 'Changes Saved',
+    description: `All new changes to your styles have been saved.`,
+    color: 'green',
+    timeout: 2000,
+  });
 }
 
 let initialStyles = getCurrentStylesState();
@@ -149,6 +170,14 @@ function revert() {
   stylesStore.isProgressRounded = initialStyles.isProgressRounded;
   stylesStore.buttonStyles = initialStyles.buttonStyles;
   stylesStore.useDetailedTime = initialStyles.useDetailedTime;
+
+  notification.add({
+    icon: 'i-heroicons-x-circle',
+    title: 'Changes Cancelled',
+    description: 'All new changes to your styles have been cancelled.',
+    color: 'red',
+    timeout: 2000,
+  });
 }
 
 watch(isOpen, (value) => {

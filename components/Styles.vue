@@ -7,6 +7,7 @@
         width: 'sm:max-w-4xl',
       }"
       prevent-close
+      @close-prevented="cancelChanges();"
     >
       <div class="w-full">
         <UTabs :items="items" orientation="vertical" :ui="tabsStyling">

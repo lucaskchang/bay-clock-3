@@ -11,6 +11,7 @@
         width: 'sm:max-w-4xl',
       }"
       prevent-close
+      @close-prevented="cancelChanges();"
     >
       <div class="w-full">
         <UTabs :items="tabs" orientation="vertical" :ui="tabsStyling">
@@ -172,7 +173,6 @@ let initialSchedule = getCurrentScheduleState();
 function cancelChanges() {
   const newSchedule = getCurrentScheduleState();
   if (JSON.stringify(newSchedule) === JSON.stringify(initialSchedule)) {
-    console.log(newSchedule.blockNames, initialSchedule.blockNames);
     isOpen.value = false;
   } else {
     isCancelOpen.value = true;

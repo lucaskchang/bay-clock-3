@@ -5,6 +5,7 @@
       <a
         href="https://www.lucaskchang.com/"
         target="_blank"
+        rel="noopener noreferrer"
         class="font-semibold text-blue-400 hover:text-blue-500"
       >
         Lucas Chang
@@ -36,6 +37,7 @@
         class="font-semibold text-blue-400 hover:text-blue-500"
         href="https://forms.gle/khAXGXiUMoAoskKQA"
         target="_blank"
+        rel="noopener noreferrer"
       >
         Feedback
       </a>

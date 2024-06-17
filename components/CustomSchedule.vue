@@ -147,7 +147,7 @@ function resetSchedule() {
   notification.add({
     icon: 'i-heroicons-arrow-path',
     title: 'Changes Saved',
-    description: `Your schedule has been reset to its defaults.`,
+    description: 'Your schedule has been reset to its defaults.',
     color: 'blue',
     timeout: 2000,
   });
@@ -162,7 +162,7 @@ function saveChanges() {
   notification.add({
     icon: 'i-heroicons-check-badge',
     title: 'Changes Saved',
-    description: `All new changes to your schedule have been saved.`,
+    description: 'All new changes to your schedule have been saved.',
     color: 'green',
     timeout: 2000,
   });

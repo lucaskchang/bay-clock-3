@@ -43,6 +43,7 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
     if (grade.value === '10') return 'Choices';
     if (grade.value === '11') return 'College Counseling';
     if (grade.value === '12') return 'College Counseling';
+    return null;
   }) as Ref<string>;
   const customSpecialFlexName = ref('');
 

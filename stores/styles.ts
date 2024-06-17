@@ -45,7 +45,7 @@ export const useStylesStore = defineStore('styles', () => {
   // progress bar styles
   const progressColor = ref('blue-400');
   const progressHoverColor = computed(() =>
-    getHoverColor('bg-' + progressColor.value),
+    getHoverColor(`bg-${progressColor.value}`),
   );
   const isProgressRounded = ref(true);
 

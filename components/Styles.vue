@@ -131,7 +131,7 @@ function resetStyles() {
    notification.add({
     icon: 'i-heroicons-arrow-path',
     title: 'Changes Saved',
-    description: `Your styles have been reset to its defaults.`,
+    description: 'Your styles have been reset to its defaults.',
     color: 'blue',
     timeout: 2000,
   });
@@ -145,7 +145,7 @@ function saveChanges() {
    notification.add({
     icon: 'i-heroicons-check-badge',
     title: 'Changes Saved',
-    description: `All new changes to your styles have been saved.`,
+    description: 'All new changes to your styles have been saved.',
     color: 'green',
     timeout: 2000,
   });

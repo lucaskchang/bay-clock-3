@@ -109,6 +109,7 @@ const days = computed(() => {
       { value: 'Friday', label: 'Friday' },
     ];
   }
+  return [];
 });
 
 const blocks = [

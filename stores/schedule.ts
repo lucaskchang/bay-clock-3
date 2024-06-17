@@ -126,9 +126,9 @@ export const useScheduleStore = defineStore('schedule', () => {
       }
       // gimmicky way to handle immersives so that you can display the morning and afternoon immersives with the same block
       else if (blockName === 'REMOVEImmersive' && immersiveName.value) {
-        blockName = 'REMOVE' + immersiveName.value;
+        blockName = `REMOVE${immersiveName.value}`;
       } else if (blockName === 'DELETEImmersive' && immersiveName.value) {
-        blockName = 'DELETE' + immersiveName.value;
+        blockName = `DELETE${immersiveName.value}`;
       }
       parsedSchedule[blockName] = {
         start: new Date().setHours(

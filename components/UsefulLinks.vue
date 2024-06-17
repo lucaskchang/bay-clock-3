@@ -6,13 +6,13 @@
       trailing-icon="i-heroicons-chevron-down-20-solid"
     />
     <template #item="{ item }">
-      <a :href="item.icon" target="_blank" class="h-full w-full p-1 text-left">
+      <a :href="item.icon" target="_blank" rel="noopener noreferrer" class="h-full w-full p-1 text-left">
         {{ item.label }}
       </a>
     </template>
 
     <template #custom="{ item }">
-      <a :href="item.icon" target="_blank" class="h-full w-full p-1 text-left">
+      <a :href="item.icon" target="_blank" rel="noopener noreferrer" class="h-full w-full p-1 text-left">
         <span class="truncate">{{ item.label }}</span>
       </a>
       <UIcon name="i-heroicons-x-mark" class="flex-shrink-0 h-4 w-4 text-red-400 dark:text-red-500 ms-auto hover:text-red-600" @click="removeLink(item)" />
@@ -71,7 +71,7 @@ function addLink() {
     notification.add({
       icon: 'i-heroicons-exclamation-triangle',
       title: 'Complete Form',
-      description: `You have incomplete fields.`,
+      description: 'You have incomplete fields.',
       color: 'red',
       timeout: 2000,
     })

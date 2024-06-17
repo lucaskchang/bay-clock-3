@@ -1,4 +1,4 @@
-import buttonStyling from '~/assets/styles/buttons.json';
+import buttonStyling from "~/assets/styles/buttons.json";
 
 type Styles = {
   color: string;
@@ -6,12 +6,12 @@ type Styles = {
 };
 
 function getHoverColor(color: string) {
-  let hoverColor = '';
-  const colorName = color.split('-')[1];
-  const colorValue = color.split('-')[2];
-  if (colorValue === '50') {
+  let hoverColor = "";
+  const colorName = color.split("-")[1];
+  const colorValue = color.split("-")[2];
+  if (colorValue === "50") {
     hoverColor = `${colorName}-100`;
-  } else if (colorValue === '900') {
+  } else if (colorValue === "900") {
     hoverColor = `${colorName}-950`;
   } else {
     hoverColor = `${colorName}-${parseInt(colorValue) + 100}`;
@@ -24,18 +24,18 @@ function getButtonStyles(styles: Styles) {
   const hoverColor = getHoverColor(color);
   return {
     ...buttonStyling,
-    rounded: styles.isRounded ? 'rounded-full' : 'rounded',
+    rounded: styles.isRounded ? "rounded-full" : "rounded",
     variant: {
       solid: `${color} hover:bg-${hoverColor} dark:${color} dark:hover:bg-${hoverColor} ${
-        parseInt(color.split('-')[2]) >= 400
-          ? 'text-white dark:text-white'
-          : 'text-black dark:text-black'
+        parseInt(color.split("-")[2]) >= 400
+          ? "text-white dark:text-white"
+          : "text-black dark:text-black"
       }`,
     },
   };
 }
 
-export const useStylesStore = defineStore('styles', () => {
+export const useStylesStore = defineStore("styles", () => {
   // header styles
   const showClock = ref(true);
   const showStatus = ref(true);
@@ -43,7 +43,7 @@ export const useStylesStore = defineStore('styles', () => {
   const showIndicator = ref(true);
 
   // progress bar styles
-  const progressColor = ref('blue-400');
+  const progressColor = ref("blue-400");
   const progressHoverColor = computed(() =>
     getHoverColor(`bg-${progressColor.value}`),
   );
@@ -52,23 +52,23 @@ export const useStylesStore = defineStore('styles', () => {
   // button styles
   const buttonStyles = ref({
     links: {
-      color: 'bg-blue-400',
+      color: "bg-blue-400",
       isRounded: true,
     },
     lunch: {
-      color: 'bg-blue-400',
+      color: "bg-blue-400",
       isRounded: true,
     },
     schedule: {
-      color: 'bg-blue-400',
+      color: "bg-blue-400",
       isRounded: true,
     },
     styles: {
-      color: 'bg-blue-400',
+      color: "bg-blue-400",
       isRounded: true,
     },
     weekly: {
-      color: 'bg-blue-400',
+      color: "bg-blue-400",
       isRounded: true,
     },
   });
@@ -89,27 +89,27 @@ export const useStylesStore = defineStore('styles', () => {
     showStatus.value = true;
     showDate.value = true;
     showIndicator.value = true;
-    progressColor.value = 'blue-400';
+    progressColor.value = "blue-400";
     isProgressRounded.value = true;
     buttonStyles.value = {
       links: {
-        color: 'bg-blue-400',
+        color: "bg-blue-400",
         isRounded: true,
       },
       lunch: {
-        color: 'bg-blue-400',
+        color: "bg-blue-400",
         isRounded: true,
       },
       schedule: {
-        color: 'bg-blue-400',
+        color: "bg-blue-400",
         isRounded: true,
       },
       styles: {
-        color: 'bg-blue-400',
+        color: "bg-blue-400",
         isRounded: true,
       },
       weekly: {
-        color: 'bg-blue-400',
+        color: "bg-blue-400",
         isRounded: true,
       },
     };

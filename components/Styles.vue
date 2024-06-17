@@ -7,7 +7,7 @@
         width: 'sm:max-w-4xl',
       }"
       prevent-close
-      @close-prevented="cancelChanges();"
+      @close-prevented="cancelChanges()"
     >
       <div class="w-full">
         <UTabs :items="items" orientation="vertical" :ui="tabsStyling">
@@ -47,11 +47,7 @@
         <p class="text-2xl font-semibold">Are you sure?</p>
         <p>All schedules will be reset to their defaults.</p>
         <div class="mt-4 flex flex-row gap-2">
-          <UButton
-            size="lg"
-            label="Yes, reset"
-            @click="resetStyles()"
-          />
+          <UButton size="lg" label="Yes, reset" @click="resetStyles()" />
           <UButton
             size="lg"
             color="red"
@@ -90,8 +86,8 @@
 </template>
 
 <script setup lang="ts">
-import tabsStyling from '~/assets/styles/tabs.json';
-import { useStylesStore } from '~/stores/styles';
+import tabsStyling from "~/assets/styles/tabs.json";
+import { useStylesStore } from "~/stores/styles";
 
 const stylesStore = useStylesStore();
 const { buttonUIs } = storeToRefs(stylesStore);
@@ -100,11 +96,11 @@ const isOpen = ref(false);
 const isResetOpen = ref(false);
 const isCancelOpen = ref(false);
 const items = [
-  { label: 'Header' },
-  { label: 'Bars' },
-  { label: 'Buttons' },
-  { label: 'Presets' },
-  { label: 'Other' },
+  { label: "Header" },
+  { label: "Bars" },
+  { label: "Buttons" },
+  { label: "Presets" },
+  { label: "Other" },
 ];
 const notification = useToast();
 
@@ -128,11 +124,11 @@ function resetStyles() {
   stylesStore.$reset();
   isOpen.value = false;
 
-   notification.add({
-    icon: 'i-heroicons-arrow-path',
-    title: 'Changes Saved',
-    description: 'Your styles have been reset to its defaults.',
-    color: 'blue',
+  notification.add({
+    icon: "i-heroicons-arrow-path",
+    title: "Changes Saved",
+    description: "Your styles have been reset to its defaults.",
+    color: "blue",
     timeout: 2000,
   });
 }
@@ -140,13 +136,13 @@ function resetStyles() {
 function saveChanges() {
   isOpen.value = false;
   const styles = getCurrentStylesState();
-  localStorage.setItem('styles', JSON.stringify(styles));
+  localStorage.setItem("styles", JSON.stringify(styles));
 
-   notification.add({
-    icon: 'i-heroicons-check-badge',
-    title: 'Changes Saved',
-    description: 'All new changes to your styles have been saved.',
-    color: 'green',
+  notification.add({
+    icon: "i-heroicons-check-badge",
+    title: "Changes Saved",
+    description: "All new changes to your styles have been saved.",
+    color: "green",
     timeout: 2000,
   });
 }
@@ -173,10 +169,10 @@ function revert() {
   stylesStore.useDetailedTime = initialStyles.useDetailedTime;
 
   notification.add({
-    icon: 'i-heroicons-x-circle',
-    title: 'Changes Cancelled',
-    description: 'All new changes to your styles have been cancelled.',
-    color: 'red',
+    icon: "i-heroicons-x-circle",
+    title: "Changes Cancelled",
+    description: "All new changes to your styles have been cancelled.",
+    color: "red",
     timeout: 2000,
   });
 }

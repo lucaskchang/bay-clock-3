@@ -16,6 +16,7 @@
             <StylesHeader v-if="item.label === 'Header'" />
             <StylesBars v-if="item.label === 'Bars'" />
             <StylesButtons v-if="item.label === 'Buttons'" />
+            <StylesPresets v-if="item.label === 'Presets'" />
             <StylesOther v-if="item.label === 'Other'" />
             <div
               class="flex flex-row justify-between gap-2 justify-self-end pt-4"

@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { useStylesStore } from '~/stores/styles';
+import { useStylesStore } from "~/stores/styles";
 const colorMode = useColorMode();
 
 const stylesStore = useStylesStore();
@@ -22,10 +22,10 @@ const { useDetailedTime } = storeToRefs(stylesStore);
 
 const isDark = computed({
   get() {
-    return colorMode.value === 'dark';
+    return colorMode.value === "dark";
   },
   set() {
-    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
+    colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
   },
 });
 </script>

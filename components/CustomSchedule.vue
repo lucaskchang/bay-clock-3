@@ -11,7 +11,7 @@
         width: 'sm:max-w-4xl',
       }"
       prevent-close
-      @close-prevented="cancelChanges();"
+      @close-prevented="cancelChanges()"
     >
       <div class="w-full">
         <UTabs :items="tabs" orientation="vertical" :ui="tabsStyling">
@@ -52,11 +52,7 @@
         <p class="text-2xl font-semibold">Are you sure?</p>
         <p>All schedules will be reset to their defaults.</p>
         <div class="mt-4 flex flex-row gap-2">
-          <UButton
-            size="lg"
-            label="Yes, reset"
-            @click="resetSchedule();"
-          />
+          <UButton size="lg" label="Yes, reset" @click="resetSchedule()" />
           <UButton
             size="lg"
             color="red"
@@ -95,9 +91,9 @@
 </template>
 
 <script setup lang="ts">
-import tabsStyling from '~/assets/styles/tabs.json';
-import { useStylesStore } from '~/stores/styles';
-import { useCustomScheduleStore } from '~/stores/customSchedule';
+import tabsStyling from "~/assets/styles/tabs.json";
+import { useStylesStore } from "~/stores/styles";
+import { useCustomScheduleStore } from "~/stores/customSchedule";
 
 const stylesStore = useStylesStore();
 const customScheduleStore = useCustomScheduleStore();
@@ -107,11 +103,11 @@ const isOpen = ref(false);
 const isResetOpen = ref(false);
 const isCancelOpen = ref(false);
 const tabs = [
-  { label: 'Classes' },
-  { label: 'Clubs' },
-  { label: 'Activities' },
-  { label: 'Immersives' },
-  { label: 'Extras' },
+  { label: "Classes" },
+  { label: "Clubs" },
+  { label: "Activities" },
+  { label: "Immersives" },
+  { label: "Extras" },
 ];
 const notification = useToast();
 
@@ -137,7 +133,7 @@ function getCurrentScheduleState() {
     specialFlexDay: customScheduleStore.specialFlexDay,
     advisoryDay: customScheduleStore.advisoryDay,
     showOneOnOnes: customScheduleStore.showOneOnOnes,
-  }
+  };
 }
 
 function resetSchedule() {
@@ -145,25 +141,24 @@ function resetSchedule() {
   customScheduleStore.$reset();
   isOpen.value = false;
   notification.add({
-    icon: 'i-heroicons-arrow-path',
-    title: 'Changes Saved',
+    icon: "i-heroicons-arrow-path",
+    title: "Changes Saved",
     description: `Your schedule has been reset to its defaults.`,
-    color: 'blue',
+    color: "blue",
     timeout: 2000,
   });
 }
 
-
 function saveChanges() {
   isOpen.value = false;
   const schedule = getCurrentScheduleState();
-  localStorage.setItem('customSchedule', JSON.stringify(schedule));
+  localStorage.setItem("customSchedule", JSON.stringify(schedule));
 
   notification.add({
-    icon: 'i-heroicons-check-badge',
-    title: 'Changes Saved',
+    icon: "i-heroicons-check-badge",
+    title: "Changes Saved",
     description: `All new changes to your schedule have been saved.`,
-    color: 'green',
+    color: "green",
     timeout: 2000,
   });
 }
@@ -194,10 +189,10 @@ function revert() {
   customScheduleStore.showOneOnOnes = initialSchedule.showOneOnOnes;
   isOpen.value = false;
   notification.add({
-    icon: 'i-heroicons-x-circle',
-    title: 'Changes Cancelled',
-    description: 'All new changes to your schedule have been cancelled.',
-    color: 'red',
+    icon: "i-heroicons-x-circle",
+    title: "Changes Cancelled",
+    description: "All new changes to your schedule have been cancelled.",
+    color: "red",
     timeout: 2000,
   });
 }

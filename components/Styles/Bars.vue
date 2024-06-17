@@ -42,8 +42,8 @@
 </template>
 
 <script setup lang="ts">
-import { useStylesStore } from '~/stores/styles';
-import colors from '~/assets/styles/colors.json';
+import { useStylesStore } from "~/stores/styles";
+import colors from "~/assets/styles/colors.json";
 
 const stylesStore = useStylesStore();
 const { progressColor, progressHoverColor, isProgressRounded } =

@@ -28,9 +28,9 @@
 </template>
 
 <script setup lang="ts">
-import { useScheduleStore } from '~/stores/schedule';
-import { useNowStore } from '~/stores/now';
-import { useStylesStore } from '~/stores/styles';
+import { useScheduleStore } from "~/stores/schedule";
+import { useNowStore } from "~/stores/now";
+import { useStylesStore } from "~/stores/styles";
 
 const stylesStore = useStylesStore();
 const { progressColor } = storeToRefs(stylesStore);

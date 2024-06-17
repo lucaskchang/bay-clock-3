@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { useStylesStore } from '~/stores/styles';
+import { useStylesStore } from "~/stores/styles";
 
 const stylesStore = useStylesStore();
 const { showClock, showStatus, showDate, showIndicator } =

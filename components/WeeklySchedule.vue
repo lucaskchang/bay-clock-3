@@ -27,7 +27,11 @@
             :class="colorKey[block]"
           >
             <p
-              v-if="isImmersive && (block.slice(0, 6) === 'REMOVE' || block.slice(0, 6) === 'DELETE')"
+              v-if="
+                isImmersive &&
+                (block.slice(0, 6) === 'REMOVE' ||
+                  block.slice(0, 6) === 'DELETE')
+              "
               class="text-xl font-semibold md:text-2xl"
             >
               {{ block.slice(6) }}
@@ -47,13 +51,13 @@
 </template>
 
 <script setup lang="ts">
-import { useStylesStore } from '~/stores/styles';
-import { useCustomScheduleStore } from '~/stores/customSchedule';
-import { useNowStore } from '~/stores/now';
-import regularScheduleJSON from '~/assets/data/regular_schedule.json';
-import specialSchedules from '~/assets/data/special_schedules.json';
-import immersiveSchedule from '~/assets/data/immersive_schedule.json';
-import breaks from '~/assets/data/breaks.json';
+import { useStylesStore } from "~/stores/styles";
+import { useCustomScheduleStore } from "~/stores/customSchedule";
+import { useNowStore } from "~/stores/now";
+import regularScheduleJSON from "~/assets/data/regular_schedule.json";
+import specialSchedules from "~/assets/data/special_schedules.json";
+import immersiveSchedule from "~/assets/data/immersive_schedule.json";
+import breaks from "~/assets/data/breaks.json";
 
 const stylesStore = useStylesStore();
 const { buttonUIs } = storeToRefs(stylesStore);
@@ -88,19 +92,19 @@ const regularSchedule = regularScheduleJSON as Record<
   >
 >;
 
-const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 const colors = [
-  'bg-blue-400',
-  'bg-red-400',
-  'bg-yellow-400',
-  'bg-green-400',
-  'bg-purple-400',
-  'bg-orange-400',
-  'bg-pink-400',
-  'bg-indigo-400',
-  'bg-cyan-400',
-  'bg-lime-400',
-  'bg-rose-400',
+  "bg-blue-400",
+  "bg-red-400",
+  "bg-yellow-400",
+  "bg-green-400",
+  "bg-purple-400",
+  "bg-orange-400",
+  "bg-pink-400",
+  "bg-indigo-400",
+  "bg-cyan-400",
+  "bg-lime-400",
+  "bg-rose-400",
 ];
 
 const colorKey = ref({}) as Ref<Record<string, string>>;
@@ -126,7 +130,7 @@ const weeklySchedule = computed(() => {
     const diff = dayDate.getDate() - today + days.indexOf(dayOfWeek) + 1;
     dayDate.setDate(diff);
 
-    const day = useDateFormat(dayDate, 'dddd');
+    const day = useDateFormat(dayDate, "dddd");
     let isBreak = false;
     let unparsedSchedule: Record<
       string,
@@ -140,17 +144,17 @@ const weeklySchedule = computed(() => {
     for (const [name, timeframe] of Object.entries(
       regularSchedule[day.value],
     )) {
-      if (name === 'Group Advisory/1-on-1s') {
+      if (name === "Group Advisory/1-on-1s") {
         if (!advisoryDay.value) {
           unparsedSchedule[name] = timeframe;
         } else if (day.value === advisoryDay.value) {
-          unparsedSchedule['Group Advisory'] = timeframe;
-        } else if (showOneOnOnes.value === 'Yes') {
-          unparsedSchedule['Advisor 1-on-1'] = timeframe;
+          unparsedSchedule["Group Advisory"] = timeframe;
+        } else if (showOneOnOnes.value === "Yes") {
+          unparsedSchedule["Advisor 1-on-1"] = timeframe;
         }
       } else if (name === flexBlock.value) {
         if (
-          hasSpecialFlex.value === 'Yes' &&
+          hasSpecialFlex.value === "Yes" &&
           day.value === specialFlexDay.value
         ) {
           unparsedSchedule[
@@ -216,13 +220,13 @@ const weeklySchedule = computed(() => {
       let blockName = block;
       if (blockNames.value[blockName]) {
         blockName = blockNames.value[blockName];
-      } else if (blockName === 'Lunch') {
+      } else if (blockName === "Lunch") {
         if (clubs.value[day.value]) {
           blockName = clubs.value[day.value];
         }
       } else if (
-        (blockName === 'Immersive Morning' ||
-          blockName === 'Immersive Afternoon') &&
+        (blockName === "Immersive Morning" ||
+          blockName === "Immersive Afternoon") &&
         immersiveName.value
       ) {
         blockName = immersiveName.value;
@@ -232,10 +236,10 @@ const weeklySchedule = computed(() => {
           timeframe.start.hour > 12
             ? timeframe.start.hour - 12
             : timeframe.start.hour
-        }:${timeframe.start.minute.toString().padStart(2, '0')}`,
+        }:${timeframe.start.minute.toString().padStart(2, "0")}`,
         end: `${
           timeframe.end.hour > 12 ? timeframe.end.hour - 12 : timeframe.end.hour
-        }:${timeframe.end.minute.toString().padStart(2, '0')}`,
+        }:${timeframe.end.minute.toString().padStart(2, "0")}`,
         length:
           timeframe.end.hour * 60 +
           timeframe.end.minute -
@@ -249,18 +253,18 @@ const weeklySchedule = computed(() => {
 
     // check for activities
     if (activityDays.value[day.value] && !isBreak) {
-      parsedSchedule[activityName.value || 'Activities + Sports/Drama'] = {
+      parsedSchedule[activityName.value || "Activities + Sports/Drama"] = {
         start: activitySchedule.value[day.value].start,
         end: activitySchedule.value[day.value].end,
         length:
-          parseInt(activitySchedule.value[day.value].end.split(':')[0]) * 60 +
-          parseInt(activitySchedule.value[day.value].end.split(':')[1]) -
-          (parseInt(activitySchedule.value[day.value].start.split(':')[0]) *
+          parseInt(activitySchedule.value[day.value].end.split(":")[0]) * 60 +
+          parseInt(activitySchedule.value[day.value].end.split(":")[1]) -
+          (parseInt(activitySchedule.value[day.value].start.split(":")[0]) *
             60 +
-            parseInt(activitySchedule.value[day.value].start.split(':')[1])),
+            parseInt(activitySchedule.value[day.value].start.split(":")[1])),
       };
-      if (!colorKey.value[activityName.value || 'Activities + Sports/Drama']) {
-        colorKey.value[activityName.value || 'Activities + Sports/Drama'] =
+      if (!colorKey.value[activityName.value || "Activities + Sports/Drama"]) {
+        colorKey.value[activityName.value || "Activities + Sports/Drama"] =
           colors[colorKeyIndex.value];
         colorKeyIndex.value++;
       }

@@ -46,17 +46,17 @@
 </template>
 
 <script setup lang="ts">
-import { useStylesStore } from '~/stores/styles';
-import colors from '~/assets/styles/colors.json';
+import { useStylesStore } from "~/stores/styles";
+import colors from "~/assets/styles/colors.json";
 
 const stylesStore = useStylesStore();
 const { buttonStyles, buttonUIs } = storeToRefs(stylesStore);
 
 const titles = {
-  links: 'Useful Links',
-  lunch: 'Lunch',
-  schedule: 'Custom Schedule',
-  styles: 'Customize',
-  weekly: 'Weekly Schedule',
+  links: "Useful Links",
+  lunch: "Lunch",
+  schedule: "Custom Schedule",
+  styles: "Customize",
+  weekly: "Weekly Schedule",
 };
 </script>

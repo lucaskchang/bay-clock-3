@@ -4,32 +4,32 @@ module.exports = {
     browser: true,
     node: true,
   },
-  parser: 'vue-eslint-parser',
+  parser: "vue-eslint-parser",
   parserOptions: {
-    parser: '@typescript-eslint/parser',
+    parser: "@typescript-eslint/parser",
   },
   extends: [
-    '@nuxtjs/eslint-config-typescript',
-    'plugin:prettier/recommended',
-    'plugin:vue/vue3-essential',
-    'plugin:jsonc/recommended-with-json'
+    "@nuxtjs/eslint-config-typescript",
+    "plugin:prettier/recommended",
+    "plugin:vue/vue3-essential",
+    "plugin:jsonc/recommended-with-json",
   ],
   rules: {
-    semi: [2, 'always'],
-    quotes: [2, 'single'],
-    'no-console': 'off',
-    'vue/max-attributes-per-line': 'off',
-    'prettier/prettier': [
-      'error',
+    semi: [2, "always"],
+    quotes: [2, "single"],
+    "no-console": "off",
+    "vue/max-attributes-per-line": "off",
+    "prettier/prettier": [
+      "error",
       {
         semi: true,
         singleQuote: true,
-        trailingComma: 'all',
+        trailingComma: "all",
         printWidth: 80,
-        plugins: ['prettier-plugin-tailwindcss'],
+        plugins: ["prettier-plugin-tailwindcss"],
       },
     ],
-    'vue/multi-word-component-names': 'off',
+    "vue/multi-word-component-names": "off",
   },
-  plugins: ['prettier'],
+  plugins: ["prettier"],
 };

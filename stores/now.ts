@@ -1,4 +1,4 @@
-export const useNowStore = defineStore('now', () => {
+export const useNowStore = defineStore("now", () => {
   const time = ref(new Date());
 
   function updateTimeLoop() {

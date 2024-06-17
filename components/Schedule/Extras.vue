@@ -58,7 +58,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCustomScheduleStore } from '~/stores/customSchedule';
+import { useCustomScheduleStore } from "~/stores/customSchedule";
 
 const customScheduleStore = useCustomScheduleStore();
 const {
@@ -72,58 +72,58 @@ const {
 } = storeToRefs(customScheduleStore);
 
 const days = computed(() => {
-  if (flexBlock.value === 'A') {
+  if (flexBlock.value === "A") {
     return [
-      { value: 'Monday', label: 'Monday' },
-      { value: 'Tuesday', label: 'Tuesday' },
-      { value: 'Thursday', label: 'Thursday' },
+      { value: "Monday", label: "Monday" },
+      { value: "Tuesday", label: "Tuesday" },
+      { value: "Thursday", label: "Thursday" },
     ];
-  } else if (flexBlock.value === 'B') {
+  } else if (flexBlock.value === "B") {
     return [
-      { value: 'Monday', label: 'Monday' },
-      { value: 'Tuesday', label: 'Tuesday' },
-      { value: 'Thursday', label: 'Thursday' },
+      { value: "Monday", label: "Monday" },
+      { value: "Tuesday", label: "Tuesday" },
+      { value: "Thursday", label: "Thursday" },
     ];
-  } else if (flexBlock.value === 'C') {
+  } else if (flexBlock.value === "C") {
     return [
-      { value: 'Monday', label: 'Monday' },
-      { value: 'Wednesday', label: 'Wednesday' },
-      { value: 'Thursday', label: 'Thursday' },
+      { value: "Monday", label: "Monday" },
+      { value: "Wednesday", label: "Wednesday" },
+      { value: "Thursday", label: "Thursday" },
     ];
-  } else if (flexBlock.value === 'D') {
+  } else if (flexBlock.value === "D") {
     return [
-      { value: 'Monday', label: 'Monday' },
-      { value: 'Wednesday', label: 'Wednesday' },
-      { value: 'Friday', label: 'Friday' },
+      { value: "Monday", label: "Monday" },
+      { value: "Wednesday", label: "Wednesday" },
+      { value: "Friday", label: "Friday" },
     ];
-  } else if (flexBlock.value === 'E') {
+  } else if (flexBlock.value === "E") {
     return [
-      { value: 'Tuesday', label: 'Tuesday' },
-      { value: 'Wednesday', label: 'Wednesday' },
-      { value: 'Friday', label: 'Friday' },
+      { value: "Tuesday", label: "Tuesday" },
+      { value: "Wednesday", label: "Wednesday" },
+      { value: "Friday", label: "Friday" },
     ];
-  } else if (flexBlock.value === 'F') {
+  } else if (flexBlock.value === "F") {
     return [
-      { value: 'Tuesday', label: 'Tuesday' },
-      { value: 'Wednesday', label: 'Wednesday' },
-      { value: 'Friday', label: 'Friday' },
+      { value: "Tuesday", label: "Tuesday" },
+      { value: "Wednesday", label: "Wednesday" },
+      { value: "Friday", label: "Friday" },
     ];
   }
 });
 
 const blocks = [
-  { value: 'A', label: 'A' },
-  { value: 'B', label: 'B' },
-  { value: 'C', label: 'C' },
-  { value: 'D', label: 'D' },
-  { value: 'E', label: 'E' },
-  { value: 'F', label: 'F' },
+  { value: "A", label: "A" },
+  { value: "B", label: "B" },
+  { value: "C", label: "C" },
+  { value: "D", label: "D" },
+  { value: "E", label: "E" },
+  { value: "F", label: "F" },
 ];
 
 const grades = [
-  { value: '9', label: '9th' },
-  { value: '10', label: '10th' },
-  { value: '11', label: '11th' },
-  { value: '12', label: '12th' },
+  { value: "9", label: "9th" },
+  { value: "10", label: "10th" },
+  { value: "11", label: "11th" },
+  { value: "12", label: "12th" },
 ];
 </script>

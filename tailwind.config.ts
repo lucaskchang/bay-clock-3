@@ -1,15 +1,15 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from "tailwindcss";
 
 export default {
-  content: ['./assets/styles/**/*.json'],
+  content: ["./assets/styles/**/*.json"],
   safelist: [
     {
       pattern: /bg-.*/,
-      variants: ['dark', 'hover', 'dark:hover'],
+      variants: ["dark", "hover", "dark:hover"],
     },
     {
       pattern: /text-.*/,
-      variants: ['dark'],
+      variants: ["dark"],
     },
   ],
 } satisfies Config;

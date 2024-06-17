@@ -13,31 +13,22 @@
     class="flex flex-col justify-between text-3xl font-bold tracking-tight text-gray-600 dark:text-gray-400 md:flex-row md:px-2 md:text-4xl"
   >
     <div v-if="showDate" class="flex-row md:flex-col">{{ date }}</div>
-    <div
-      v-if="isSpecialSchedule && showIndicator"
-      class="flex-row md:flex-col"
-    >
+    <div v-if="isSpecialSchedule && showIndicator" class="flex-row md:flex-col">
       SPECIAL SCHEDULE
     </div>
-    <div
-      v-else-if="isBreak && showIndicator"
-      class="flex-row md:flex-col"
-    >
+    <div v-else-if="isBreak && showIndicator" class="flex-row md:flex-col">
       {{ daysLeft }} days left
     </div>
-    <div
-      v-else-if="isImmersive && showIndicator"
-      class="flex-row md:flex-col"
-    >
+    <div v-else-if="isImmersive && showIndicator" class="flex-row md:flex-col">
       IMMERSIVE
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useScheduleStore } from '~/stores/schedule';
-import { useStylesStore } from '~/stores/styles';
-import { useNowStore } from '~/stores/now';
+import { useScheduleStore } from "~/stores/schedule";
+import { useStylesStore } from "~/stores/styles";
+import { useNowStore } from "~/stores/now";
 
 const nowStore = useNowStore();
 const { time } = storeToRefs(nowStore);
@@ -47,11 +38,12 @@ onMounted(() => {
   updateTimeLoop();
 });
 
-const clock = useDateFormat(time, 'h:mm:ss A');
-const date = useDateFormat(time, 'ddd MMMM D YYYY');
+const clock = useDateFormat(time, "h:mm:ss A");
+const date = useDateFormat(time, "ddd MMMM D YYYY");
 const scheduleStore = useScheduleStore();
 const stylesStore = useStylesStore();
-const { schedule, isSpecialSchedule, isBreak, daysLeft, isImmersive } = storeToRefs(scheduleStore);
+const { schedule, isSpecialSchedule, isBreak, daysLeft, isImmersive } =
+  storeToRefs(scheduleStore);
 const { showClock, showStatus, showDate, showIndicator, useDetailedTime } =
   storeToRefs(stylesStore);
 
@@ -61,11 +53,11 @@ const statusMessage = computed(() => {
     return scheduleStore.breakName;
   }
   if (scheduleStore.isWeekend) {
-    return 'Weekend';
+    return "Weekend";
   }
   // If schedule is empty, show loading message -- this is a temporary fix because breaks take a bit to load for some reason?
   if (Object.keys(schedule.value).length === 0) {
-    return 'Loading...';
+    return "Loading...";
   }
   const schoolStartTime = Object.values(schedule.value)[0].start;
   const schoolEndTime = Object.values(schedule.value).reduce(
@@ -78,7 +70,7 @@ const statusMessage = computed(() => {
     )} minutes`;
   }
   if (timeNum > schoolEndTime) {
-    return 'School is over';
+    return "School is over";
   }
   for (const timeframe of Object.values(schedule.value)) {
     if (timeNum >= timeframe.start && timeNum <= timeframe.end) {
@@ -87,15 +79,15 @@ const statusMessage = computed(() => {
         const hours =
           Math.floor(timeLeft / 1000 / 60 / 60) > 0
             ? `${Math.floor(timeLeft / 1000 / 60 / 60)}:`
-            : '';
+            : "";
         const minutes = hours
           ? Math.floor((timeLeft / 1000 / 60) % 60)
               .toString()
-              .padStart(2, '0')
+              .padStart(2, "0")
           : Math.floor((timeLeft / 1000 / 60) % 60).toString();
         const seconds = Math.floor((timeLeft / 1000) % 60)
           .toString()
-          .padStart(2, '0');
+          .padStart(2, "0");
 
         return `${hours}${minutes}:${seconds} left`;
       } else {
@@ -105,7 +97,7 @@ const statusMessage = computed(() => {
       }
     }
   }
-  return 'Passing';
+  return "Passing";
 });
 
 useHead({

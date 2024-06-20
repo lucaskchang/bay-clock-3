@@ -81,8 +81,6 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
       Wednesday: { start: '15:50', end: '17:30' },
       Thursday: { start: '15:50', end: '17:30' },
       Friday: { start: '15:50', end: '17:30' },
-      Saturday: { start: '15:50', end: '17:30' },
-      Sunday: { start: '15:50', end: '17:30' },
     };
     activityName.value = 'Activities + Sports/Drama';
     immersiveName.value = '';

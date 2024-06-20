@@ -130,7 +130,11 @@ function getCurrentStylesState() {
     progressColor: stylesStore.progressColor,
     isProgressRounded: stylesStore.isProgressRounded,
     buttonStyles: {
-      ...stylesStore.buttonStyles,
+      links: { ...stylesStore.buttonStyles.links },
+      lunch: { ...stylesStore.buttonStyles.lunch },
+      schedule: { ...stylesStore.buttonStyles.schedule },
+      styles: { ...stylesStore.buttonStyles.styles },
+      weekly: { ...stylesStore.buttonStyles.weekly },
     },
     useDetailedTime: stylesStore.useDetailedTime,
     isDarkMode: stylesStore.isDarkMode,
@@ -184,7 +188,11 @@ function revert() {
   stylesStore.progressColor = initialStyles.progressColor;
   stylesStore.isProgressRounded = initialStyles.isProgressRounded;
   stylesStore.buttonStyles = {
-    ...initialStyles.buttonStyles,
+    links: { ...initialStyles.buttonStyles.links },
+    lunch: { ...initialStyles.buttonStyles.lunch },
+    schedule: { ...initialStyles.buttonStyles.schedule },
+    styles: { ...initialStyles.buttonStyles.styles },
+    weekly: { ...initialStyles.buttonStyles.weekly },
   }
   stylesStore.useDetailedTime = initialStyles.useDetailedTime;
   stylesStore.isDarkMode = initialStyles.isDarkMode;

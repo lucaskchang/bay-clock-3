@@ -86,6 +86,10 @@
         <p>🖌️ New color palette (36 more colors)</p>
         <p>🔵 Added option for unrounded progress bars and buttons</p>
         <p>🌙 Automatic dark mode</p>
+        <p>🔔 Notifications for saving, cancelling, and resetting customizations</p>
+        <p>📐 Option to add custom useful links</p>
+        <p>🔍 Easier to find in search results</p>
+        <p>📱 Better mobile formatting</p>
         <p class="text-lg font-semibold">Code Upgrades</p>
         <p>📦 Upgraded all packages to latest versions</p>
         <p>

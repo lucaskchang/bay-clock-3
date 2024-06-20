@@ -139,7 +139,11 @@ function getCurrentScheduleState() {
       ...customScheduleStore.activityDays,
     },
     activitySchedule: {
-      ...customScheduleStore.activitySchedule,
+      Monday: { ...customScheduleStore.activitySchedule.Monday },
+      Tuesday: { ...customScheduleStore.activitySchedule.Tuesday },
+      Wednesday: { ...customScheduleStore.activitySchedule.Wednesday },
+      Thursday: { ...customScheduleStore.activitySchedule.Thursday },
+      Friday: { ...customScheduleStore.activitySchedule.Friday },
     },
     activityName: customScheduleStore.activityName,
     immersiveName: customScheduleStore.immersiveName,
@@ -202,7 +206,11 @@ function revert() {
     ...initialSchedule.activityDays,
   }
   customScheduleStore.activitySchedule = {
-    ...initialSchedule.activitySchedule,
+    Monday: { ...initialSchedule.activitySchedule.Monday },
+    Tuesday: { ...initialSchedule.activitySchedule.Tuesday },
+    Wednesday: { ...initialSchedule.activitySchedule.Wednesday },
+    Thursday: { ...initialSchedule.activitySchedule.Thursday },
+    Friday: { ...initialSchedule.activitySchedule.Friday },
   }
   customScheduleStore.activityName = initialSchedule.activityName;
   customScheduleStore.immersiveName = initialSchedule.immersiveName;

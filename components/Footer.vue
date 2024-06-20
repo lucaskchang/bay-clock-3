@@ -51,9 +51,60 @@
     </p>
 
     <UModal v-model="isCreditsOpen">
-      <div class="p-4">
+      <div class="p-4 space-y-2">
         <p class="text-2xl font-semibold">Credits</p>
-        <p>Past keepers of the clock</p>
+        <p>Maintained by Lucas Chang</p>
+        <p>Created by Lucas Chang with inspiration from:</p>
+        <p>
+          <a
+            class="text-blue-400 hover:text-blue-500"
+            href="https://lukajaa.github.io/bay-clock-2/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://lukajaa.github.io/bay-clock-2/
+          </a> (deprecated June 14, 2024)
+        </p>
+        <p>
+          <a
+            class="text-blue-400 hover:text-blue-500"
+            href="https://lukajaa.github.io/clock/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://lukajaa.github.io/clock/
+          </a> (deprecated February 2, 2023)
+        </p>
+        <p>
+          <a
+            class="text-blue-400 hover:text-blue-500"
+            href="https://lukajaa.github.io/bay-clock/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://lukajaa.github.io/bay-clock/
+          </a> (deprecated October 16, 2021)
+        </p>
+        <p>
+          <a
+            class="text-blue-400 hover:text-blue-500"
+            href="https://baysf.github.io/clock/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://baysf.github.io/clock/
+          </a> (deprecated May 15, 2021 or maybe never actually worked)
+        </p>
+        <p>
+          <a
+            class="text-blue-400 hover:text-blue-500"
+            href="http://clock.bayschoolsf.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            http://clock.bayschoolsf.org/
+          </a> (deprecated June 11, 2016)
+      </p>
       </div>
     </UModal>
     <UModal v-model="isToolsOpen">

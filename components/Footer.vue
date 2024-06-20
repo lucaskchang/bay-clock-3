@@ -63,7 +63,8 @@
             rel="noopener noreferrer"
           >
             https://lukajaa.github.io/bay-clock-2/
-          </a> (deprecated June 14, 2024)
+          </a>
+          (deprecated June 14, 2024)
         </p>
         <p>
           <a
@@ -73,7 +74,8 @@
             rel="noopener noreferrer"
           >
             https://lukajaa.github.io/clock/
-          </a> (deprecated February 2, 2023)
+          </a>
+          (deprecated February 2, 2023)
         </p>
         <p>
           <a
@@ -83,7 +85,8 @@
             rel="noopener noreferrer"
           >
             https://lukajaa.github.io/bay-clock/
-          </a> (deprecated October 16, 2021)
+          </a>
+          (deprecated October 16, 2021)
         </p>
         <p>
           <a
@@ -93,7 +96,8 @@
             rel="noopener noreferrer"
           >
             https://baysf.github.io/clock/
-          </a> (deprecated May 15, 2021 or maybe never actually worked)
+          </a>
+          (deprecated May 15, 2021 or maybe never actually worked)
         </p>
         <p>
           <a
@@ -103,8 +107,9 @@
             rel="noopener noreferrer"
           >
             http://clock.bayschoolsf.org/
-          </a> (deprecated June 11, 2016)
-      </p>
+          </a>
+          (deprecated June 11, 2016)
+        </p>
       </div>
     </UModal>
     <UModal v-model="isToolsOpen">
@@ -137,7 +142,9 @@
         <p>🖌️ New color palette (36 more colors)</p>
         <p>🔵 Added option for unrounded progress bars and buttons</p>
         <p>🌙 Automatic dark mode</p>
-        <p>🔔 Notifications for saving, cancelling, and resetting customizations</p>
+        <p>
+          🔔 Notifications for saving, cancelling, and resetting customizations
+        </p>
         <p>📐 Option to add custom useful links</p>
         <p>🔍 Easier to find in search results</p>
         <p>📱 Better mobile formatting</p>

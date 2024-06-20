@@ -83,6 +83,7 @@ export const useStylesStore = defineStore('styles', () => {
   });
 
   const useDetailedTime = ref(false);
+  const isDarkMode = ref(false);
 
   function $reset() {
     showClock.value = true;
@@ -114,6 +115,7 @@ export const useStylesStore = defineStore('styles', () => {
       },
     };
     useDetailedTime.value = false;
+    isDarkMode.value = false;
   }
 
   return {
@@ -127,6 +129,7 @@ export const useStylesStore = defineStore('styles', () => {
     buttonStyles,
     buttonUIs,
     useDetailedTime,
+    isDarkMode,
     $reset,
   };
 });

@@ -4,11 +4,11 @@
       <div
         v-for="(color, team) of olympicTeams"
         :key="team"
-        class="w-full h-12 rounded-lg shadow-lg flex flex-row items-center p-2 hover:scale-105 transition duration-300 ease-in-out"
-        :class="`bg-${color}-300`"
+        class="w-full h-12 rounded-lg shadow flex flex-row items-center p-2 hover:scale-105 transition duration-300 ease-in-out"
+        :class="`bg-${color}-400`"
         @click="isPresetOpen = true; chosenTeam = color;"
       >
-        <div class="flex flex-col rounded-full h-8 w-8 shadow-lg" :class="`bg-${color}-500`" />
+        <div class="flex flex-col rounded-full h-8 w-8 shadow" :class="`bg-${color}-600`" />
         <p class="ml-2 text-lg font-semibold">{{ team }} Team</p>
       </div>
     </div>
@@ -60,8 +60,8 @@ const olympicTeams = {
 
 function applyPreset(color: string) {
   for (const button in buttonStyles.value) {
-    buttonStyles.value[button].color = `bg-${color}-500`;
+    buttonStyles.value[button].color = `bg-${color}-600`;
   }
-  progressColor.value = `${color}-300`;
+  progressColor.value = `${color}-400`;
 }
 </script>

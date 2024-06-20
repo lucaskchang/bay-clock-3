@@ -80,12 +80,24 @@
               isOpen = false;
               revert();
             "
+            color="red"
+            variant="outline"
+          />
+          <UButton
+            size="lg"
+            label="No, save changes"
+            @click="
+              isCancelOpen = false;
+              saveChanges();
+            "
+            variant="outline"
           />
           <UButton
             size="lg"
             color="red"
             variant="ghost"
             label="Nevermind"
+            class="ml-auto"
             @click="isCancelOpen = false"
           />
         </div>
@@ -180,10 +192,18 @@ function cancelChanges() {
 }
 
 function revert() {
-  customScheduleStore.blockNames = initialSchedule.blockNames;
-  customScheduleStore.clubs = initialSchedule.clubs;
-  customScheduleStore.activityDays = initialSchedule.activityDays;
-  customScheduleStore.activitySchedule = initialSchedule.activitySchedule;
+  customScheduleStore.blockNames = {
+    ...initialSchedule.blockNames,
+  }
+  customScheduleStore.clubs = {
+    ...initialSchedule.clubs,
+  }
+  customScheduleStore.activityDays = {
+    ...initialSchedule.activityDays,
+  }
+  customScheduleStore.activitySchedule = {
+    ...initialSchedule.activitySchedule,
+  }
   customScheduleStore.activityName = initialSchedule.activityName;
   customScheduleStore.immersiveName = initialSchedule.immersiveName;
   customScheduleStore.grade = initialSchedule.grade;

@@ -14,6 +14,7 @@ import { useStylesStore } from '~/stores/styles';
 
 const customScheduleStore = useCustomScheduleStore();
 const stylesStore = useStylesStore();
+const colorMode = useColorMode();
 
 onMounted(() => {
   const customSchedule = localStorage.getItem('customSchedule');
@@ -44,6 +45,7 @@ onMounted(() => {
     stylesStore.isProgressRounded = style.isProgressRounded;
     stylesStore.buttonStyles = style.buttonStyles;
     stylesStore.useDetailedTime = style.useDetailedTime;
+    stylesStore.isDarkMode = colorMode.value === 'dark';
   }
 });
 

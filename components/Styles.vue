@@ -76,12 +76,24 @@
               isOpen = false;
               revert();
             "
+            color="red"
+            variant="outline"
+          />
+          <UButton
+            size="lg"
+            label="No, save changes"
+            @click="
+              isCancelOpen = false;
+              saveChanges();
+            "
+            variant="outline"
           />
           <UButton
             size="lg"
             color="red"
             variant="ghost"
             label="Nevermind"
+            class="ml-auto"
             @click="isCancelOpen = false"
           />
         </div>
@@ -121,6 +133,7 @@ function getCurrentStylesState() {
       ...stylesStore.buttonStyles,
     },
     useDetailedTime: stylesStore.useDetailedTime,
+    isDarkMode: stylesStore.isDarkMode,
   };
 }
 
@@ -170,8 +183,11 @@ function revert() {
   stylesStore.showIndicator = initialStyles.showIndicator;
   stylesStore.progressColor = initialStyles.progressColor;
   stylesStore.isProgressRounded = initialStyles.isProgressRounded;
-  stylesStore.buttonStyles = initialStyles.buttonStyles;
+  stylesStore.buttonStyles = {
+    ...initialStyles.buttonStyles,
+  }
   stylesStore.useDetailedTime = initialStyles.useDetailedTime;
+  stylesStore.isDarkMode = initialStyles.isDarkMode;
 
   notification.add({
     icon: 'i-heroicons-x-circle',

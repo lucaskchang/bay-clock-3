@@ -8,7 +8,7 @@
     <p class="text-xl font-semibold">Theme</p>
     <div class="flex flex-row items-center">
       <p class="mr-2">Dark Mode</p>
-      <UToggle v-model="isDark" />
+      <UToggle v-model="isDarkMode" />
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@ import { useStylesStore } from '~/stores/styles';
 const colorMode = useColorMode();
 
 const stylesStore = useStylesStore();
-const { useDetailedTime } = storeToRefs(stylesStore);
+const { useDetailedTime, isDarkMode } = storeToRefs(stylesStore);
 
 const isDark = computed({
   get() {
@@ -27,5 +27,9 @@ const isDark = computed({
   set() {
     colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
   },
+});
+
+watch(isDarkMode, () => {
+  isDark.value = isDarkMode.value;
 });
 </script>

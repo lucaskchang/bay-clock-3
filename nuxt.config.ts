@@ -21,12 +21,13 @@ export default defineNuxtConfig({
     strict: true,
   },
   modules: [
-    '@nuxtjs/eslint-module',
-    '@nuxt/ui',
-    '@nuxtjs/google-fonts',
-    '@pinia/nuxt',
-    '@vueuse/nuxt',
-    'nuxt-gtag',
+    "@nuxt/ui",
+    "@nuxt/image",
+    "@nuxtjs/google-fonts",
+    "@pinia/nuxt",
+    "@vueuse/nuxt",
+    "nuxt-gtag",
+    "@nuxt/eslint"
   ],
   colorMode: {
     classSuffix: '',
@@ -39,4 +40,4 @@ export default defineNuxtConfig({
       Inter: true,
     },
   },
-});
+})

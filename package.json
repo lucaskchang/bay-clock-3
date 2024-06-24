@@ -1,39 +1,30 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "lint": "eslint ."
+    "postinstall": "nuxt prepare"
   },
-  "devDependencies": {
-    "@nuxt/devtools": "^1.0.2",
-    "@nuxt/eslint-config": "^0.2.0",
+  "dependencies": {
+    "@nuxt/eslint": "^0.3.13",
+    "@nuxt/image": "^1.7.0",
     "@nuxt/ui": "^2.17.0",
-    "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@nuxtjs/eslint-module": "^4.1.0",
-    "@nuxtjs/google-fonts": "^3.0.2",
+    "@nuxtjs/google-fonts": "^3.2.0",
     "@pinia/nuxt": "^0.5.1",
-    "@tailwindcss/typography": "^0.5.10",
-    "@types/node": "^20.9.0",
-    "@typescript-eslint/parser": "^6.11.0",
-    "@vueuse/core": "^10.6.1",
-    "@vueuse/nuxt": "^10.6.1",
-    "eslint": "^8.53.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-jsonc": "^2.10.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "eslint-plugin-vue": "^9.18.1",
     "nuxt": "^3.12.2",
-    "nuxt-gtag": "^1.1.1",
+    "nuxt-gtag": "^2.0.6",
     "pinia": "^2.1.7",
-    "prettier": "^3.1.0",
-    "prettier-plugin-tailwindcss": "^0.5.7",
-    "sass": "^1.69.5",
-    "typescript": "^5.2.2"
+    "vue": "^3.4.29",
+    "vue-router": "^4.3.3"
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610",
+  "devDependencies": {
+    "@vueuse/core": "^10.11.0",
+    "@vueuse/nuxt": "^10.11.0",
+    "eslint": "9.4.0"
   }
 }

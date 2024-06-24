@@ -108,9 +108,10 @@
       </div>
     </UModal>
     <UModal v-model="isToolsOpen">
-      <div class="p-4">
-        <p class="text-2xl font-semibold">Tools</p>
-        <p>Stuff will be here</p>
+      <div class="p-4 flex flex-col md:flex-row">
+        <div class="w-full md:w-1/3 h-24">
+          <img
+        </div>
       </div>
     </UModal>
     <UModal

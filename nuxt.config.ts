@@ -3,20 +3,20 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      title: 'Bay Clock 3',
+      title: "Bay Clock 3",
       htmlAttrs: {
-        lang: 'en',
+        lang: "en",
       },
       link: [
         {
-          rel: 'icon',
-          type: 'image/ico',
-          href: '/favicon.ico'
-        }
-      ]
+          rel: "icon",
+          type: "image/ico",
+          href: "/favicon.ico",
+        },
+      ],
     },
   },
-  css: ['@/assets/styles/main.scss'],
+  css: ["@/assets/styles/main.scss"],
   typescript: {
     strict: true,
   },
@@ -27,17 +27,17 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@vueuse/nuxt",
     "nuxt-gtag",
-    "@nuxt/eslint"
+    "@nuxt/eslint",
   ],
   colorMode: {
-    classSuffix: '',
+    classSuffix: "",
   },
   gtag: {
-    id: 'G-FVNXPL0FCK',
+    id: "G-FVNXPL0FCK",
   },
   googleFonts: {
     families: {
       Inter: true,
     },
   },
-})
+});

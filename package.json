@@ -26,6 +26,7 @@
     "@vueuse/core": "^10.11.0",
     "@vueuse/nuxt": "^10.11.0",
     "eslint": "9.4.0",
-    "sass": "^1.77.6"
+    "sass": "^1.77.6",
+    "typescript": "^5.5.2"
   }
 }

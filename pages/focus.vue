@@ -28,9 +28,9 @@
 </template>
 
 <script setup lang="ts">
-import { useScheduleStore } from '~/stores/schedule';
-import { useNowStore } from '~/stores/now';
-import { useStylesStore } from '~/stores/styles';
+import { useScheduleStore } from "~/stores/schedule";
+import { useNowStore } from "~/stores/now";
+import { useStylesStore } from "~/stores/styles";
 
 const stylesStore = useStylesStore();
 const { progressColor } = storeToRefs(stylesStore);
@@ -46,8 +46,8 @@ const perimeter = computed(() => {
   const timeNum = time.value.getTime();
   for (const timeframe of Object.values(schedule.value)) {
     if (timeNum >= timeframe.start && timeNum <= timeframe.end) {
-      const percentDone
-        = (timeNum - timeframe.start) / (timeframe.end - timeframe.start);
+      const percentDone =
+        (timeNum - timeframe.start) / (timeframe.end - timeframe.start);
       const perimeterDone = Math.floor(percentDone * windowPerimeter.value);
       return perimeterDone;
     }
@@ -57,8 +57,7 @@ const perimeter = computed(() => {
 const topPercentage = computed(() => {
   if (perimeter.value >= width.value) {
     return 1;
-  }
-  else {
+  } else {
     return Math.floor((perimeter.value / width.value) * 100) / 100;
   }
 });
@@ -66,11 +65,9 @@ const rightPercentage = computed(() => {
   const perimLeft = perimeter.value - width.value;
   if (perimLeft <= 0) {
     return 0;
-  }
-  else if (perimLeft >= height.value) {
+  } else if (perimLeft >= height.value) {
     return 1;
-  }
-  else {
+  } else {
     return Math.floor((perimLeft / height.value) * 100) / 100;
   }
 });
@@ -78,11 +75,9 @@ const bottomPercentage = computed(() => {
   const perimLeft = perimeter.value - width.value - height.value;
   if (perimLeft <= 0) {
     return 0;
-  }
-  else if (perimLeft >= width.value) {
+  } else if (perimLeft >= width.value) {
     return 1;
-  }
-  else {
+  } else {
     return Math.floor((perimLeft / width.value) * 100) / 100;
   }
 });
@@ -90,11 +85,9 @@ const leftPercentage = computed(() => {
   const perimLeft = perimeter.value - width.value - height.value - width.value;
   if (perimLeft <= 0) {
     return 0;
-  }
-  else if (perimLeft >= height.value) {
+  } else if (perimLeft >= height.value) {
     return 1;
-  }
-  else {
+  } else {
     return Math.floor((perimLeft / height.value) * 100) / 100;
   }
 });

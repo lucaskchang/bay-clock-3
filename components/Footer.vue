@@ -52,9 +52,7 @@
 
     <UModal v-model="isCreditsOpen">
       <div class="space-y-2 p-4">
-        <p class="text-2xl font-semibold">
-          Credits
-        </p>
+        <p class="text-2xl font-semibold">Credits</p>
         <p>Maintained by Lucas Chang</p>
         <p>Created by Lucas Chang with inspiration from:</p>
         <p>
@@ -65,7 +63,8 @@
             rel="noopener noreferrer"
           >
             https://lukajaa.github.io/bay-clock-2/
-          </a> (deprecated June 14, 2024)
+          </a>
+          (deprecated June 14, 2024)
         </p>
         <p>
           <a
@@ -75,7 +74,8 @@
             rel="noopener noreferrer"
           >
             https://lukajaa.github.io/clock/
-          </a> (deprecated February 2, 2023)
+          </a>
+          (deprecated February 2, 2023)
         </p>
         <p>
           <a
@@ -85,7 +85,8 @@
             rel="noopener noreferrer"
           >
             https://lukajaa.github.io/bay-clock/
-          </a> (deprecated October 16, 2021)
+          </a>
+          (deprecated October 16, 2021)
         </p>
         <p>
           <a
@@ -95,7 +96,8 @@
             rel="noopener noreferrer"
           >
             https://baysf.github.io/clock/
-          </a> (deprecated May 15, 2021 or maybe never actually worked)
+          </a>
+          (deprecated May 15, 2021 or maybe never actually worked)
         </p>
         <p>
           <a
@@ -105,7 +107,8 @@
             rel="noopener noreferrer"
           >
             http://clock.bayschoolsf.org/
-          </a> (deprecated June 11, 2016)
+          </a>
+          (deprecated June 11, 2016)
         </p>
       </div>
     </UModal>
@@ -121,15 +124,9 @@
       }"
     >
       <div class="space-y-2 p-4">
-        <p class="text-2xl font-semibold">
-          Changelog
-        </p>
-        <p class="mt-4 text-xl font-bold">
-          New in v3.0
-        </p>
-        <p class="text-lg font-semibold">
-          Features
-        </p>
+        <p class="text-2xl font-semibold">Changelog</p>
+        <p class="mt-4 text-xl font-bold">New in v3.0</p>
+        <p class="text-lg font-semibold">Features</p>
         <p>
           🔗 Reverted useful links dashboard to dropdown (sometimes simpler is
           better)
@@ -144,13 +141,13 @@
         <p>🖌️ New color palette (36 more colors)</p>
         <p>🔵 Added option for unrounded progress bars and buttons</p>
         <p>🌙 Automatic dark mode</p>
-        <p>🔔 Notifications for saving, cancelling, and resetting customizations</p>
+        <p>
+          🔔 Notifications for saving, cancelling, and resetting customizations
+        </p>
         <p>📐 Option to add custom useful links</p>
         <p>🔍 Easier to find in search results</p>
         <p>📱 Better mobile formatting</p>
-        <p class="text-lg font-semibold">
-          Code Upgrades
-        </p>
+        <p class="text-lg font-semibold">Code Upgrades</p>
         <p>📦 Upgraded all packages to latest versions</p>
         <p>
           ⚡ Switched to Nuxt for maximum performance and developer experience

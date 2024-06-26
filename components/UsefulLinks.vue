@@ -44,29 +44,13 @@
   </UDropdown>
   <UModal v-model="isOpen">
     <div class="p-4">
-      <p class="text-2xl font-semibold">
-        Add a new link
-      </p>
+      <p class="text-2xl font-semibold">Add a new link</p>
       <div class="mt-4 space-y-4">
-        <UInput
-          v-model="name"
-          label="Name"
-          placeholder="Link Name"
-        />
-        <UInput
-          v-model="url"
-          label="URL"
-          placeholder="Link URL"
-        />
+        <UInput v-model="name" label="Name" placeholder="Link Name" />
+        <UInput v-model="url" label="URL" placeholder="Link URL" />
       </div>
       <div class="mt-4 flex flex-row">
-        <UButton
-          size="lg"
-          label="Add"
-          @click="
-            addLink();
-          "
-        />
+        <UButton size="lg" label="Add" @click="addLink()" />
         <UButton
           class="ms-auto"
           size="lg"
@@ -81,25 +65,27 @@
 </template>
 
 <script setup lang="ts">
-import { useStylesStore } from '~/stores/styles';
+import { useStylesStore } from "~/stores/styles";
 
 const stylesStore = useStylesStore();
 const { buttonUIs } = storeToRefs(stylesStore);
 
 const isOpen = ref(false);
-const url = ref('');
-const name = ref('');
+const url = ref("");
+const name = ref("");
 const notification = useToast();
 
-const customLinks: Ref<{ label: string, icon: string, click: string, slot: string }[]> = ref([]);
+const customLinks: Ref<
+  { label: string; icon: string; click: string; slot: string }[]
+> = ref([]);
 
 function addLink() {
-  if (name.value === '' || url.value === '') {
+  if (name.value === "" || url.value === "") {
     notification.add({
-      icon: 'i-heroicons-exclamation-triangle',
-      title: 'Complete Form',
-      description: 'You have incomplete fields.',
-      color: 'red',
+      icon: "i-heroicons-exclamation-triangle",
+      title: "Complete Form",
+      description: "You have incomplete fields.",
+      color: "red",
       timeout: 2000,
     });
     return;
@@ -107,37 +93,42 @@ function addLink() {
   customLinks.value.push({
     label: name.value,
     icon: url.value,
-    click: 'Placeholder',
-    slot: 'custom',
+    click: "Placeholder",
+    slot: "custom",
   });
-  localStorage.setItem('customLinks', JSON.stringify(customLinks.value));
+  localStorage.setItem("customLinks", JSON.stringify(customLinks.value));
 
   notification.add({
-    icon: 'i-heroicons-check-badge',
-    title: 'Link Added',
+    icon: "i-heroicons-check-badge",
+    title: "Link Added",
     description: `${name.value} (${url.value}) has been added to useful links.`,
-    color: 'green',
+    color: "green",
     timeout: 2000,
   });
   isOpen.value = false;
   setTimeout(() => {
-    name.value = '';
-    url.value = '';
+    name.value = "";
+    url.value = "";
   }, 250);
 }
 
-function removeLink(item: { label: string, icon: string, click: string, slot: string }) {
+function removeLink(item: {
+  label: string;
+  icon: string;
+  click: string;
+  slot: string;
+}) {
   notification.add({
-    icon: 'i-heroicons-x-circle',
-    title: 'Link Removed',
+    icon: "i-heroicons-x-circle",
+    title: "Link Removed",
     description: `${item.label} (${item.icon}) has been removed.`,
-    color: 'red',
+    color: "red",
     timeout: 2000,
   });
   // delay so that the click event doesn't trigger the add link modal
   setTimeout(() => {
-    customLinks.value = customLinks.value.filter(link => link !== item);
-    localStorage.setItem('customLinks', JSON.stringify(customLinks.value));
+    customLinks.value = customLinks.value.filter((link) => link !== item);
+    localStorage.setItem("customLinks", JSON.stringify(customLinks.value));
   }, 100);
 }
 
@@ -145,52 +136,52 @@ const items = computed(() => {
   return [
     [
       {
-        label: 'Bay Site',
-        icon: 'https://www.bayschoolsf.org/',
-        click: 'Placeholder',
+        label: "Bay Site",
+        icon: "https://www.bayschoolsf.org/",
+        click: "Placeholder",
       },
       {
-        label: 'Canvas',
-        icon: 'https://bayschoolsf.instructure.com/',
-        click: 'Placeholder',
+        label: "Canvas",
+        icon: "https://bayschoolsf.instructure.com/",
+        click: "Placeholder",
       },
       {
-        label: 'My Bay',
-        icon: 'https://bayschoolsf.myschoolapp.com/',
-        click: 'Placeholder',
+        label: "My Bay",
+        icon: "https://bayschoolsf.myschoolapp.com/",
+        click: "Placeholder",
       },
       {
-        label: 'Announcement Digest',
-        icon: 'https://docs.google.com/document/d/1c5YzT06GTn5CdX_7X7jZ2Ghhd5pK1aHhRRbOY78cr2M/',
-        click: 'Placeholder',
+        label: "Announcement Digest",
+        icon: "https://docs.google.com/document/d/1c5YzT06GTn5CdX_7X7jZ2Ghhd5pK1aHhRRbOY78cr2M/",
+        click: "Placeholder",
       },
       {
-        label: 'Bay Riptide',
-        icon: 'https://sites.google.com/bayschoolsf.org/the-bay-riptide/',
-        click: 'Placeholder',
+        label: "Bay Riptide",
+        icon: "https://sites.google.com/bayschoolsf.org/the-bay-riptide/",
+        click: "Placeholder",
       },
       {
-        label: 'Bay Calendar',
-        icon: 'https://www.bayschoolsf.org/calendar',
-        click: 'Placeholder',
+        label: "Bay Calendar",
+        icon: "https://www.bayschoolsf.org/calendar",
+        click: "Placeholder",
       },
     ],
     [
       ...customLinks.value,
       {
-        label: 'Add New Link',
-        icon: 'i-heroicons-plus',
+        label: "Add New Link",
+        icon: "i-heroicons-plus",
         click: () => {
           isOpen.value = true;
         },
-        slot: 'add',
+        slot: "add",
       },
     ],
   ];
 });
 
 onMounted(() => {
-  const storedCustomLinks = localStorage.getItem('customLinks');
+  const storedCustomLinks = localStorage.getItem("customLinks");
   if (storedCustomLinks) {
     customLinks.value = JSON.parse(storedCustomLinks);
   }

@@ -11,14 +11,10 @@
         width: 'sm:max-w-4xl',
       }"
       prevent-close
-      @close-prevented="cancelChanges();"
+      @close-prevented="cancelChanges()"
     >
       <div class="w-full">
-        <UTabs
-          :items="tabs"
-          orientation="vertical"
-          :ui="tabsStyling"
-        >
+        <UTabs :items="tabs" orientation="vertical" :ui="tabsStyling">
           <template #item="{ item }">
             <p class="mb-4 text-2xl font-bold">
               {{ item.label }}
@@ -32,11 +28,7 @@
               class="flex flex-row justify-between gap-2 justify-self-end pt-4"
             >
               <div>
-                <UButton
-                  size="lg"
-                  label="Save"
-                  @click="saveChanges()"
-                />
+                <UButton size="lg" label="Save" @click="saveChanges()" />
                 <UButton
                   size="lg"
                   variant="ghost"
@@ -59,16 +51,10 @@
     </UModal>
     <UModal v-model="isResetOpen">
       <div class="p-4">
-        <p class="text-2xl font-semibold">
-          Are you sure?
-        </p>
+        <p class="text-2xl font-semibold">Are you sure?</p>
         <p>All schedules will be reset to their defaults.</p>
         <div class="mt-4 flex flex-row gap-2">
-          <UButton
-            size="lg"
-            label="Yes, reset"
-            @click="resetSchedule();"
-          />
+          <UButton size="lg" label="Yes, reset" @click="resetSchedule()" />
           <UButton
             size="lg"
             color="red"
@@ -81,9 +67,7 @@
     </UModal>
     <UModal v-model="isCancelOpen">
       <div class="p-4">
-        <p class="text-2xl font-semibold">
-          Are you sure?
-        </p>
+        <p class="text-2xl font-semibold">Are you sure?</p>
         <p>Any changes you made will be lost.</p>
         <div class="mt-4 flex flex-row gap-2">
           <UButton
@@ -121,9 +105,9 @@
 </template>
 
 <script setup lang="ts">
-import tabsStyling from '~/assets/styles/tabs.json';
-import { useStylesStore } from '~/stores/styles';
-import { useCustomScheduleStore } from '~/stores/customSchedule';
+import tabsStyling from "~/assets/styles/tabs.json";
+import { useStylesStore } from "~/stores/styles";
+import { useCustomScheduleStore } from "~/stores/customSchedule";
 
 const stylesStore = useStylesStore();
 const customScheduleStore = useCustomScheduleStore();
@@ -133,11 +117,11 @@ const isOpen = ref(false);
 const isResetOpen = ref(false);
 const isCancelOpen = ref(false);
 const tabs = [
-  { label: 'Classes' },
-  { label: 'Clubs' },
-  { label: 'Activities' },
-  { label: 'Immersives' },
-  { label: 'Extras' },
+  { label: "Classes" },
+  { label: "Clubs" },
+  { label: "Activities" },
+  { label: "Immersives" },
+  { label: "Extras" },
 ];
 const notification = useToast();
 
@@ -175,10 +159,10 @@ function resetSchedule() {
   customScheduleStore.$reset();
   isOpen.value = false;
   notification.add({
-    icon: 'i-heroicons-arrow-path',
-    title: 'Changes Saved',
-    description: 'Your schedule has been reset to its defaults.',
-    color: 'blue',
+    icon: "i-heroicons-arrow-path",
+    title: "Changes Saved",
+    description: "Your schedule has been reset to its defaults.",
+    color: "blue",
     timeout: 2000,
   });
 }
@@ -186,13 +170,13 @@ function resetSchedule() {
 function saveChanges() {
   isOpen.value = false;
   const schedule = getCurrentScheduleState();
-  localStorage.setItem('customSchedule', JSON.stringify(schedule));
+  localStorage.setItem("customSchedule", JSON.stringify(schedule));
 
   notification.add({
-    icon: 'i-heroicons-check-badge',
-    title: 'Changes Saved',
-    description: 'All new changes to your schedule have been saved.',
-    color: 'green',
+    icon: "i-heroicons-check-badge",
+    title: "Changes Saved",
+    description: "All new changes to your schedule have been saved.",
+    color: "green",
     timeout: 2000,
   });
 }
@@ -203,8 +187,7 @@ function cancelChanges() {
   const newSchedule = getCurrentScheduleState();
   if (JSON.stringify(newSchedule) === JSON.stringify(initialSchedule)) {
     isOpen.value = false;
-  }
-  else {
+  } else {
     isCancelOpen.value = true;
   }
 }
@@ -236,10 +219,10 @@ function revert() {
   customScheduleStore.showOneOnOnes = initialSchedule.showOneOnOnes;
   isOpen.value = false;
   notification.add({
-    icon: 'i-heroicons-x-circle',
-    title: 'Changes Cancelled',
-    description: 'All new changes to your schedule have been cancelled.',
-    color: 'red',
+    icon: "i-heroicons-x-circle",
+    title: "Changes Cancelled",
+    description: "All new changes to your schedule have been cancelled.",
+    color: "red",
     timeout: 2000,
   });
 }

@@ -1,8 +1,6 @@
 <template>
   <div>
-    <p class="mr-2 text-xl font-semibold">
-      Color
-    </p>
+    <p class="mr-2 text-xl font-semibold">Color</p>
     <UPopover :open="isOpen">
       <UButton
         icon="i-heroicons-paint-brush"
@@ -21,10 +19,7 @@
       />
       <template #panel>
         <div class="flex w-64 flex-wrap p-2">
-          <div
-            v-for="color in colors.bg"
-            :key="color"
-          >
+          <div v-for="color in colors.bg" :key="color">
             <div
               class="size-6 cursor-pointer"
               :class="{
@@ -38,25 +33,21 @@
         </div>
       </template>
     </UPopover>
-    <p class="mr-2 mt-4 text-xl font-semibold">
-      Other
-    </p>
+    <p class="mr-2 mt-4 text-xl font-semibold">Other</p>
     <div class="flex flex-row items-center">
-      <p class="mr-2">
-        Rounded
-      </p>
+      <p class="mr-2">Rounded</p>
       <UToggle v-model="isProgressRounded" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useStylesStore } from '~/stores/styles';
-import colors from '~/assets/styles/colors.json';
+import { useStylesStore } from "~/stores/styles";
+import colors from "~/assets/styles/colors.json";
 
 const stylesStore = useStylesStore();
-const { progressColor, progressHoverColor, isProgressRounded }
-  = storeToRefs(stylesStore);
+const { progressColor, progressHoverColor, isProgressRounded } =
+  storeToRefs(stylesStore);
 
 const isOpen = ref(false);
 </script>

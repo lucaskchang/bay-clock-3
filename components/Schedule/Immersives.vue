@@ -1,7 +1,13 @@
 <template>
   <div>
-    <p class="mb-2 text-xl font-semibold">Immersive Name</p>
-    <UInput v-model="immersiveName" placeholder="Immersive" class="w-full" />
+    <p class="mb-2 text-xl font-semibold">
+      Immersive Name
+    </p>
+    <UInput
+      v-model="immersiveName"
+      placeholder="Immersive"
+      class="w-full"
+    />
   </div>
 </template>
 

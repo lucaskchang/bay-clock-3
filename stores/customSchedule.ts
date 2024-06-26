@@ -2,14 +2,14 @@ import activityScheduleJSON from '~/assets/data/activity_schedule.json';
 
 export const useCustomScheduleStore = defineStore('customSchedule', () => {
   const blockNames: Ref<Record<string, string>> = ref({
-    A: 'A',
-    B: 'B',
-    C: 'C',
-    D: 'D',
-    E: 'E',
-    F: 'F',
+    'A': 'A',
+    'B': 'B',
+    'C': 'C',
+    'D': 'D',
+    'E': 'E',
+    'F': 'F',
     'Morning Meeting': 'Morning Meeting',
-    Tutorial: 'Tutorial',
+    'Tutorial': 'Tutorial',
   });
 
   const clubs: Ref<Record<string, string>> = ref({
@@ -28,8 +28,8 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
     Friday: true,
   });
 
-  const activitySchedule: Ref<Record<string, { start: string; end: string }>> =
-    ref(activityScheduleJSON);
+  const activitySchedule: Ref<Record<string, { start: string, end: string }>>
+    = ref(activityScheduleJSON);
 
   const activityName = ref('Activities + Sports/Drama');
   const immersiveName = ref('');
@@ -52,14 +52,14 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
 
   function $reset() {
     blockNames.value = {
-      A: 'A',
-      B: 'B',
-      C: 'C',
-      D: 'D',
-      E: 'E',
-      F: 'F',
+      'A': 'A',
+      'B': 'B',
+      'C': 'C',
+      'D': 'D',
+      'E': 'E',
+      'F': 'F',
       'Morning Meeting': 'Morning Meeting',
-      Tutorial: 'Tutorial',
+      'Tutorial': 'Tutorial',
     };
     clubs.value = {
       Monday: '',

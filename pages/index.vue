@@ -58,10 +58,10 @@ useHead({
     {
       rel: 'icon',
       type: 'image/ico',
-      href: '/favicon.ico'
-    }
-  ]
-})
+      href: '/favicon.ico',
+    },
+  ],
+});
 
 useSeoMeta({
   description: 'Bay Clock is a customizable schedule viewer for students at The Bay School of San Francisco.',
@@ -72,6 +72,6 @@ useSeoMeta({
   twitterTitle: 'Bay Clock 3',
   twitterDescription: 'Bay Clock is a customizable schedule viewer for students at The Bay School of San Francisco.',
   twitterImage: '/preview.png',
-  twitterCard: 'summary'
-})
+  twitterCard: 'summary',
+});
 </script>

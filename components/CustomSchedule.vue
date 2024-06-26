@@ -14,9 +14,15 @@
       @close-prevented="cancelChanges();"
     >
       <div class="w-full">
-        <UTabs :items="tabs" orientation="vertical" :ui="tabsStyling">
+        <UTabs
+          :items="tabs"
+          orientation="vertical"
+          :ui="tabsStyling"
+        >
           <template #item="{ item }">
-            <p class="mb-4 text-2xl font-bold">{{ item.label }}</p>
+            <p class="mb-4 text-2xl font-bold">
+              {{ item.label }}
+            </p>
             <ScheduleClasses v-if="item.label === 'Classes'" />
             <ScheduleClubs v-else-if="item.label === 'Clubs'" />
             <ScheduleActivities v-else-if="item.label === 'Activities'" />
@@ -26,7 +32,11 @@
               class="flex flex-row justify-between gap-2 justify-self-end pt-4"
             >
               <div>
-                <UButton size="lg" label="Save" @click="saveChanges()" />
+                <UButton
+                  size="lg"
+                  label="Save"
+                  @click="saveChanges()"
+                />
                 <UButton
                   size="lg"
                   variant="ghost"
@@ -49,7 +59,9 @@
     </UModal>
     <UModal v-model="isResetOpen">
       <div class="p-4">
-        <p class="text-2xl font-semibold">Are you sure?</p>
+        <p class="text-2xl font-semibold">
+          Are you sure?
+        </p>
         <p>All schedules will be reset to their defaults.</p>
         <div class="mt-4 flex flex-row gap-2">
           <UButton
@@ -69,28 +81,30 @@
     </UModal>
     <UModal v-model="isCancelOpen">
       <div class="p-4">
-        <p class="text-2xl font-semibold">Are you sure?</p>
+        <p class="text-2xl font-semibold">
+          Are you sure?
+        </p>
         <p>Any changes you made will be lost.</p>
         <div class="mt-4 flex flex-row gap-2">
           <UButton
             size="lg"
             label="Yes, cancel changes"
+            color="red"
+            variant="outline"
             @click="
               isCancelOpen = false;
               isOpen = false;
               revert();
             "
-            color="red"
-            variant="outline"
           />
           <UButton
             size="lg"
             label="No, save changes"
+            variant="outline"
             @click="
               isCancelOpen = false;
               saveChanges();
             "
-            variant="outline"
           />
           <UButton
             size="lg"
@@ -153,7 +167,7 @@ function getCurrentScheduleState() {
     specialFlexDay: customScheduleStore.specialFlexDay,
     advisoryDay: customScheduleStore.advisoryDay,
     showOneOnOnes: customScheduleStore.showOneOnOnes,
-  }
+  };
 }
 
 function resetSchedule() {
@@ -168,7 +182,6 @@ function resetSchedule() {
     timeout: 2000,
   });
 }
-
 
 function saveChanges() {
   isOpen.value = false;
@@ -190,7 +203,8 @@ function cancelChanges() {
   const newSchedule = getCurrentScheduleState();
   if (JSON.stringify(newSchedule) === JSON.stringify(initialSchedule)) {
     isOpen.value = false;
-  } else {
+  }
+  else {
     isCancelOpen.value = true;
   }
 }
@@ -198,20 +212,20 @@ function cancelChanges() {
 function revert() {
   customScheduleStore.blockNames = {
     ...initialSchedule.blockNames,
-  }
+  };
   customScheduleStore.clubs = {
     ...initialSchedule.clubs,
-  }
+  };
   customScheduleStore.activityDays = {
     ...initialSchedule.activityDays,
-  }
+  };
   customScheduleStore.activitySchedule = {
     Monday: { ...initialSchedule.activitySchedule.Monday },
     Tuesday: { ...initialSchedule.activitySchedule.Tuesday },
     Wednesday: { ...initialSchedule.activitySchedule.Wednesday },
     Thursday: { ...initialSchedule.activitySchedule.Thursday },
     Friday: { ...initialSchedule.activitySchedule.Friday },
-  }
+  };
   customScheduleStore.activityName = initialSchedule.activityName;
   customScheduleStore.immersiveName = initialSchedule.immersiveName;
   customScheduleStore.grade = initialSchedule.grade;

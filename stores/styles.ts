@@ -1,8 +1,8 @@
 import buttonStyling from '~/assets/styles/buttons.json';
 
 type Styles = {
-  color: string;
-  isRounded: boolean;
+  color: string
+  isRounded: boolean
 };
 
 function getHoverColor(color: string) {
@@ -11,9 +11,11 @@ function getHoverColor(color: string) {
   const colorValue = color.split('-')[2];
   if (colorValue === '50') {
     hoverColor = `${colorName}-100`;
-  } else if (colorValue === '900') {
+  }
+  else if (colorValue === '900') {
     hoverColor = `${colorName}-950`;
-  } else {
+  }
+  else {
     hoverColor = `${colorName}-${parseInt(colorValue) + 100}`;
   }
   return hoverColor;

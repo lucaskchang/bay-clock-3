@@ -1,6 +1,10 @@
 <template>
   <div>
-    <UButton :ui="buttonUIs.lunch" label="Lunch Menu" @click="isOpen = true" />
+    <UButton
+      :ui="buttonUIs.lunch"
+      label="Lunch Menu"
+      @click="isOpen = true"
+    />
     <UModal
       v-model="isOpen"
       :ui="{
@@ -10,7 +14,10 @@
       }"
     >
       <div class="w-full">
-        <img src="https://www.bayclock.org/menu/1.jpg" class="rounded-lg" />
+        <img
+          src="https://www.bayclock.org/menu/1.jpg"
+          class="rounded-lg"
+        >
       </div>
     </UModal>
   </div>

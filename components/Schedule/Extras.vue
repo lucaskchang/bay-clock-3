@@ -1,11 +1,20 @@
 <template>
   <div>
-    <p class="mb-2 text-xl font-semibold">Flex Class</p>
+    <p class="mb-2 text-xl font-semibold">
+      Flex Class
+    </p>
     <div class="flex flex-row space-x-4">
       <div class="flex flex-col">
-        <URadioGroup v-model="grade" legend="Grade" :options="grades" />
+        <URadioGroup
+          v-model="grade"
+          legend="Grade"
+          :options="grades"
+        />
       </div>
-      <div v-if="grade != '0'" class="flex flex-col">
+      <div
+        v-if="grade != '0'"
+        class="flex flex-col"
+      >
         <URadioGroup
           v-model="hasSpecialFlex"
           :legend="'Do you have ' + specialFlexName + '?'"
@@ -15,14 +24,20 @@
           ]"
         />
       </div>
-      <div v-if="hasSpecialFlex === 'Yes'" class="flex flex-col">
+      <div
+        v-if="hasSpecialFlex === 'Yes'"
+        class="flex flex-col"
+      >
         <URadioGroup
           v-model="flexBlock"
           legend="Flex Block"
           :options="blocks"
         />
       </div>
-      <div v-if="flexBlock && hasSpecialFlex === 'Yes'" class="flex flex-col">
+      <div
+        v-if="flexBlock && hasSpecialFlex === 'Yes'"
+        class="flex flex-col"
+      >
         <URadioGroup
           v-model="specialFlexDay"
           legend="Day of week"
@@ -30,7 +45,9 @@
         />
       </div>
     </div>
-    <p class="my-2 text-xl font-semibold">Advisory</p>
+    <p class="my-2 text-xl font-semibold">
+      Advisory
+    </p>
     <div class="flex flex-row space-x-4">
       <div class="flex flex-col">
         <URadioGroup
@@ -78,31 +95,36 @@ const days = computed(() => {
       { value: 'Tuesday', label: 'Tuesday' },
       { value: 'Thursday', label: 'Thursday' },
     ];
-  } else if (flexBlock.value === 'B') {
+  }
+  else if (flexBlock.value === 'B') {
     return [
       { value: 'Monday', label: 'Monday' },
       { value: 'Tuesday', label: 'Tuesday' },
       { value: 'Thursday', label: 'Thursday' },
     ];
-  } else if (flexBlock.value === 'C') {
+  }
+  else if (flexBlock.value === 'C') {
     return [
       { value: 'Monday', label: 'Monday' },
       { value: 'Wednesday', label: 'Wednesday' },
       { value: 'Thursday', label: 'Thursday' },
     ];
-  } else if (flexBlock.value === 'D') {
+  }
+  else if (flexBlock.value === 'D') {
     return [
       { value: 'Monday', label: 'Monday' },
       { value: 'Wednesday', label: 'Wednesday' },
       { value: 'Friday', label: 'Friday' },
     ];
-  } else if (flexBlock.value === 'E') {
+  }
+  else if (flexBlock.value === 'E') {
     return [
       { value: 'Tuesday', label: 'Tuesday' },
       { value: 'Wednesday', label: 'Wednesday' },
       { value: 'Friday', label: 'Friday' },
     ];
-  } else if (flexBlock.value === 'F') {
+  }
+  else if (flexBlock.value === 'F') {
     return [
       { value: 'Tuesday', label: 'Tuesday' },
       { value: 'Wednesday', label: 'Wednesday' },

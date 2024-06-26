@@ -1,6 +1,9 @@
 <template>
   <div class="my-12 space-y-6 px-1 md:space-y-12 lg:px-12">
-    <div v-for="(timeframe, block) of schedule" :key="block">
+    <div
+      v-for="(timeframe, block) of schedule"
+      :key="block"
+    >
       <UProgress
         :value="blockProgresses[block]"
         :ui="{
@@ -48,16 +51,18 @@ const blockProgresses = computed(() => {
   const progresses: Record<string, number> = {};
   for (const [blockName, timeframe] of Object.entries(schedule.value)) {
     if (
-      time.value.getTime() >= timeframe.start &&
-      time.value.getTime() <= timeframe.end
+      time.value.getTime() >= timeframe.start
+      && time.value.getTime() <= timeframe.end
     ) {
-      progresses[blockName] =
-        ((time.value.getTime() - timeframe.start) /
-          (timeframe.end - timeframe.start)) *
-        100;
-    } else if (time.value.getTime() < timeframe.start) {
+      progresses[blockName]
+        = ((time.value.getTime() - timeframe.start)
+        / (timeframe.end - timeframe.start))
+        * 100;
+    }
+    else if (time.value.getTime() < timeframe.start) {
       progresses[blockName] = 0;
-    } else {
+    }
+    else {
       progresses[blockName] = 100;
     }
   }

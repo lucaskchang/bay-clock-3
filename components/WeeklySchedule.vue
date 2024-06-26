@@ -19,7 +19,9 @@
           :key="day"
           class="flex w-2/3 flex-col gap-4 md:w-1/5"
         >
-          <p class="text-center text-2xl font-semibold">{{ day }}</p>
+          <p class="text-center text-2xl font-semibold">
+            {{ day }}
+          </p>
           <div
             v-for="(timeframe, block) of schedule"
             :key="block"
@@ -32,12 +34,19 @@
             >
               {{ block.slice(6) }}
             </p>
-            <p v-else class="text-lg font-semibold md:text-xl">{{ block }}</p>
+            <p
+              v-else
+              class="text-lg font-semibold md:text-xl"
+            >
+              {{ block }}
+            </p>
             <div class="text-lg font-semibold md:text-xl">
               <p v-if="timeframe.start === '0:00' && timeframe.end === '11:59'">
                 All Day
               </p>
-              <p v-else>{{ timeframe.start }} - {{ timeframe.end }}</p>
+              <p v-else>
+                {{ timeframe.start }} - {{ timeframe.end }}
+              </p>
             </div>
           </div>
         </div>
@@ -82,8 +91,8 @@ const regularSchedule = regularScheduleJSON as Record<
   Record<
     string,
     {
-      start: { hour: number; minute: number };
-      end: { hour: number; minute: number };
+      start: { hour: number, minute: number }
+      end: { hour: number, minute: number }
     }
   >
 >;
@@ -114,9 +123,9 @@ const weeklySchedule = computed(() => {
     Record<
       string,
       {
-        start: string;
-        end: string;
-        length: number;
+        start: string
+        end: string
+        length: number
       }
     >
   >;
@@ -131,8 +140,8 @@ const weeklySchedule = computed(() => {
     let unparsedSchedule: Record<
       string,
       {
-        start: { hour: number; minute: number };
-        end: { hour: number; minute: number };
+        start: { hour: number, minute: number }
+        end: { hour: number, minute: number }
       }
     > = {};
 
@@ -143,23 +152,28 @@ const weeklySchedule = computed(() => {
       if (name === 'Group Advisory/1-on-1s') {
         if (!advisoryDay.value) {
           unparsedSchedule[name] = timeframe;
-        } else if (day.value === advisoryDay.value) {
+        }
+        else if (day.value === advisoryDay.value) {
           unparsedSchedule['Group Advisory'] = timeframe;
-        } else if (showOneOnOnes.value === 'Yes') {
+        }
+        else if (showOneOnOnes.value === 'Yes') {
           unparsedSchedule['Advisor 1-on-1'] = timeframe;
         }
-      } else if (name === flexBlock.value) {
+      }
+      else if (name === flexBlock.value) {
         if (
-          hasSpecialFlex.value === 'Yes' &&
-          day.value === specialFlexDay.value
+          hasSpecialFlex.value === 'Yes'
+          && day.value === specialFlexDay.value
         ) {
           unparsedSchedule[
             customSpecialFlexName.value || specialFlexName.value
           ] = timeframe;
-        } else {
+        }
+        else {
           unparsedSchedule[name] = timeframe;
         }
-      } else {
+      }
+      else {
         unparsedSchedule[name] = timeframe;
       }
     }
@@ -207,23 +221,25 @@ const weeklySchedule = computed(() => {
     const parsedSchedule: Record<
       string,
       {
-        start: string;
-        end: string;
-        length: number;
+        start: string
+        end: string
+        length: number
       }
     > = {};
     for (const [block, timeframe] of Object.entries(unparsedSchedule)) {
       let blockName = block;
       if (blockNames.value[blockName]) {
         blockName = blockNames.value[blockName];
-      } else if (blockName === 'Lunch') {
+      }
+      else if (blockName === 'Lunch') {
         if (clubs.value[day.value]) {
           blockName = clubs.value[day.value];
         }
-      } else if (
-        (blockName === 'Immersive Morning' ||
-          blockName === 'Immersive Afternoon') &&
-        immersiveName.value
+      }
+      else if (
+        (blockName === 'Immersive Morning'
+        || blockName === 'Immersive Afternoon')
+        && immersiveName.value
       ) {
         blockName = immersiveName.value;
       }
@@ -237,9 +253,9 @@ const weeklySchedule = computed(() => {
           timeframe.end.hour > 12 ? timeframe.end.hour - 12 : timeframe.end.hour
         }:${timeframe.end.minute.toString().padStart(2, '0')}`,
         length:
-          timeframe.end.hour * 60 +
-          timeframe.end.minute -
-          (timeframe.start.hour * 60 + timeframe.start.minute),
+          timeframe.end.hour * 60
+          + timeframe.end.minute
+          - (timeframe.start.hour * 60 + timeframe.start.minute),
       };
       if (!colorKey.value[blockName]) {
         colorKey.value[blockName] = colors[colorKeyIndex.value];
@@ -253,15 +269,15 @@ const weeklySchedule = computed(() => {
         start: activitySchedule.value[day.value].start,
         end: activitySchedule.value[day.value].end,
         length:
-          parseInt(activitySchedule.value[day.value].end.split(':')[0]) * 60 +
-          parseInt(activitySchedule.value[day.value].end.split(':')[1]) -
-          (parseInt(activitySchedule.value[day.value].start.split(':')[0]) *
-            60 +
-            parseInt(activitySchedule.value[day.value].start.split(':')[1])),
+          parseInt(activitySchedule.value[day.value].end.split(':')[0]) * 60
+          + parseInt(activitySchedule.value[day.value].end.split(':')[1])
+          - (parseInt(activitySchedule.value[day.value].start.split(':')[0])
+          * 60
+          + parseInt(activitySchedule.value[day.value].start.split(':')[1])),
       };
       if (!colorKey.value[activityName.value || 'Activities + Sports/Drama']) {
-        colorKey.value[activityName.value || 'Activities + Sports/Drama'] =
-          colors[colorKeyIndex.value];
+        colorKey.value[activityName.value || 'Activities + Sports/Drama']
+          = colors[colorKeyIndex.value];
         colorKeyIndex.value++;
       }
     }
@@ -274,9 +290,9 @@ const weeklySchedule = computed(() => {
     Record<
       string,
       {
-        start: string;
-        end: string;
-        length: number;
+        start: string
+        end: string
+        length: number
       }
     >
   >

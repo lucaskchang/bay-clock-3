@@ -10,8 +10,8 @@ const regularSchedule = regularScheduleJSON as Record<
   Record<
     string,
     {
-      start: { hour: number; minute: number };
-      end: { hour: number; minute: number };
+      start: { hour: number, minute: number }
+      end: { hour: number, minute: number }
     }
   >
 >;
@@ -47,8 +47,8 @@ export const useScheduleStore = defineStore('schedule', () => {
     let unparsedSchedule: Record<
       string,
       {
-        start: { hour: number; minute: number };
-        end: { hour: number; minute: number };
+        start: { hour: number, minute: number }
+        end: { hour: number, minute: number }
       }
     > = {};
 
@@ -59,23 +59,28 @@ export const useScheduleStore = defineStore('schedule', () => {
       if (name === 'Group Advisory/1-on-1s') {
         if (!advisoryDay.value) {
           unparsedSchedule[name] = timeframe;
-        } else if (advisoryDay.value === day.value) {
+        }
+        else if (advisoryDay.value === day.value) {
           unparsedSchedule['Group Advisory'] = timeframe;
-        } else if (showOneOnOnes.value === 'Yes') {
+        }
+        else if (showOneOnOnes.value === 'Yes') {
           unparsedSchedule['Advisor 1-on-1'] = timeframe;
         }
-      } else if (name === flexBlock.value) {
+      }
+      else if (name === flexBlock.value) {
         if (
-          hasSpecialFlex.value === 'Yes' &&
-          day.value === specialFlexDay.value
+          hasSpecialFlex.value === 'Yes'
+          && day.value === specialFlexDay.value
         ) {
           unparsedSchedule[
             customSpecialFlexName.value || specialFlexName.value
           ] = timeframe;
-        } else {
+        }
+        else {
           unparsedSchedule[name] = timeframe;
         }
-      } else {
+      }
+      else {
         unparsedSchedule[name] = timeframe;
       }
     }
@@ -114,12 +119,13 @@ export const useScheduleStore = defineStore('schedule', () => {
     }
 
     // convert schedule to timestamps
-    const parsedSchedule = {} as Record<string, { start: number; end: number }>;
+    const parsedSchedule = {} as Record<string, { start: number, end: number }>;
     for (const [block, timeframe] of Object.entries(unparsedSchedule)) {
       let blockName = block;
       if (blockNames.value[blockName]) {
         blockName = blockNames.value[blockName];
-      } else if (blockName === 'Lunch') {
+      }
+      else if (blockName === 'Lunch') {
         if (clubs.value[day.value]) {
           blockName = clubs.value[day.value];
         }
@@ -127,7 +133,8 @@ export const useScheduleStore = defineStore('schedule', () => {
       // gimmicky way to handle immersives so that you can display the morning and afternoon immersives with the same block
       else if (blockName === 'REMOVEImmersive' && immersiveName.value) {
         blockName = `REMOVE${immersiveName.value}`;
-      } else if (blockName === 'DELETEImmersive' && immersiveName.value) {
+      }
+      else if (blockName === 'DELETEImmersive' && immersiveName.value) {
         blockName = `DELETE${immersiveName.value}`;
       }
       parsedSchedule[blockName] = {
@@ -160,7 +167,7 @@ export const useScheduleStore = defineStore('schedule', () => {
     }
 
     return parsedSchedule;
-  }) as ComputedRef<Record<string, { start: number; end: number }>>;
+  }) as ComputedRef<Record<string, { start: number, end: number }>>;
 
   return {
     schedule,

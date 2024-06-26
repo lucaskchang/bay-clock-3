@@ -2,17 +2,28 @@
   <div
     class="flex flex-col justify-between text-5xl font-bold md:flex-row md:px-2 md:pt-2 md:text-6xl"
   >
-    <div v-if="showClock" class="flex flex-row tracking-tighter md:flex-col">
+    <div
+      v-if="showClock"
+      class="flex flex-row tracking-tighter md:flex-col"
+    >
       {{ clock }}
     </div>
-    <div v-if="showStatus" class="flex flex-row tracking-tight md:flex-col">
+    <div
+      v-if="showStatus"
+      class="flex flex-row tracking-tight md:flex-col"
+    >
       {{ statusMessage }}
     </div>
   </div>
   <div
-    class="flex flex-col justify-between text-3xl font-bold tracking-tight text-gray-600 dark:text-gray-400 md:flex-row md:px-2 md:text-4xl"
+    class="flex flex-col justify-between text-3xl font-bold tracking-tight text-gray-600 md:flex-row md:px-2 md:text-4xl dark:text-gray-400"
   >
-    <div v-if="showDate" class="flex-row md:flex-col">{{ date }}</div>
+    <div
+      v-if="showDate"
+      class="flex-row md:flex-col"
+    >
+      {{ date }}
+    </div>
     <div
       v-if="isSpecialSchedule && showIndicator"
       class="flex-row md:flex-col"
@@ -52,8 +63,8 @@ const date = useDateFormat(time, 'ddd MMMM D YYYY');
 const scheduleStore = useScheduleStore();
 const stylesStore = useStylesStore();
 const { schedule, isSpecialSchedule, isBreak, daysLeft, isImmersive } = storeToRefs(scheduleStore);
-const { showClock, showStatus, showDate, showIndicator, useDetailedTime } =
-  storeToRefs(stylesStore);
+const { showClock, showStatus, showDate, showIndicator, useDetailedTime }
+  = storeToRefs(stylesStore);
 
 const statusMessage = computed(() => {
   const timeNum = time.value.getTime();
@@ -84,21 +95,22 @@ const statusMessage = computed(() => {
     if (timeNum >= timeframe.start && timeNum <= timeframe.end) {
       if (useDetailedTime.value) {
         const timeLeft = timeframe.end - timeNum;
-        const hours =
-          Math.floor(timeLeft / 1000 / 60 / 60) > 0
+        const hours
+          = Math.floor(timeLeft / 1000 / 60 / 60) > 0
             ? `${Math.floor(timeLeft / 1000 / 60 / 60)}:`
             : '';
         const minutes = hours
           ? Math.floor((timeLeft / 1000 / 60) % 60)
-              .toString()
-              .padStart(2, '0')
+            .toString()
+            .padStart(2, '0')
           : Math.floor((timeLeft / 1000 / 60) % 60).toString();
         const seconds = Math.floor((timeLeft / 1000) % 60)
           .toString()
           .padStart(2, '0');
 
         return `${hours}${minutes}:${seconds} left`;
-      } else {
+      }
+      else {
         return `${Math.ceil(
           (timeframe.end - timeNum) / 1000 / 60,
         )} minutes left`;

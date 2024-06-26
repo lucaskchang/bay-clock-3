@@ -4,17 +4,24 @@
       <div
         v-for="(color, team) of olympicTeams"
         :key="team"
-        class="w-full h-12 rounded-lg shadow flex flex-row items-center p-2 hover:scale-105 transition duration-300 ease-in-out"
+        class="flex h-12 w-full flex-row items-center rounded-lg p-2 shadow transition duration-300 ease-in-out hover:scale-105"
         :class="`bg-${color}-400`"
         @click="isPresetOpen = true; chosenTeam = color;"
       >
-        <div class="flex flex-col rounded-full h-8 w-8 shadow" :class="`bg-${color}-600`" />
-        <p class="ml-2 text-lg font-semibold">{{ team }} Team</p>
+        <div
+          class="flex size-8 flex-col rounded-full shadow"
+          :class="`bg-${color}-600`"
+        />
+        <p class="ml-2 text-lg font-semibold">
+          {{ team }} Team
+        </p>
       </div>
     </div>
     <UModal v-model="isPresetOpen">
       <div class="p-4">
-        <p class="text-2xl font-semibold">Are you sure?</p>
+        <p class="text-2xl font-semibold">
+          Are you sure?
+        </p>
         <p>Any existing button and progress bar colors will be overwritten.</p>
         <div class="mt-4 flex flex-row gap-2">
           <UButton
@@ -56,7 +63,7 @@ const olympicTeams = {
   Orange: 'orange',
   Pink: 'rose',
   Purple: 'purple',
-}
+};
 
 function applyPreset(color: string) {
   for (const button in buttonStyles.value) {

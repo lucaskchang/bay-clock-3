@@ -51,8 +51,10 @@
     </p>
 
     <UModal v-model="isCreditsOpen">
-      <div class="p-4 space-y-2">
-        <p class="text-2xl font-semibold">Credits</p>
+      <div class="space-y-2 p-4">
+        <p class="text-2xl font-semibold">
+          Credits
+        </p>
         <p>Maintained by Lucas Chang</p>
         <p>Created by Lucas Chang with inspiration from:</p>
         <p>
@@ -104,14 +106,12 @@
           >
             http://clock.bayschoolsf.org/
           </a> (deprecated June 11, 2016)
-      </p>
+        </p>
       </div>
     </UModal>
     <UModal v-model="isToolsOpen">
-      <div class="p-4 flex flex-col md:flex-row">
-        <div class="w-full md:w-1/3 h-24">
-          <img
-        </div>
+      <div class="flex flex-col p-4 md:flex-row">
+        <div class="h-24 w-full md:w-1/3" />
       </div>
     </UModal>
     <UModal
@@ -121,9 +121,15 @@
       }"
     >
       <div class="space-y-2 p-4">
-        <p class="text-2xl font-semibold">Changelog</p>
-        <p class="mt-4 text-xl font-bold">New in v3.0</p>
-        <p class="text-lg font-semibold">Features</p>
+        <p class="text-2xl font-semibold">
+          Changelog
+        </p>
+        <p class="mt-4 text-xl font-bold">
+          New in v3.0
+        </p>
+        <p class="text-lg font-semibold">
+          Features
+        </p>
         <p>
           🔗 Reverted useful links dashboard to dropdown (sometimes simpler is
           better)
@@ -142,7 +148,9 @@
         <p>📐 Option to add custom useful links</p>
         <p>🔍 Easier to find in search results</p>
         <p>📱 Better mobile formatting</p>
-        <p class="text-lg font-semibold">Code Upgrades</p>
+        <p class="text-lg font-semibold">
+          Code Upgrades
+        </p>
         <p>📦 Upgraded all packages to latest versions</p>
         <p>
           ⚡ Switched to Nuxt for maximum performance and developer experience

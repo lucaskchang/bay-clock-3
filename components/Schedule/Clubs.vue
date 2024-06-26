@@ -5,7 +5,9 @@
       :key="day"
       class="flex flex-row items-center gap-4"
     >
-      <p class="font-semibold">{{ day }}</p>
+      <p class="font-semibold">
+        {{ day }}
+      </p>
       <UInput
         v-model="clubs[day]"
         placeholder="Enter a club name"

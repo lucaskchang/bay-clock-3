@@ -1,12 +1,16 @@
 <template>
   <div class="space-y-4">
-    <p class="text-xl font-semibold">Name</p>
+    <p class="text-xl font-semibold">
+      Name
+    </p>
     <UInput
       v-model="activityName"
       placeholder="Activities + Sports/Drama"
       class="w-full"
     />
-    <p class="text-xl font-semibold">Schedule</p>
+    <p class="text-xl font-semibold">
+      Schedule
+    </p>
     <div class="flex flex-col space-y-4">
       <div
         v-for="day in Object.keys(activityDays)"
@@ -42,6 +46,6 @@
 import { useCustomScheduleStore } from '~/stores/customSchedule';
 
 const customScheduleStore = useCustomScheduleStore();
-const { activityName, activityDays, activitySchedule } =
-  storeToRefs(customScheduleStore);
+const { activityName, activityDays, activitySchedule }
+  = storeToRefs(customScheduleStore);
 </script>

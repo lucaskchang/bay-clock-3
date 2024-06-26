@@ -1,6 +1,10 @@
 <template>
   <div>
-    <UButton :ui="buttonUIs.styles" label="Customize" @click="isOpen = true" />
+    <UButton
+      :ui="buttonUIs.styles"
+      label="Customize"
+      @click="isOpen = true"
+    />
     <UModal
       v-model="isOpen"
       :ui="{
@@ -10,9 +14,15 @@
       @close-prevented="cancelChanges();"
     >
       <div class="w-full">
-        <UTabs :items="items" orientation="vertical" :ui="tabsStyling">
+        <UTabs
+          :items="items"
+          orientation="vertical"
+          :ui="tabsStyling"
+        >
           <template #item="{ item }">
-            <p class="mb-4 text-2xl font-bold">{{ item.label }}</p>
+            <p class="mb-4 text-2xl font-bold">
+              {{ item.label }}
+            </p>
             <StylesHeader v-if="item.label === 'Header'" />
             <StylesBars v-if="item.label === 'Bars'" />
             <StylesButtons v-if="item.label === 'Buttons'" />
@@ -22,7 +32,11 @@
               class="flex flex-row justify-between gap-2 justify-self-end pt-4"
             >
               <div>
-                <UButton size="lg" label="Save" @click="saveChanges()" />
+                <UButton
+                  size="lg"
+                  label="Save"
+                  @click="saveChanges()"
+                />
                 <UButton
                   size="lg"
                   variant="ghost"
@@ -45,7 +59,9 @@
     </UModal>
     <UModal v-model="isResetOpen">
       <div class="p-4">
-        <p class="text-2xl font-semibold">Are you sure?</p>
+        <p class="text-2xl font-semibold">
+          Are you sure?
+        </p>
         <p>All schedules will be reset to their defaults.</p>
         <div class="mt-4 flex flex-row gap-2">
           <UButton
@@ -65,28 +81,30 @@
     </UModal>
     <UModal v-model="isCancelOpen">
       <div class="p-4">
-        <p class="text-2xl font-semibold">Are you sure?</p>
+        <p class="text-2xl font-semibold">
+          Are you sure?
+        </p>
         <p>Any changes you made will be lost.</p>
         <div class="mt-4 flex flex-row gap-2">
           <UButton
             size="lg"
             label="Yes, cancel changes"
+            color="red"
+            variant="outline"
             @click="
               isCancelOpen = false;
               isOpen = false;
               revert();
             "
-            color="red"
-            variant="outline"
           />
           <UButton
             size="lg"
             label="No, save changes"
+            variant="outline"
             @click="
               isCancelOpen = false;
               saveChanges();
             "
-            variant="outline"
           />
           <UButton
             size="lg"
@@ -146,7 +164,7 @@ function resetStyles() {
   stylesStore.$reset();
   isOpen.value = false;
 
-   notification.add({
+  notification.add({
     icon: 'i-heroicons-arrow-path',
     title: 'Changes Saved',
     description: 'Your styles have been reset to its defaults.',
@@ -160,7 +178,7 @@ function saveChanges() {
   const styles = getCurrentStylesState();
   localStorage.setItem('styles', JSON.stringify(styles));
 
-   notification.add({
+  notification.add({
     icon: 'i-heroicons-check-badge',
     title: 'Changes Saved',
     description: 'All new changes to your styles have been saved.',
@@ -175,7 +193,8 @@ function cancelChanges() {
   const newStyles = getCurrentStylesState();
   if (JSON.stringify(newStyles) === JSON.stringify(initialStyles)) {
     isOpen.value = false;
-  } else {
+  }
+  else {
     isCancelOpen.value = true;
   }
 }
@@ -193,7 +212,7 @@ function revert() {
     schedule: { ...initialStyles.buttonStyles.schedule },
     styles: { ...initialStyles.buttonStyles.styles },
     weekly: { ...initialStyles.buttonStyles.weekly },
-  }
+  };
   stylesStore.useDetailedTime = initialStyles.useDetailedTime;
   stylesStore.isDarkMode = initialStyles.isDarkMode;
 

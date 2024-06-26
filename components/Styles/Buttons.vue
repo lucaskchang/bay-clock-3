@@ -1,6 +1,8 @@
 <template>
   <div>
-    <p class="mr-2 text-xl font-semibold">Color</p>
+    <p class="mr-2 text-xl font-semibold">
+      Color
+    </p>
     <div class="mt-2 flex flex-wrap gap-4">
       <div
         v-for="(styles, button) of buttonStyles"
@@ -15,9 +17,12 @@
           />
           <template #panel>
             <div class="flex w-64 flex-wrap p-2">
-              <div v-for="color in colors.bg" :key="color">
+              <div
+                v-for="color in colors.bg"
+                :key="color"
+              >
                 <div
-                  class="h-6 w-6 cursor-pointer"
+                  class="size-6 cursor-pointer"
                   :class="{
                     [color]: true,
                     'border-2 border-white':
@@ -31,14 +36,18 @@
         </UPopover>
       </div>
     </div>
-    <p class="mr-2 mt-4 text-xl font-semibold">Rounded</p>
+    <p class="mr-2 mt-4 text-xl font-semibold">
+      Rounded
+    </p>
     <div class="mt-2 flex flex-wrap gap-4">
       <div
         v-for="(styles, button) of buttonStyles"
         :key="button"
         class="flex flex-row items-center"
       >
-        <p class="mr-2">{{ titles[button] }}</p>
+        <p class="mr-2">
+          {{ titles[button] }}
+        </p>
         <UToggle v-model="buttonStyles[button].isRounded" />
       </div>
     </div>

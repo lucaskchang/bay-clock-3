@@ -11,9 +11,9 @@ export default defineNuxtConfig({
         {
           rel: 'icon',
           type: 'image/ico',
-          href: '/favicon.ico'
-        }
-      ]
+          href: '/favicon.ico',
+        },
+      ],
     },
   },
   css: ['@/assets/styles/main.scss'],
@@ -27,7 +27,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@vueuse/nuxt',
     'nuxt-gtag',
-    '@nuxt/eslint'
+    '@nuxt/eslint',
   ],
   colorMode: {
     classSuffix: '',
@@ -42,7 +42,7 @@ export default defineNuxtConfig({
   },
   eslint: {
     config: {
-      stylistic: true
-    }
-  }
+      stylistic: true,
+    },
+  },
 });

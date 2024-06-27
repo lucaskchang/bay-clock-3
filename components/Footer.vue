@@ -52,9 +52,7 @@
 
     <UModal v-model="isCreditsOpen">
       <div class="space-y-2 p-4">
-        <p class="text-2xl font-semibold">
-          Credits
-        </p>
+        <p class="text-2xl font-semibold">Credits</p>
         <p>Maintained by ???</p>
         <p>Created by Lucas Chang with inspiration from:</p>
         <p>
@@ -65,7 +63,8 @@
             rel="noopener noreferrer"
           >
             https://lukajaa.github.io/bay-clock-2/
-          </a> (deprecated June 14, 2024)
+          </a>
+          (deprecated June 14, 2024)
         </p>
         <p>
           <a
@@ -75,7 +74,8 @@
             rel="noopener noreferrer"
           >
             https://lukajaa.github.io/clock/
-          </a> (deprecated February 2, 2023)
+          </a>
+          (deprecated February 2, 2023)
         </p>
         <p>
           <a
@@ -85,7 +85,8 @@
             rel="noopener noreferrer"
           >
             https://lukajaa.github.io/bay-clock/
-          </a> (deprecated October 16, 2021)
+          </a>
+          (deprecated October 16, 2021)
         </p>
         <p>
           <a
@@ -95,7 +96,8 @@
             rel="noopener noreferrer"
           >
             https://baysf.github.io/clock/
-          </a> (deprecated May 15, 2021 or maybe never actually worked)
+          </a>
+          (deprecated May 15, 2021 or maybe never actually worked)
         </p>
         <p>
           <a
@@ -105,7 +107,8 @@
             rel="noopener noreferrer"
           >
             http://clock.bayschoolsf.org/
-          </a> (deprecated June 11, 2016)
+          </a>
+          (deprecated June 11, 2016)
         </p>
       </div>
     </UModal>
@@ -116,9 +119,7 @@
       }"
     >
       <div class="p-4">
-        <p class="text-2xl font-semibold">
-          Tools
-        </p>
+        <p class="text-2xl font-semibold">Tools</p>
         <div class="flex flex-col md:flex-row">
           <div
             v-for="n in 3"
@@ -130,18 +131,19 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div class="rounded-md ring-4 ring-gray-200 transition duration-300 ease-in-out hover:ring-blue-400">
+              <div
+                class="rounded-md ring-4 ring-gray-200 transition duration-300 ease-in-out hover:ring-blue-400"
+              >
                 <NuxtImg
                   src="/baydle.png"
                   alt="Baydle Game"
                   class="w-full rounded-t-md"
                 />
                 <div class="px-4 pb-4">
-                  <p class="mt-2 text-lg font-semibold">
-                    Baydle Game
-                  </p>
+                  <p class="mt-2 text-lg font-semibold">Baydle Game</p>
                   <p>
-                    A Bay School themed Wordle game. Guess the teacher in ten tries or less based on their room number and subject.
+                    A Bay School themed Wordle game. Guess the teacher in ten
+                    tries or less based on their room number and subject.
                   </p>
                 </div>
               </div>
@@ -157,15 +159,9 @@
       }"
     >
       <div class="space-y-2 p-4">
-        <p class="text-2xl font-semibold">
-          Changelog
-        </p>
-        <p class="mt-4 text-xl font-bold">
-          New in v3.0
-        </p>
-        <p class="text-lg font-semibold">
-          Features
-        </p>
+        <p class="text-2xl font-semibold">Changelog</p>
+        <p class="mt-4 text-xl font-bold">New in v3.0</p>
+        <p class="text-lg font-semibold">Features</p>
         <p>
           🔗 Reverted useful links dashboard to dropdown (sometimes simpler is
           better)
@@ -180,13 +176,13 @@
         <p>🖌️ New color palette (36 more colors)</p>
         <p>🔵 Added option for unrounded progress bars and buttons</p>
         <p>🌙 Automatic dark mode</p>
-        <p>🔔 Notifications for saving, cancelling, and resetting customizations</p>
+        <p>
+          🔔 Notifications for saving, cancelling, and resetting customizations
+        </p>
         <p>📐 Option to add custom useful links</p>
         <p>🔍 Easier to find in search results</p>
         <p>📱 Better mobile formatting</p>
-        <p class="text-lg font-semibold">
-          Code Upgrades
-        </p>
+        <p class="text-lg font-semibold">Code Upgrades</p>
         <p>📦 Upgraded all packages to latest versions</p>
         <p>
           ⚡ Switched to Nuxt for maximum performance and developer experience

@@ -55,7 +55,7 @@
         <p class="text-2xl font-semibold">
           Credits
         </p>
-        <p>Maintained by Lucas Chang</p>
+        <p>Maintained by ???</p>
         <p>Created by Lucas Chang with inspiration from:</p>
         <p>
           <a
@@ -109,9 +109,45 @@
         </p>
       </div>
     </UModal>
-    <UModal v-model="isToolsOpen">
-      <div class="flex flex-col p-4 md:flex-row">
-        <div class="h-24 w-full md:w-1/3" />
+    <UModal
+      v-model="isToolsOpen"
+      :ui="{
+        width: 'sm:max-w-4xl',
+      }"
+    >
+      <div class="p-4">
+        <p class="text-2xl font-semibold">
+          Tools
+        </p>
+        <div class="flex flex-col md:flex-row">
+          <div
+            v-for="n in 3"
+            :key="n"
+            class="flex w-full p-2 md:w-1/3 md:flex-col"
+          >
+            <a
+              href="https://www.nytimes.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="rounded-md ring-4 ring-gray-200 transition duration-300 ease-in-out hover:ring-blue-400">
+                <NuxtImg
+                  src="/baydle.png"
+                  alt="Baydle Game"
+                  class="w-full rounded-t-md"
+                />
+                <div class="px-4 pb-4">
+                  <p class="mt-2 text-lg font-semibold">
+                    Baydle Game
+                  </p>
+                  <p>
+                    A Bay School themed Wordle game. Guess the teacher in ten tries or less based on their room number and subject.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </UModal>
     <UModal

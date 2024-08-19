@@ -1,32 +1,80 @@
 {
-  "10/16/2023":  {
-    "Bababooey": {
+  "2024/8/19": {
+    "Transfer Student Orientation": {
+      "start": {"hour": 9, "minute": 0},
+      "end": {"hour": 11, "minute": 30}
+    },
+    "11th Grade Orientation": {
+      "start": {"hour": 11, "minute": 30},
+      "end": {"hour": 15, "minute": 0}
+    }
+  },
+  "2024/8/20": {
+    "9th Grade Orientation": {
+      "start": {"hour": 9, "minute": 0},
+      "end": {"hour": 15, "minute": 0}
+    }
+  },
+  "2024/8/21": {
+    "9th Grade Orientation": {
+      "start": {"hour": 9, "minute": 0},
+      "end": {"hour": 12, "minute": 0}
+    },
+    "10th Grade Orientation": {
+      "start": {"hour": 10, "minute": 30},
+      "end": {"hour": 15, "minute": 0}
+    }
+  },
+  "2024/8/22": {
+    "Opening Day Morning Meeting": {
       "start": {"hour": 8, "minute": 30},
-      "end": {"hour": 8, "minute": 55}
+      "end": {"hour": 9, "minute": 15}
     },
     "A": {
-      "start": {"hour": 9, "minute": 0},
-      "end": {"hour": 10, "minute": 15}
+      "start": {"hour": 9, "minute": 20},
+      "end": {"hour": 10, "minute": 10}
     },
     "B": {
-      "start": {"hour": 10, "minute": 20},
-      "end": {"hour": 11, "minute": 35}
-    },
-    "Lunch": {
-      "start": {"hour": 11, "minute": 35},
-      "end": {"hour": 12, "minute": 30}
+      "start": {"hour": 10, "minute": 15},
+      "end": {"hour": 11, "minute": 5}
     },
     "C": {
-      "start": {"hour": 12, "minute": 30},
-      "end": {"hour": 13, "minute": 45}
+      "start": {"hour": 11, "minute": 10},
+      "end": {"hour": 12, "minute": 0}
+    },
+    "Lunch": {
+      "start": {"hour": 12, "minute": 0},
+      "end": {"hour": 13, "minute": 0}
+    },
+    "Advisory-Student-Parent Conferences": {
+      "start": {"hour": 13, "minute": 0},
+      "end": {"hour": 16, "minute": 0}
+    }
+  },
+  "2024/8/23": {
+    "Extended Morning Meeting: Community Life": {
+      "start": {"hour": 8, "minute": 30},
+      "end": {"hour": 9, "minute": 15}
     },
     "D": {
-      "start": {"hour": 13, "minute": 50},
-      "end": {"hour": 15, "minute": 5}
+      "start": {"hour": 9, "minute": 20},
+      "end": {"hour": 10, "minute": 10}
     },
-    "Tutorial": {
-      "start": {"hour": 15, "minute": 10},
-      "end": {"hour": 15, "minute": 40}
+    "E": {
+      "start": {"hour": 10, "minute": 15},
+      "end": {"hour": 11, "minute": 5}
+    },
+    "F": {
+      "start": {"hour": 11, "minute": 10},
+      "end": {"hour": 12, "minute": 0}
+    },
+    "Lunch": {
+      "start": {"hour": 12, "minute": 0},
+      "end": {"hour": 13, "minute": 0}
+    },
+    "Advisory-Student-Parent Conferences": {
+      "start": {"hour": 13, "minute": 0},
+      "end": {"hour": 16, "minute": 0}
     }
   }
 }

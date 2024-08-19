@@ -110,6 +110,8 @@ const colors = [
   'bg-cyan-400',
   'bg-lime-400',
   'bg-rose-400',
+  'bg-teal-400',
+  'bg-fuchsia-400',
 ];
 
 const colorKey = ref({}) as Ref<Record<string, string>>;

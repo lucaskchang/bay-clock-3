@@ -56,6 +56,14 @@
           Credits
         </p>
         <p>Maintained by ???</p>
+        <p>
+          Interested in helping out? Contact me at lucaskchang@gmail.com and/or read <a
+            class="text-blue-400 hover:text-blue-500"
+            href="https://lucaschang.notion.site/Bay-Clock-Guide-4b3b8d76ee0a428083cfd9cc37f1ca89"
+            target="_blank"
+            rel="noopener noreferrer"
+          >this guide</a>.
+        </p>
         <p>Created by Lucas Chang with inspiration from:</p>
         <p>
           <a

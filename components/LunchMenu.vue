@@ -15,7 +15,7 @@
     >
       <div class="w-full">
         <img
-          src="https://www.bayclock.org/menu/1.jpg"
+          src="/menu.jpg"
           class="rounded-lg"
         >
       </div>

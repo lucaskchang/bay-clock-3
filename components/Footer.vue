@@ -120,13 +120,9 @@
           Tools
         </p>
         <div class="flex flex-col md:flex-row">
-          <div
-            v-for="n in 3"
-            :key="n"
-            class="flex w-full p-2 md:w-1/3 md:flex-col"
-          >
+          <div class="flex w-full p-2 md:w-1/3 md:flex-col">
             <a
-              href="https://www.nytimes.com/"
+              href="https://baydle.lucaskchang.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -142,6 +138,54 @@
                   </p>
                   <p>
                     A Bay School themed Wordle game. Guess the teacher in ten tries or less based on their room number and subject.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="flex w-full p-2 md:w-1/3 md:flex-col">
+            <a
+              href="https://www.nytimes.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="rounded-md p-2 ring-4 ring-gray-200 transition duration-300 ease-in-out hover:ring-blue-400">
+                <div class="flex flex-row items-center">
+                  <UIcon
+                    class="flex size-16 flex-col"
+                    name="i-heroicons-calendar"
+                  />
+                  <p class="flexflex-col mt-2 text-2xl font-semibold">
+                    Schedule Generator
+                  </p>
+                </div>
+                <div class="px-4 pb-4">
+
+                  <p>
+                    Generate a printable schedule based on the current week's schedule or the default schedule.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="flex w-full p-2 md:w-1/3 md:flex-col">
+            <a
+              href="https://www.nytimes.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="rounded-md ring-4 ring-gray-200 transition duration-300 ease-in-out hover:ring-blue-400">
+                <NuxtImg
+                  src="/baydle.png"
+                  alt="Baydle Game"
+                  class="w-full rounded-t-md"
+                />
+                <div class="px-4 pb-4">
+                  <p class="mt-2 text-lg font-semibold">
+                    Homework Timer
+                  </p>
+                  <p>
+                    Time your homework sessions using the classic pomodoro technique or your own custom interval.
                   </p>
                 </div>
               </div>

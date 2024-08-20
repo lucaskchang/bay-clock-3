@@ -1,6 +1,22 @@
 <template>
   <div>
     <div
+      v-if="!printing"
+      class="flex flex-row items-center space-x-2"
+    >
+      <p>
+        Use Default Schedule
+      </p>
+      <UToggle v-model="useDefaultSchedule" />
+      <p>
+        Use Custom Block Names
+      </p>
+      <UToggle v-model="useCustomNames" />
+      <UButton @click="print()">
+        Print
+      </UButton>
+    </div>
+    <div
       class="flex min-h-[384px] w-full flex-row gap-4 overflow-x-scroll p-8"
     >
       <div
@@ -44,7 +60,6 @@
 </template>
 
 <script setup lang="ts">
-import { useStylesStore } from '~/stores/styles';
 import { useCustomScheduleStore } from '~/stores/customSchedule';
 import { useNowStore } from '~/stores/now';
 import regularScheduleJSON from '~/assets/data/regular_schedule.json';
@@ -52,19 +67,17 @@ import specialSchedules from '~/assets/data/special_schedules.json';
 import immersiveSchedule from '~/assets/data/immersive_schedule.json';
 import breaks from '~/assets/data/breaks.json';
 
-const stylesStore = useStylesStore();
-const weeklySchedule = ref({}) as Ref<Record<
-  string,
-  Record<
-    string,
-    {
-      start: string
-      end: string
-      length: number
-    }
-  >
->>;
+const useDefaultSchedule = ref(true);
+const useCustomNames = ref(false);
 
+function print() {
+  printing.value = true;
+  setTimeout(() => {
+    window.print();
+    printing.value = false;
+  }, 1000);
+}
+const printing = ref(false);
 const customScheduleStore = useCustomScheduleStore();
 const nowStore = useNowStore();
 const {
@@ -82,7 +95,7 @@ const {
   advisoryDay,
   showOneOnOnes,
 } = storeToRefs(customScheduleStore);
-const { time } = storeToRefs(nowStore);
+const time = nowStore.time;
 
 const regularSchedule = regularScheduleJSON as Record<
   string,
@@ -120,7 +133,7 @@ const colorKeyIndex = ref(0);
 
 const isImmersive = ref(false);
 
-onMounted(() => {
+const weeklySchedule = computed(() => {
   const output = {} as Record<
     string,
     Record<
@@ -133,7 +146,7 @@ onMounted(() => {
     >
   >;
   for (const dayOfWeek of days) {
-    const dayDate = new Date(time.value);
+    const dayDate = new Date(time);
     const today = dayDate.getDay();
     const diff = dayDate.getDate() - today + days.indexOf(dayOfWeek) + 1;
     dayDate.setDate(diff);
@@ -181,45 +194,46 @@ onMounted(() => {
       }
     }
 
+    if (!useDefaultSchedule.value) {
     // check for special schedule
-    for (const [date, specialSchedule] of Object.entries(specialSchedules)) {
-      const specialScheduleDate = new Date(date);
-      if (dayDate.toDateString() === specialScheduleDate.toDateString()) {
-        unparsedSchedule = specialSchedule;
+      for (const [date, specialSchedule] of Object.entries(specialSchedules)) {
+        const specialScheduleDate = new Date(date);
+        if (dayDate.toDateString() === specialScheduleDate.toDateString()) {
+          unparsedSchedule = specialSchedule;
+        }
       }
-    }
 
-    // check for immersives
-    for (const date of immersiveSchedule.dates) {
-      const startDate = new Date(date.start);
-      const endDate = new Date(date.end);
-      if (dayDate >= startDate && dayDate <= endDate) {
-        unparsedSchedule = immersiveSchedule.schedule;
-        isImmersive.value = true;
+      // check for immersives
+      for (const date of immersiveSchedule.dates) {
+        const startDate = new Date(date.start);
+        const endDate = new Date(date.end);
+        if (dayDate >= startDate && dayDate <= endDate) {
+          unparsedSchedule = immersiveSchedule.schedule;
+          isImmersive.value = true;
+        }
       }
-    }
 
-    // check for breaks
-    for (const [name, timeframe] of Object.entries(breaks)) {
-      const breakStart = new Date(timeframe.start);
-      const breakEnd = new Date(timeframe.end);
-      if (dayDate >= breakStart && dayDate <= breakEnd) {
-        unparsedSchedule = {
-          [name]: {
-            start: {
-              hour: 0,
-              minute: 0,
+      // check for breaks
+      for (const [name, timeframe] of Object.entries(breaks)) {
+        const breakStart = new Date(timeframe.start);
+        const breakEnd = new Date(timeframe.end);
+        if (dayDate >= breakStart && dayDate <= breakEnd) {
+          unparsedSchedule = {
+            [name]: {
+              start: {
+                hour: 0,
+                minute: 0,
+              },
+              end: {
+                hour: 23,
+                minute: 59,
+              },
             },
-            end: {
-              hour: 23,
-              minute: 59,
-            },
-          },
-        };
-        isBreak = true;
+          };
+          isBreak = true;
+        }
       }
     }
-
     // convert schedule to timestamps
     const parsedSchedule: Record<
       string,
@@ -231,10 +245,10 @@ onMounted(() => {
     > = {};
     for (const [block, timeframe] of Object.entries(unparsedSchedule)) {
       let blockName = block;
-      if (blockNames.value[blockName]) {
+      if (blockNames.value[blockName] && useCustomNames.value) {
         blockName = blockNames.value[blockName];
       }
-      else if (blockName === 'Lunch') {
+      else if (blockName === 'Lunch' && useCustomNames.value) {
         if (clubs.value[day.value]) {
           blockName = clubs.value[day.value];
         }
@@ -242,7 +256,7 @@ onMounted(() => {
       else if (
         (blockName === 'Immersive Morning'
         || blockName === 'Immersive Afternoon')
-        && immersiveName.value
+        && immersiveName.value && useCustomNames.value
       ) {
         blockName = immersiveName.value;
       }
@@ -286,6 +300,6 @@ onMounted(() => {
     }
     output[dayOfWeek] = parsedSchedule;
   }
-  weeklySchedule.value = output;
+  return output;
 });
 </script>

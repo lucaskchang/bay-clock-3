@@ -152,9 +152,7 @@
             </a>
           </div>
           <div class="flex w-full p-2 md:w-1/3 md:flex-col">
-            <NuxtLink
-              to="/schedule"
-            >
+            <NuxtLink to="/schedule">
               <div class="rounded-md p-2 ring-4 ring-gray-200 transition duration-300 ease-in-out hover:ring-blue-400">
                 <div class="flex flex-row items-center">
                   <UIcon
@@ -175,11 +173,7 @@
             </NuxtLink>
           </div>
           <div class="flex w-full p-2 md:w-1/3 md:flex-col">
-            <a
-              href="https://www.nytimes.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <NuxtLink to="/timer">
               <div class="rounded-md ring-4 ring-gray-200 transition duration-300 ease-in-out hover:ring-blue-400">
                 <NuxtImg
                   src="/baydle.png"
@@ -195,7 +189,7 @@
                   </p>
                 </div>
               </div>
-            </a>
+            </NuxtLink>
           </div>
         </div>
       </div>

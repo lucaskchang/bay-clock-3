@@ -136,7 +136,7 @@
             >
               <div class="rounded-md ring-4 ring-gray-200 transition duration-300 ease-in-out hover:ring-blue-400">
                 <NuxtImg
-                  src="/baydle.png"
+                  src="/baydle.jpg"
                   alt="Baydle Game"
                   class="w-full rounded-t-md"
                 />
@@ -153,18 +153,16 @@
           </div>
           <div class="flex w-full p-2 md:w-1/3 md:flex-col">
             <NuxtLink to="/schedule">
-              <div class="rounded-md p-2 ring-4 ring-gray-200 transition duration-300 ease-in-out hover:ring-blue-400">
-                <div class="flex flex-row items-center">
-                  <UIcon
-                    class="flex size-16 flex-col"
-                    name="i-heroicons-calendar"
-                  />
-                  <p class="flexflex-col mt-2 text-2xl font-semibold">
+              <div class="rounded-md ring-4 ring-gray-200 transition duration-300 ease-in-out hover:ring-blue-400">
+                <NuxtImg
+                  src="/schedule.jpg"
+                  alt="Baydle Game"
+                  class="w-full rounded-t-md"
+                />
+                <div class="px-4 pb-4">
+                  <p class="mt-2 text-lg font-semibold">
                     Schedule Generator
                   </p>
-                </div>
-                <div class="px-4 pb-4">
-
                   <p>
                     Generate a printable schedule based on the current week's schedule or the default schedule.
                   </p>
@@ -173,10 +171,14 @@
             </NuxtLink>
           </div>
           <div class="flex w-full p-2 md:w-1/3 md:flex-col">
-            <NuxtLink to="/timer">
+            <a
+              href="https://study.lucaskchang.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div class="rounded-md ring-4 ring-gray-200 transition duration-300 ease-in-out hover:ring-blue-400">
                 <NuxtImg
-                  src="/baydle.png"
+                  src="/study.jpg"
                   alt="Baydle Game"
                   class="w-full rounded-t-md"
                 />
@@ -189,7 +191,7 @@
                   </p>
                 </div>
               </div>
-            </NuxtLink>
+            </a>
           </div>
         </div>
       </div>

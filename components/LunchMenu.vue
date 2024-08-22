@@ -13,11 +13,10 @@
         background: 'rounded-lg bg-transparent',
       }"
     >
-      <div class="w-full">
-        <img
-          src="/menu.jpg"
-          class="rounded-lg"
-        >
+      <div class="w-full p-4 text-center">
+        <p>
+          No Lunch Menu Available :(
+        </p>
       </div>
     </UModal>
   </div>

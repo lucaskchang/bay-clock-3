@@ -11,7 +11,7 @@
       <UInput
         v-model="clubs[day]"
         placeholder="Enter a club name"
-        class="w-full"
+        class="w-full min-w-36"
       />
     </div>
   </div>

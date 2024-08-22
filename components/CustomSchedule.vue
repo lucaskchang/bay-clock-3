@@ -10,6 +10,7 @@
       :ui="{
         width: 'sm:max-w-4xl',
         container: 'items-center',
+        base: 'overflow-auto',
       }"
       prevent-close
       @close-prevented="cancelChanges();"
@@ -58,7 +59,13 @@
         </UTabs>
       </div>
     </UModal>
-    <UModal v-model="isResetOpen">
+    <UModal
+      v-model="isResetOpen"
+      :ui="{
+        container: 'items-center',
+        base: 'overflow-auto',
+      }"
+    >
       <div class="p-4">
         <p class="text-2xl font-semibold">
           Are you sure?
@@ -80,7 +87,13 @@
         </div>
       </div>
     </UModal>
-    <UModal v-model="isCancelOpen">
+    <UModal
+      v-model="isCancelOpen"
+      :ui="{
+        container: 'items-center',
+        base: 'overflow-auto',
+      }"
+    >
       <div class="p-4">
         <p class="text-2xl font-semibold">
           Are you sure?

@@ -10,6 +10,7 @@
       :ui="{
         width: 'sm:max-w-4xl',
         container: 'items-center',
+        base: 'overflow-auto',
       }"
       prevent-close
       @close-prevented="cancelChanges();"

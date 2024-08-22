@@ -8,7 +8,7 @@
     <UModal
       v-model="isOpen"
       :ui="{
-        container: 'm-8 mx-auto w-full md:w-1/2',
+        container: 'm-8 mx-auto w-full md:w-1/2 items-center',
         width: 'sm:max-w-full',
         background: 'rounded-lg bg-transparent',
       }"

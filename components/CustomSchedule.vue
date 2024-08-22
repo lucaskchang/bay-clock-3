@@ -9,6 +9,7 @@
       v-model="isOpen"
       :ui="{
         width: 'sm:max-w-4xl',
+        container: 'items-center',
       }"
       prevent-close
       @close-prevented="cancelChanges();"

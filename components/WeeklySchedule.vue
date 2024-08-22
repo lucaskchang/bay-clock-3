@@ -9,6 +9,7 @@
       v-model="isOpen"
       :ui="{
         width: 'sm:max-w-7xl',
+        container: 'items-center',
       }"
     >
       <div

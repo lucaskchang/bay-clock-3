@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col justify-between text-5xl font-bold md:flex-row md:px-2 md:pt-2 md:text-6xl"
+    class="flex flex-col justify-between text-5xl font-semibold md:flex-row md:px-2 md:pt-2 md:text-6xl"
   >
     <div
       v-if="showClock"
@@ -16,7 +16,7 @@
     </div>
   </div>
   <div
-    class="flex flex-col justify-between text-3xl font-bold tracking-tight text-gray-600 md:flex-row md:px-2 md:text-4xl dark:text-gray-400"
+    class="flex flex-col justify-between text-3xl font-semibold tracking-tight text-gray-600 md:flex-row md:px-2 md:text-4xl dark:text-gray-400"
   >
     <div
       v-if="showDate"

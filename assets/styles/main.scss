@@ -1,3 +1,8 @@
-// * {
-//  font-family: 'Inter', sans-serif;
-// }
+@font-face {
+  font-family: highwaygothic;
+  src: url(../fonts/HWGW.woff);
+}
+
+* {
+  font-family: highwaygothic;
+}

@@ -11,6 +11,7 @@
         width: 'sm:max-w-4xl',
         container: 'items-center',
         base: 'overflow-auto',
+        wrapper: 'z-25',
       }"
       prevent-close
       @close-prevented="cancelChanges();"

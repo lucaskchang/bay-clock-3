@@ -1,6 +1,9 @@
-import activityScheduleJSON from '~/assets/data/activity_schedule.json';
+import { useContentfulStore } from './contentful';
 
 export const useCustomScheduleStore = defineStore('customSchedule', () => {
+  const contentfulStore = useContentfulStore();
+  const { activitySchedule } = storeToRefs(contentfulStore);
+
   const blockNames: Ref<Record<string, string>> = ref({
     'A': 'A',
     'B': 'B',
@@ -27,9 +30,6 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
     Thursday: true,
     Friday: true,
   });
-
-  const activitySchedule: Ref<Record<string, { start: string, end: string }>>
-    = ref(activityScheduleJSON);
 
   const activityName = ref('Activities + Sports/Drama');
   const immersiveName = ref('');

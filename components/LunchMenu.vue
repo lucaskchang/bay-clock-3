@@ -13,10 +13,15 @@
         background: 'rounded-lg bg-transparent',
       }"
     >
-      <div class="w-full p-4 text-center">
-        <p>
-          No Lunch Menu Available :(
-        </p>
+      <div class="w-full">
+        <NuxtImg
+          v-for="image in menuImages"
+          :key="image"
+          provider="contentful"
+          format="webp"
+          :src="image"
+          class="rounded-lg"
+        />
       </div>
     </UModal>
   </div>
@@ -24,9 +29,12 @@
 
 <script setup lang="ts">
 import { useStylesStore } from '~/stores/styles';
+import { useContentfulStore } from '~/stores/contentful';
 
 const stylesStore = useStylesStore();
+const contentfulStore = useContentfulStore();
 const { buttonUIs } = storeToRefs(stylesStore);
+const { menuImages } = storeToRefs(contentfulStore);
 
 const isOpen = ref(false);
 </script>

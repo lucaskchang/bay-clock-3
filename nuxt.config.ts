@@ -32,6 +32,11 @@ export default defineNuxtConfig({
     'nuxt-gtag',
     '@nuxt/eslint',
   ],
+  image: {
+    contentful: {
+      baseURL: 'https://images.ctfassets.net/',
+    },
+  },
   colorMode: {
     classSuffix: '',
   },

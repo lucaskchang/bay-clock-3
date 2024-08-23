@@ -1,23 +1,10 @@
+import { useContentfulStore } from './contentful';
 import { useCustomScheduleStore } from './customSchedule';
 import { useNowStore } from './now';
-import regularScheduleJSON from '~/assets/data/regular_schedule.json';
-import specialSchedules from '~/assets/data/special_schedules.json';
-import immersiveSchedule from '~/assets/data/immersive_schedule.json';
-import breaks from '~/assets/data/breaks.json';
-
-const regularSchedule = regularScheduleJSON as Record<
-  string,
-  Record<
-    string,
-    {
-      start: { hour: number, minute: number }
-      end: { hour: number, minute: number }
-    }
-  >
->;
 
 export const useScheduleStore = defineStore('schedule', () => {
   const customScheduleStore = useCustomScheduleStore();
+  const contentfulStore = useContentfulStore();
   const nowStore = useNowStore();
   const {
     blockNames,
@@ -35,6 +22,7 @@ export const useScheduleStore = defineStore('schedule', () => {
     showOneOnOnes,
   } = storeToRefs(customScheduleStore);
   const { time } = storeToRefs(nowStore);
+  const { breaks, specialSchedules, immersiveSchedule, regularSchedule } = storeToRefs(contentfulStore);
 
   const isWeekend = ref(time.value.getDay() === 0 || time.value.getDay() === 6);
   const isSpecialSchedule = ref(false);
@@ -54,7 +42,7 @@ export const useScheduleStore = defineStore('schedule', () => {
 
     // load regular schedule
     for (const [name, timeframe] of Object.entries(
-      regularSchedule[day.value],
+      regularSchedule.value[day.value],
     )) {
       if (name === 'Group Advisory/1-on-1s') {
         if (!advisoryDay.value) {
@@ -86,7 +74,7 @@ export const useScheduleStore = defineStore('schedule', () => {
     }
 
     // check for special schedule
-    for (const [date, specialSchedule] of Object.entries(specialSchedules)) {
+    for (const [date, specialSchedule] of Object.entries(specialSchedules.value)) {
       const specialScheduleDate = new Date(date);
       if (time.value.toDateString() === specialScheduleDate.toDateString()) {
         unparsedSchedule = specialSchedule;
@@ -95,17 +83,17 @@ export const useScheduleStore = defineStore('schedule', () => {
     }
 
     // check for immersives
-    for (const date of immersiveSchedule.dates) {
+    for (const date of immersiveSchedule.value.dates) {
       const startDate = new Date(date.start);
       const endDate = new Date(date.end);
       if (time.value >= startDate && time.value <= endDate) {
-        unparsedSchedule = immersiveSchedule.schedule;
+        unparsedSchedule = immersiveSchedule.value.schedule;
         isImmersive.value = true;
       }
     }
 
     // check for breaks
-    for (const [name, timeframe] of Object.entries(breaks)) {
+    for (const [name, timeframe] of Object.entries(breaks.value)) {
       const breakStart = new Date(timeframe.start);
       const breakEnd = new Date(timeframe.end);
       if (time.value >= breakStart && time.value <= breakEnd) {

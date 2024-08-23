@@ -55,7 +55,7 @@
         <p class="text-2xl font-semibold">
           Credits
         </p>
-        <p>Maintained by ???</p>
+        <p>Maintained by Sean Kuwamoto, Sam West, and Kainoa Newton</p>
         <p>
           Interested in helping out? Contact me at lucaskchang@gmail.com and/or read <a
             class="text-blue-400 hover:text-blue-500"

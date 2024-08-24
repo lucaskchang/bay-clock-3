@@ -8,7 +8,7 @@
         rel="noopener noreferrer"
         class="font-semibold text-blue-400 hover:text-blue-500"
       >
-        Lucas Chang
+        Lucas Chang '24
       </a>
     </p>
     <p>
@@ -55,7 +55,7 @@
         <p class="text-2xl font-semibold">
           Credits
         </p>
-        <p>Maintained by Sean Kuwamoto, Sam West, and Kainoa Newton</p>
+        <p>Managed by Sean Kuwamoto '25, Sam West '26, and Kainoa Newton '26</p>
         <p>
           Interested in helping out? Contact me at lucaskchang@gmail.com and/or read <a
             class="text-blue-400 hover:text-blue-500"

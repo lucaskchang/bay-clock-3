@@ -10,7 +10,7 @@ export const useContentfulStore = defineStore('contentful', () => {
   const specialSchedules = ref(specialSchedulesJSON);
   const immersiveSchedule = ref(immersiveScheduleJSON);
   const regularSchedule = ref(regularScheduleJSON);
-  const menuImages = ref([])
+  const menuImages = ref([]);
   async function loadSpace() {
     const space = await $fetch('/api/contentful');
     activitySchedule.value = space.items.find(item => item.sys.id === '42Z0UUEUxuVBkEpE4pdL24').fields.schedule;

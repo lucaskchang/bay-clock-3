@@ -57,16 +57,15 @@
 </template>
 
 <script setup lang="ts">
+import { useContentfulStore } from '~/stores/contentful';
 import { useStylesStore } from '~/stores/styles';
 import { useCustomScheduleStore } from '~/stores/customSchedule';
 import { useNowStore } from '~/stores/now';
-import regularScheduleJSON from '~/assets/data/regular_schedule.json';
-import specialSchedules from '~/assets/data/special_schedules.json';
-import immersiveSchedule from '~/assets/data/immersive_schedule.json';
-import breaks from '~/assets/data/breaks.json';
 
 const stylesStore = useStylesStore();
 const { buttonUIs } = storeToRefs(stylesStore);
+const contentfulStore = useContentfulStore();
+const { breaks, specialSchedules, immersiveSchedule, regularSchedule } = storeToRefs(contentfulStore)
 
 const customScheduleStore = useCustomScheduleStore();
 const nowStore = useNowStore();
@@ -86,17 +85,6 @@ const {
   showOneOnOnes,
 } = storeToRefs(customScheduleStore);
 const { time } = storeToRefs(nowStore);
-
-const regularSchedule = regularScheduleJSON as Record<
-  string,
-  Record<
-    string,
-    {
-      start: { hour: number, minute: number }
-      end: { hour: number, minute: number }
-    }
-  >
->;
 
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 const colors = [
@@ -131,7 +119,6 @@ const weeklySchedule = computed(() => {
       {
         start: string
         end: string
-        length: number
       }
     >
   >;
@@ -153,7 +140,7 @@ const weeklySchedule = computed(() => {
 
     // load regular schedule
     for (const [name, timeframe] of Object.entries(
-      regularSchedule[day.value],
+      regularSchedule.value[day.value],
     )) {
       if (name === 'Group Advisory/1-on-1s') {
         if (!advisoryDay.value) {
@@ -185,7 +172,7 @@ const weeklySchedule = computed(() => {
     }
 
     // check for special schedule
-    for (const [date, specialSchedule] of Object.entries(specialSchedules)) {
+    for (const [date, specialSchedule] of Object.entries(specialSchedules.value)) {
       const specialScheduleDate = new Date(date);
       if (dayDate.toDateString() === specialScheduleDate.toDateString()) {
         unparsedSchedule = specialSchedule;
@@ -193,17 +180,17 @@ const weeklySchedule = computed(() => {
     }
 
     // check for immersives
-    for (const date of immersiveSchedule.dates) {
+    for (const date of immersiveSchedule.value.dates) {
       const startDate = new Date(date.start);
       const endDate = new Date(date.end);
       if (dayDate >= startDate && dayDate <= endDate) {
-        unparsedSchedule = immersiveSchedule.schedule;
+        unparsedSchedule = immersiveSchedule.value.schedule;
         isImmersive.value = true;
       }
     }
 
     // check for breaks
-    for (const [name, timeframe] of Object.entries(breaks)) {
+    for (const [name, timeframe] of Object.entries(breaks.value)) {
       const breakStart = new Date(timeframe.start);
       const breakEnd = new Date(timeframe.end);
       if (dayDate >= breakStart && dayDate <= breakEnd) {
@@ -229,7 +216,6 @@ const weeklySchedule = computed(() => {
       {
         start: string
         end: string
-        length: number
       }
     > = {};
     for (const [block, timeframe] of Object.entries(unparsedSchedule)) {
@@ -258,10 +244,6 @@ const weeklySchedule = computed(() => {
         end: `${
           timeframe.end.hour > 12 ? timeframe.end.hour - 12 : timeframe.end.hour
         }:${timeframe.end.minute.toString().padStart(2, '0')}`,
-        length:
-          timeframe.end.hour * 60
-          + timeframe.end.minute
-          - (timeframe.start.hour * 60 + timeframe.start.minute),
       };
       if (!colorKey.value[blockName]) {
         colorKey.value[blockName] = colors[colorKeyIndex.value];
@@ -272,14 +254,16 @@ const weeklySchedule = computed(() => {
     // check for activities
     if (activityDays.value[day.value] && !isBreak) {
       parsedSchedule[activityName.value || 'Activities + Sports/Drama'] = {
-        start: activitySchedule.value[day.value].start,
-        end: activitySchedule.value[day.value].end,
-        length:
-          parseInt(activitySchedule.value[day.value].end.split(':')[0]) * 60
-          + parseInt(activitySchedule.value[day.value].end.split(':')[1])
-          - (parseInt(activitySchedule.value[day.value].start.split(':')[0])
-          * 60
-          + parseInt(activitySchedule.value[day.value].start.split(':')[1])),
+        start: `${
+          Number(activitySchedule.value[day.value].start.split(':')[0]) > 12
+            ? Number(activitySchedule.value[day.value].start.split(':')[0]) - 12
+            : Number(activitySchedule.value[day.value].start.split(':')[0])
+        }:${activitySchedule.value[day.value].start.split(':')[1].padStart(2, '0')}`,
+        end: `${
+          Number(activitySchedule.value[day.value].end.split(':')[0]) > 12
+            ? Number(activitySchedule.value[day.value].end.split(':')[0]) - 12
+            : Number(activitySchedule.value[day.value].end.split(':')[0])
+        }:${activitySchedule.value[day.value].end.split(':')[1].padStart(2, '0')}`,
       };
       if (!colorKey.value[activityName.value || 'Activities + Sports/Drama']) {
         colorKey.value[activityName.value || 'Activities + Sports/Drama']
@@ -298,7 +282,6 @@ const weeklySchedule = computed(() => {
       {
         start: string
         end: string
-        length: number
       }
     >
   >

@@ -132,18 +132,6 @@
     "E": {
       "start": {"hour": 13, "minute": 0},
       "end": {"hour": 14, "minute": 30}
-    },
-    "A": {
-      "start": {"hour": 14, "minute": 35},
-      "end": {"hour": 15, "minute": 20}
-    },
-    "B": {
-      "start": {"hour": 15, "minute": 35},
-      "end": {"hour": 20, "minute": 20}
-    },
-    "C": {
-      "start": {"hour": 20, "minute": 35},
-      "end": {"hour": 23, "minute": 20}
     }
   },
   "Saturday": {}

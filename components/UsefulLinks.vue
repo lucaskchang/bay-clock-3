@@ -174,6 +174,11 @@ const items = computed(() => {
         icon: 'https://www.bayschoolsf.org/calendar',
         click: 'Placeholder',
       },
+      {
+        label: 'Library',
+        icon: 'https://library.bayschoolsf.org',
+        click: 'Placeholder',
+      }
     ],
     [
       ...customLinks.value,

@@ -141,7 +141,6 @@ const weeklySchedule = computed(() => {
       {
         start: string
         end: string
-        length: number
       }
     >
   >;
@@ -240,7 +239,6 @@ const weeklySchedule = computed(() => {
       {
         start: string
         end: string
-        length: number
       }
     > = {};
     for (const [block, timeframe] of Object.entries(unparsedSchedule)) {
@@ -269,10 +267,6 @@ const weeklySchedule = computed(() => {
         end: `${
           timeframe.end.hour > 12 ? timeframe.end.hour - 12 : timeframe.end.hour
         }:${timeframe.end.minute.toString().padStart(2, '0')}`,
-        length:
-          timeframe.end.hour * 60
-          + timeframe.end.minute
-          - (timeframe.start.hour * 60 + timeframe.start.minute),
       };
       if (!colorKey.value[blockName]) {
         colorKey.value[blockName] = colors[colorKeyIndex.value];
@@ -283,14 +277,16 @@ const weeklySchedule = computed(() => {
     // check for activities
     if (activityDays.value[day.value] && !isBreak) {
       parsedSchedule[activityName.value || 'Activities + Sports/Drama'] = {
-        start: activitySchedule.value[day.value].start,
-        end: activitySchedule.value[day.value].end,
-        length:
-          parseInt(activitySchedule.value[day.value].end.split(':')[0]) * 60
-          + parseInt(activitySchedule.value[day.value].end.split(':')[1])
-          - (parseInt(activitySchedule.value[day.value].start.split(':')[0])
-          * 60
-          + parseInt(activitySchedule.value[day.value].start.split(':')[1])),
+        start: `${
+          Number(activitySchedule.value[day.value].start.split(':')[0]) > 12
+            ? Number(activitySchedule.value[day.value].start.split(':')[0]) - 12
+            : Number(activitySchedule.value[day.value].start.split(':')[0])
+        }:${activitySchedule.value[day.value].start.split(':')[1].padStart(2, '0')}`,
+        end: `${
+          Number(activitySchedule.value[day.value].end.split(':')[0]) > 12
+            ? Number(activitySchedule.value[day.value].end.split(':')[0]) - 12
+            : Number(activitySchedule.value[day.value].end.split(':')[0])
+        }:${activitySchedule.value[day.value].end.split(':')[1].padStart(2, '0')}`,
       };
       if (!colorKey.value[activityName.value || 'Activities + Sports/Drama']) {
         colorKey.value[activityName.value || 'Activities + Sports/Drama']

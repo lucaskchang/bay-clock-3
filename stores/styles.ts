@@ -38,6 +38,8 @@ function getButtonStyles(styles: Styles) {
 }
 
 export const useStylesStore = defineStore('styles', () => {
+  const colorMode = useColorMode();
+
   // header styles
   const showClock = ref(true);
   const showStatus = ref(true);
@@ -85,7 +87,7 @@ export const useStylesStore = defineStore('styles', () => {
   });
 
   const useDetailedTime = ref(false);
-  const isDarkMode = ref(false);
+  const isDarkMode = ref(colorMode.value);
 
   function $reset() {
     showClock.value = true;

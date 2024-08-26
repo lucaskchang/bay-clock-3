@@ -204,6 +204,39 @@
     >
       <div class="space-y-2 p-4">
         <p class="text-2xl font-semibold">
+          Code
+        </p>
+        <p>
+          <a
+            class="text-blue-400 hover:text-blue-500"
+            href="https://github.com/lukajaa/bay-clock-3"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Bay Clock 3
+          </a>
+        </p>
+        <p>
+          <a
+            class="text-blue-400 hover:text-blue-500"
+            href="https://github.com/lukajaa/bay-clock-2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Bay Clock 2
+          </a>
+        </p>
+        <p>
+          <a
+            class="text-blue-400 hover:text-blue-500"
+            href="https://github.com/lukajaa/bay-clock"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Bay Clock
+          </a>
+        </p>
+        <p class="text-2xl font-semibold">
           Changelog
         </p>
         <p class="mt-4 text-xl font-bold">

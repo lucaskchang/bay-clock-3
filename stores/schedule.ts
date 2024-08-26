@@ -24,7 +24,9 @@ export const useScheduleStore = defineStore('schedule', () => {
   const { time } = storeToRefs(nowStore);
   const { breaks, specialSchedules, immersiveSchedule, regularSchedule } = storeToRefs(contentfulStore);
 
-  const isWeekend = ref(time.value.getDay() === 0 || time.value.getDay() === 6);
+  const isWeekend = computed(() => {
+    return time.value.getDay() === 0 || time.value.getDay() === 6;
+  })
   const isSpecialSchedule = ref(false);
   const isBreak = ref(false);
   const isImmersive = ref(false);

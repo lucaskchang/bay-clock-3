@@ -3,6 +3,7 @@ import specialSchedulesJSON from '~/assets/data/special_schedules.json';
 import immersiveScheduleJSON from '~/assets/data/immersive_schedule.json';
 import activityScheduleJSON from '~/assets/data/activity_schedule.json';
 import breaksJSON from '~/assets/data/breaks.json';
+import usefulLinksJSON from '~/assets/data/useful_links.json';
 
 export const useContentfulStore = defineStore('contentful', () => {
   const activitySchedule = ref(activityScheduleJSON);
@@ -10,6 +11,7 @@ export const useContentfulStore = defineStore('contentful', () => {
   const specialSchedules = ref(specialSchedulesJSON);
   const immersiveSchedule = ref(immersiveScheduleJSON);
   const regularSchedule = ref(regularScheduleJSON);
+  const usefulLinks = ref(usefulLinksJSON);
   const menuImages = ref([]);
   async function loadSpace() {
     const space = await $fetch('/api/contentful');
@@ -18,6 +20,7 @@ export const useContentfulStore = defineStore('contentful', () => {
     specialSchedules.value = space.items.find(item => item.sys.id === '23iKtUXKRVwiW8wIQXqLtO').fields.schedule;
     immersiveSchedule.value = space.items.find(item => item.sys.id === '4tyj0EtnaOuSnHJEmoe0Bn').fields.schedule;
     regularSchedule.value = space.items.find(item => item.sys.id === '54Vls3YjBcSgpLFIwfZMZs').fields.schedule;
+    usefulLinks.value = space.items.find(item => item.sys.id === '1b1iVmwM8MysluXn52ek1c').fields.schedule;
     const menu = space.items.find(item => item.sys.id === '7lGYtrHU7fBiumTMjY68GE').fields.images;
     menuImages.value = [];
     for (const asset of menu) {
@@ -33,6 +36,7 @@ export const useContentfulStore = defineStore('contentful', () => {
     immersiveSchedule,
     regularSchedule,
     menuImages,
+    usefulLinks,
     loadSpace,
   };
 });

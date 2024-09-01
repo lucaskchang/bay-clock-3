@@ -82,9 +82,12 @@
 
 <script setup lang="ts">
 import { useStylesStore } from '~/stores/styles';
+import { useContentfulStore } from '~/stores/contentful';
 
 const stylesStore = useStylesStore();
+const contentfulStore = useContentfulStore();
 const { buttonUIs } = storeToRefs(stylesStore);
+const { usefulLinks } = storeToRefs(contentfulStore);
 
 const isOpen = ref(false);
 const url = ref('');
@@ -143,43 +146,7 @@ function removeLink(item: { label: string, icon: string, click: string, slot: st
 
 const items = computed(() => {
   return [
-    [
-      {
-        label: 'Bay Site',
-        icon: 'https://www.bayschoolsf.org/',
-        click: 'Placeholder',
-      },
-      {
-        label: 'Canvas',
-        icon: 'https://bayschoolsf.instructure.com/',
-        click: 'Placeholder',
-      },
-      {
-        label: 'My Bay',
-        icon: 'https://bayschoolsf.myschoolapp.com/',
-        click: 'Placeholder',
-      },
-      {
-        label: 'Announcement Digest',
-        icon: 'https://docs.google.com/document/d/1c5YzT06GTn5CdX_7X7jZ2Ghhd5pK1aHhRRbOY78cr2M/',
-        click: 'Placeholder',
-      },
-      {
-        label: 'Bay Riptide',
-        icon: 'https://sites.google.com/bayschoolsf.org/the-bay-riptide/',
-        click: 'Placeholder',
-      },
-      {
-        label: 'Bay Calendar',
-        icon: 'https://www.bayschoolsf.org/calendar',
-        click: 'Placeholder',
-      },
-      {
-        label: 'Library',
-        icon: 'https://library.bayschoolsf.org',
-        click: 'Placeholder',
-      }
-    ],
+    usefulLinks.value,
     [
       ...customLinks.value,
       {

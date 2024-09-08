@@ -6,7 +6,7 @@
         href="https://www.lucaskchang.com/"
         target="_blank"
         rel="noopener noreferrer"
-        class="font-semibold text-blue-400 hover:text-blue-500"
+        class="text-blue-400 hover:text-blue-500"
       >
         Lucas Chang '24
       </a>
@@ -14,27 +14,27 @@
     <p>
       <!-- <a
         class="font-semibold text-blue-400 hover:text-blue-500"
-        href="https://github.com/lukajaa/bay-clock-3"
+        href="https://github.com/lucaskchang/bay-clock-3"
         target="_blank"
       >
         Code
       </a> -->
       <span
-        class="cursor-pointer font-semibold text-blue-400 hover:text-blue-500"
+        class="cursor-pointer text-blue-400 hover:text-blue-500"
         @click="isChangelogOpen = true"
       >
         Code
       </span>
       /
       <span
-        class="cursor-pointer font-semibold text-blue-400 hover:text-blue-500"
+        class="cursor-pointer text-blue-400 hover:text-blue-500"
         @click="isToolsOpen = true"
       >
         Tools
       </span>
       /
       <a
-        class="font-semibold text-blue-400 hover:text-blue-500"
+        class="text-blue-400 hover:text-blue-500"
         href="https://forms.gle/khAXGXiUMoAoskKQA"
         target="_blank"
         rel="noopener noreferrer"
@@ -43,7 +43,7 @@
       </a>
       /
       <span
-        class="cursor-pointer font-semibold text-blue-400 hover:text-blue-500"
+        class="cursor-pointer text-blue-400 hover:text-blue-500"
         @click="isCreditsOpen = true"
       >
         Credits
@@ -51,7 +51,7 @@
     </p>
 
     <UModal v-model="isCreditsOpen">
-      <div class="space-y-2 p-4">
+      <div class="space-y-2 p-4 font-light">
         <p class="text-2xl font-semibold">
           Credits
         </p>
@@ -68,31 +68,31 @@
         <p>
           <a
             class="text-blue-400 hover:text-blue-500"
-            href="https://lukajaa.github.io/bay-clock-2/"
+            href="https://lucaskchang.github.io/bay-clock-2/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            https://lukajaa.github.io/bay-clock-2/
+            https://lucaskchang.github.io/bay-clock-2/
           </a> (deprecated June 14, 2024)
         </p>
         <p>
           <a
             class="text-blue-400 hover:text-blue-500"
-            href="https://lukajaa.github.io/clock/"
+            href="https://lucaskchang.github.io/clock/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            https://lukajaa.github.io/clock/
+            https://lucaskchang.github.io/clock/
           </a> (deprecated February 2, 2023)
         </p>
         <p>
           <a
             class="text-blue-400 hover:text-blue-500"
-            href="https://lukajaa.github.io/bay-clock/"
+            href="https://lucaskchang.github.io/bay-clock/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            https://lukajaa.github.io/bay-clock/
+            https://lucaskchang.github.io/bay-clock/
           </a> (deprecated October 16, 2021)
         </p>
         <p>
@@ -209,7 +209,7 @@
         <p>
           <a
             class="text-blue-400 hover:text-blue-500"
-            href="https://github.com/lukajaa/bay-clock-3"
+            href="https://github.com/lucaskchang/bay-clock-3"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -219,7 +219,7 @@
         <p>
           <a
             class="text-blue-400 hover:text-blue-500"
-            href="https://github.com/lukajaa/bay-clock-2"
+            href="https://github.com/lucaskchang/bay-clock-2"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -229,7 +229,7 @@
         <p>
           <a
             class="text-blue-400 hover:text-blue-500"
-            href="https://github.com/lukajaa/bay-clock"
+            href="https://github.com/lucaskchang/bay-clock"
             target="_blank"
             rel="noopener noreferrer"
           >

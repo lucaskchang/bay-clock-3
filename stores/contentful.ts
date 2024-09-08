@@ -15,6 +15,9 @@ export const useContentfulStore = defineStore('contentful', () => {
   const menuImages = ref([]);
   async function loadSpace() {
     const space = await $fetch('/api/contentful');
+    if (space.sys.type === 'Error') {
+      return;
+    }
     activitySchedule.value = space.items.find(item => item.sys.id === '42Z0UUEUxuVBkEpE4pdL24').fields.schedule;
     breaks.value = space.items.find(item => item.sys.id === '3BWYUhVpaGVuvTZknDIlSq').fields.schedule;
     specialSchedules.value = space.items.find(item => item.sys.id === '23iKtUXKRVwiW8wIQXqLtO').fields.schedule;

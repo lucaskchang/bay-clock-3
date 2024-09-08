@@ -18,7 +18,7 @@
         <div
           v-for="(schedule, day) of weeklySchedule"
           :key="day"
-          class="flex w-2/3 flex-col gap-4 md:w-1/5"
+          class="flex w-2/3 min-w-48 flex-col gap-4 md:w-1/5"
         >
           <p class="text-center text-2xl font-semibold">
             {{ day }}
@@ -65,7 +65,7 @@ import { useNowStore } from '~/stores/now';
 const stylesStore = useStylesStore();
 const { buttonUIs } = storeToRefs(stylesStore);
 const contentfulStore = useContentfulStore();
-const { breaks, specialSchedules, immersiveSchedule, regularSchedule } = storeToRefs(contentfulStore)
+const { breaks, specialSchedules, immersiveSchedule, regularSchedule } = storeToRefs(contentfulStore);
 
 const customScheduleStore = useCustomScheduleStore();
 const nowStore = useNowStore();

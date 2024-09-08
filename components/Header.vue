@@ -4,13 +4,13 @@
   >
     <div
       v-if="showClock"
-      class="flex flex-row tracking-tighter md:flex-col"
+      class="flex flex-row tracking-tight md:flex-col"
     >
       {{ clock }}
     </div>
     <div
       v-if="showStatus"
-      class="flex flex-row tracking-tight md:flex-col"
+      class="flex flex-row md:flex-col"
     >
       {{ statusMessage }}
     </div>

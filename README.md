@@ -6,5 +6,5 @@ Third and possibly final iteration of Bay Clock.
 
 ## Interested in Managing Bay Clock?
 
-Email me at lucaskchang@gmail.com and/or visit [this guide](https://lucaschang.notion.site/Bay-Clock-Guide-4b3b8d76ee0a428083cfd9cc37f1ca89).
+Email me at lucaskchang@gmail.com and visit [this guide](https://lucaschang.notion.site/Bay-Clock-Guide-4b3b8d76ee0a428083cfd9cc37f1ca89).
 

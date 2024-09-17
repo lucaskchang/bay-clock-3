@@ -13,16 +13,14 @@
         background: 'rounded-lg bg-transparent',
       }"
     >
-      <div class="w-full">
-        <NuxtImg
-          v-for="image in menuImages"
-          :key="image"
-          provider="contentful"
-          format="webp"
-          :src="image"
-          class="rounded-lg"
-        />
-      </div>
+      <NuxtImg
+        v-for="image in menuImages"
+        :key="image"
+        provider="contentful"
+        format="webp"
+        :src="image"
+        class="rounded-lg"
+      />
     </UModal>
   </div>
 </template>

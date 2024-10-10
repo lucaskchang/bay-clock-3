@@ -136,6 +136,9 @@
             >
               <div class="rounded-md ring-4 ring-gray-200 transition duration-300 ease-in-out hover:ring-blue-400">
                 <NuxtImg
+                  quality="80"
+                  format="webp"
+                  loading="lazy"
                   src="/baydle.jpg"
                   alt="Baydle Game"
                   class="w-full rounded-t-md"
@@ -155,6 +158,9 @@
             <NuxtLink to="/schedule">
               <div class="rounded-md ring-4 ring-gray-200 transition duration-300 ease-in-out hover:ring-blue-400">
                 <NuxtImg
+                  quality="80"
+                  format="webp"
+                  loading="lazy"
                   src="/schedule.jpg"
                   alt="Baydle Game"
                   class="w-full rounded-t-md"
@@ -178,6 +184,9 @@
             >
               <div class="rounded-md ring-4 ring-gray-200 transition duration-300 ease-in-out hover:ring-blue-400">
                 <NuxtImg
+                  quality="80"
+                  format="webp"
+                  loading="lazy"
                   src="/study.jpg"
                   alt="Baydle Game"
                   class="w-full rounded-t-md"

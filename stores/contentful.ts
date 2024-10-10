@@ -14,20 +14,20 @@ export const useContentfulStore = defineStore('contentful', () => {
   const usefulLinks = ref(usefulLinksJSON);
   const menuImages = ref([]);
   async function loadSpace() {
-    const space = await $fetch('/api/contentful');
-    if (space.sys.type === 'Error') {
+    const { data: space } = await useFetch('/api/contentful');
+    if (space.value.sys.type === 'Error') {
       return;
     }
-    activitySchedule.value = space.items.find(item => item.sys.id === '42Z0UUEUxuVBkEpE4pdL24').fields.schedule;
-    breaks.value = space.items.find(item => item.sys.id === '3BWYUhVpaGVuvTZknDIlSq').fields.schedule;
-    specialSchedules.value = space.items.find(item => item.sys.id === '23iKtUXKRVwiW8wIQXqLtO').fields.schedule;
-    immersiveSchedule.value = space.items.find(item => item.sys.id === '4tyj0EtnaOuSnHJEmoe0Bn').fields.schedule;
-    regularSchedule.value = space.items.find(item => item.sys.id === '54Vls3YjBcSgpLFIwfZMZs').fields.schedule;
-    usefulLinks.value = space.items.find(item => item.sys.id === '1b1iVmwM8MysluXn52ek1c').fields.schedule;
-    const menu = space.items.find(item => item.sys.id === '7lGYtrHU7fBiumTMjY68GE').fields.images;
+    activitySchedule.value = space.value.items.find(item => item.sys.id === '42Z0UUEUxuVBkEpE4pdL24').fields.schedule;
+    breaks.value = space.value.items.find(item => item.sys.id === '3BWYUhVpaGVuvTZknDIlSq').fields.schedule;
+    specialSchedules.value = space.value.items.find(item => item.sys.id === '23iKtUXKRVwiW8wIQXqLtO').fields.schedule;
+    immersiveSchedule.value = space.value.items.find(item => item.sys.id === '4tyj0EtnaOuSnHJEmoe0Bn').fields.schedule;
+    regularSchedule.value = space.value.items.find(item => item.sys.id === '54Vls3YjBcSgpLFIwfZMZs').fields.schedule;
+    usefulLinks.value = space.value.items.find(item => item.sys.id === '1b1iVmwM8MysluXn52ek1c').fields.schedule;
+    const menu = space.value.items.find(item => item.sys.id === '7lGYtrHU7fBiumTMjY68GE').fields.images;
     menuImages.value = [];
     for (const asset of menu) {
-      const image = space.includes.Asset.find(a => a.sys.id === asset.sys.id);
+      const image = space.value.includes.Asset.find(a => a.sys.id === asset.sys.id);
       menuImages.value.push(image.fields.file.url);
     }
   }

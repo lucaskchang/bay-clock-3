@@ -19,8 +19,19 @@
         provider="contentful"
         format="webp"
         :src="image"
-        class="rounded-lg"
+        class="rounded-t-lg"
+        loading="lazy"
       />
+      <a
+        class="rounded-b-lg bg-white p-4"
+        href="https://presidio.gov/explore/park-attractions/presidio-pop-up-schedule"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <p class="text-center text-2xl text-blue-400 hover:text-blue-500">
+          Food Truck Schedule
+        </p>
+      </a>
     </UModal>
   </div>
 </template>

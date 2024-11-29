@@ -6,7 +6,8 @@
       <CustomSchedule />
       <Styles />
     </div>
-    <div class="flex flex-col">
+    <div class="flex flex-wrap gap-2">
+      <TeacherSchedules />
       <WeeklySchedule />
     </div>
   </div>

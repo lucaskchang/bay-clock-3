@@ -1,0 +1,578 @@
+[
+  {
+    "Teacher's Name": "Adler-Ivanbrook, Bronimir",
+    "A": "(H) Linear Algebra-01\nRm: 218",
+    "B": "(H) Calculus a-03\nRm: 225",
+    "C": "(H) Calculus a-04\nRm: 225",
+    "D": "Calculus a - PREP",
+    "E": "Flex TUE Rm: 301",
+    "F": "(H) Calculus a-06\nRm: 225"
+  },
+  {
+    "Teacher's Name": "Andersen, Ted",
+    "A": "",
+    "B": "",
+    "C": "",
+    "D": "",
+    "E": "",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Ault, Richard",
+    "A": "Biology 1a - PREP",
+    "B": "Immersive Prep\n(Marine Biology)",
+    "C": "Immersive Prep\n(Marine Biology)",
+    "D": "Enviro Sci-01\nRm: 245",
+    "E": "Biology 1a-03\nRm: 245",
+    "F": "Climate Change-01\nRm: 301"
+  },
+  {
+    "Teacher's Name": "Bailess, Olga",
+    "A": "AC Thu Rm: 207\nImmersive Prep (Get Along)",
+    "B": "Spanish 4a - PREP",
+    "C": "",
+    "D": "Spanish 4a-02\nRm: 310",
+    "E": "Spanish 1a-01\nRm: 310",
+    "F": "Spanish 4a-04\nRm: 208"
+  },
+  {
+    "Teacher's Name": "Bender, Zoe",
+    "A": "Creative Process-01\nRm: PC-2",
+    "B": "",
+    "C": "Creative Process-04\nRm: PC-2",
+    "D": "Civics-01\nRm: 36L-250 (205)",
+    "E": "Civics-02\nRm: 36L-250 (205)",
+    "F": "Creative Process - PREP\nFlex FRI Rm: 103"
+  },
+  {
+    "Teacher's Name": "Berk, Mio",
+    "A": "",
+    "B": "",
+    "C": "",
+    "D": "",
+    "E": "SST",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Bethencourt, Joanna",
+    "A": "Spanish 3a - PREP\nFlex MON Rm: 310",
+    "B": "Spanish 3a-02\nRm: 311",
+    "C": "Spanish 3a-03\nRm: 311",
+    "D": "Spanish 3a-04\nRm: 311",
+    "E": "Spanish 2a - PREP",
+    "F": "Spanish 2a-04\nRm: 311"
+  },
+  {
+    "Teacher's Name": "Blase, Denise",
+    "A": "",
+    "B": "",
+    "C": "",
+    "D": "Vocal Music 1b-01\nRm: B-11",
+    "E": "",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Brook, Faven",
+    "A": "Hum 2a - PREP",
+    "B": "Middle Eastern Studies-01\nRm: 233",
+    "C": "Ethnic Studies-01\nRm: 233",
+    "D": "Humanities 2a-04\nRm: 233",
+    "E": "Humanities 2a-05\nRm: 233",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Buono, Katie",
+    "A": "SSP a-02\nRm: 207",
+    "B": "SSP a-03\nRm: 218",
+    "C": "SSP a - PREP",
+    "D": "SSP a-05\nRm: PC-2",
+    "E": "",
+    "F": "Flex FRI Rm: 304"
+  },
+  {
+    "Teacher's Name": "Butz, Craig",
+    "A": "SSP a-01\nRm: 234",
+    "B": "",
+    "C": "SSP a - PREP",
+    "D": "SSP a-06\nRm: 301",
+    "E": "Flex WED Rm: 311",
+    "F": "SSP a-09\nRm: PC-2"
+  },
+  {
+    "Teacher's Name": "College Counseling \n(Bell, Furtado, Meneni, Terry)",
+    "A": "",
+    "B": "12CC THU Rm: 36L-154",
+    "C": "12CC MON Rm: 36L-154\n12CC WED Rm: 36L-154",
+    "D": "12CC MON Rm: 36L-154\n12CC WED Rm: 36L-154",
+    "E": "12CC TUE Rm: 36L-154\n12CC WED Rm: 36L-154",
+    "F": "12CC TUE Rm: 36L-154\n12CC FRI Rm: 36L-154"
+  },
+  {
+    "Teacher's Name": "Counseling (Bernier)",
+    "A": "Choices MON Rm: 311",
+    "B": "",
+    "C": "",
+    "D": "",
+    "E": "SST",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Counseling (Velasco)",
+    "A": "",
+    "B": "Choices TUE Rm: 230",
+    "C": "",
+    "D": "",
+    "E": "SST",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Crockett, Sarah",
+    "A": "Flex MON Rm: 317",
+    "B": "AoF a-01\nRm: 219",
+    "C": "Math 1a-01\nRm: 218",
+    "D": "AoF a - PREP",
+    "E": "Math 1a-02\nRm: 218",
+    "F": "Math 1a-03\nRm: 218"
+  },
+  {
+    "Teacher's Name": "Curry, Allie",
+    "A": "AmStud a-01\nRm: 36L-250 (205)",
+    "B": "AmStud a-04\nRm: 36L-250 (205)",
+    "C": "Neuro Lit-01\nRm: 36L-250 (205)",
+    "D": "Immersive Prep (EQTF)\nFlex FRI Rm: 218",
+    "E": "AmStud a - PREP",
+    "F": "AmStud a-07\nRm: 36L-250 (205)"
+  },
+  {
+    "Teacher's Name": "Daum, Karl",
+    "A": "AmStud a-02\nRm: 36L-150 (103)",
+    "B": "AmStud a-03\nRm: 36L-150 (103)",
+    "C": "Flex WED Rm: 234",
+    "D": "",
+    "E": "AmStud a - PREP",
+    "F": "Immersive Prep\n(Stories of San Francisco)"
+  },
+  {
+    "Teacher's Name": "Dhall, Dhruv",
+    "A": "Hum 2a - PREP\nFlex MON Rm: 233",
+    "B": "",
+    "C": "Humanities 2a-03\nRm: Breakers",
+    "D": "(H) Human Geo-01\nRm: Breakers",
+    "E": "Humanities 2a-06\nRm: Breakers",
+    "F": "Immersive Prep\n(Stories of San Francisco)"
+  },
+  {
+    "Teacher's Name": "Drake, Ascha",
+    "A": "AC Thu Rm: 207",
+    "B": "(H) Adv Draw/Paint-01\nRm: 324",
+    "C": "(H) Adv Draw/Paint-02\nRm: 324",
+    "D": "Sub Coverage WED",
+    "E": "Immersive Prep\n(Modern American Family)",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Fiszman, Nicolas",
+    "A": "(H) Biology 2a-01\nRm: 243",
+    "B": "(H) Biology 2a-02\nRm: 243",
+    "C": "Physics 1a-03\nRm: 300",
+    "D": "Biology 2a - PREP",
+    "E": "Physics 1a - PREP\nFlex FRI Rm: 301",
+    "F": "(H) Biology 2a-06\nRm: 243"
+  },
+  {
+    "Teacher's Name": "Fong, Royce",
+    "A": "9GS THU Rm: 310",
+    "B": "",
+    "C": "",
+    "D": "9GS Wed Rm: 319",
+    "E": "Flex WED Rm: 301",
+    "F": "Flex TUE Rm: 103"
+  },
+  {
+    "Teacher's Name": "Friedlander-Holm, David",
+    "A": "AC Thu Rm: 207",
+    "B": "Creative Process-02\nRm: PC-2",
+    "C": "SSP a - PREP\nSub Coverage MON",
+    "D": "Creative Process-05\nRm: PC-1",
+    "E": "SSP a-07m (Maker)\nRm: PC-1",
+    "F": "Creative Process - PREP"
+  },
+  {
+    "Teacher's Name": "Ghosh, Kyra",
+    "A": "",
+    "B": "",
+    "C": "",
+    "D": "",
+    "E": "",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Goldstein, Jess",
+    "A": "Math 2a-01\nRm: 219",
+    "B": "Math 2a - PREP\nImmersive PREP (Animation)",
+    "C": "Flex MON Rm: 301",
+    "D": "Math 2a-03\nRm: 219",
+    "E": "Math 2a-04\nRm: 219",
+    "F": "Math 2a-05\nRm: 219"
+  },
+  {
+    "Teacher's Name": "Hellyer, Karen",
+    "A": "",
+    "B": "Photography 1b-01\nRm: 325",
+    "C": "Photography 1b-02\nRm: 325",
+    "D": "Immersive Prep\n(Essential ?s Thru Film)",
+    "E": "Music Production 1b-01\nRm: 325",
+    "F": "Photography 1a-01\nRm: 325"
+  },
+  {
+    "Teacher's Name": "Howson, Rusty",
+    "A": "Design 1b-01 | Adv Mech-01\nRm: PC-1",
+    "B": "Design 1b-02\nRm: PC-1",
+    "C": "Creative Process-03\nRm: PC-1",
+    "D": "Flex FRI Rm: 207",
+    "E": "Immersive Prep\n(Construction)",
+    "F": "Creative Process - PREP"
+  },
+  {
+    "Teacher's Name": "Hsu, Mike",
+    "A": "Mandarin 1a-01\nRm: 309",
+    "B": "Mandarin 3a-01\nRm: 309",
+    "C": "Mandarin 4a-01\nRm: 309",
+    "D": "",
+    "E": "",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Khare, Parul",
+    "A": "AC Thu Rm: 207\nImmersive Prep (Biotech)",
+    "B": "Sub Coverage THU",
+    "C": "",
+    "D": "AoF a - PREP\nImmersive Prep (Biotech)",
+    "E": "AoF a-03\nRm: 227",
+    "F": "AoF a-04\nRm: 227"
+  },
+  {
+    "Teacher's Name": "Kim-Gable, Patti",
+    "A": "",
+    "B": "",
+    "C": "",
+    "D": "",
+    "E": "",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "King, Caitlin",
+    "A": "The Good Life-01\nRm: Breakers",
+    "B": "The Good Life-02\nRm: Breakers",
+    "C": "Flex WED Rm: 301",
+    "D": "",
+    "E": "Immersive Prep\n(Modern American Family)",
+    "F": "American Dream-01\nRm: Breakers"
+  },
+  {
+    "Teacher's Name": "Lautze, Lucci",
+    "A": "",
+    "B": "",
+    "C": "",
+    "D": "9GS Wed Rm: 218",
+    "E": "SST",
+    "F": "9GS TUE Rm: 304"
+  },
+  {
+    "Teacher's Name": "López Marticorena, Erick",
+    "A": "",
+    "B": "",
+    "C": "",
+    "D": "",
+    "E": "",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Lyons, Elizabeth",
+    "A": "",
+    "B": "",
+    "C": "",
+    "D": "",
+    "E": "",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Macalister, Adam",
+    "A": "Flex TUE Rm: 233",
+    "B": "SSP a-04\nRm: 234",
+    "C": "SSP a - PREP",
+    "D": "Ethics-01\nRm: 103",
+    "E": "SSP a-08\nRm: PC-2",
+    "F": "Immersive Prep\n(Buddhism)"
+  },
+  {
+    "Teacher's Name": "Mackey, Scott",
+    "A": "(H) Banned Books-01\nRm: 36L-152 (106)",
+    "B": "",
+    "C": "AmStud a-05\nRm: 36L-152 (106)",
+    "D": "AmStud a-06\nRm: 36L-152 (106)",
+    "E": "AmStud a - PREP",
+    "F": "(H) Adv British Lit-01\nRm: 36L-152 (106)"
+  },
+  {
+    "Teacher's Name": "Matty, Molly",
+    "A": "Biology 1a - PREP\nFlex THU Rm: 233",
+    "B": "Biology 1a-01\nRm: 245",
+    "C": "Biology 1a-02\nRm: 243",
+    "D": "Biology 2a - PREP\nImmersive Prep (Biotech)",
+    "E": "(H) Biology 2a-04\nRm: 243",
+    "F": "(H) Biology 2a-05\nRm: 245"
+  },
+  {
+    "Teacher's Name": "McClay, Laila",
+    "A": "AC Thu Rm: 207\nLT",
+    "B": "Middle Eastern Studies-01\nRm: 233",
+    "C": "Ethnic Studies-01\nRm: 233",
+    "D": "",
+    "E": "SST",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "McCoy, Saturn",
+    "A": "Flex TUE Rm: 317\n9GS THU Rm: 317",
+    "B": "",
+    "C": "Choices MON Rm: 234",
+    "D": "Choices WED Rm: 207",
+    "E": "9GS TUE Rm: 311",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "McDougold, Ty",
+    "A": "Chemistry 1a-01\nRm: 335",
+    "B": "Chemistry 1a-02\nRm: 335",
+    "C": "Chemistry 1a - PREP",
+    "D": "",
+    "E": "",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Merrill, Matthew",
+    "A": "Statistics-01\nRm: 225",
+    "B": "Math 3a - PREP\nImmersive Prep (Animation)",
+    "C": "Math 3a-03\nRm: 230",
+    "D": "Statistics-02\nRm: 225",
+    "E": "Flex FRI Rm: 311",
+    "F": "Math 3a-07\nRm: 230"
+  },
+  {
+    "Teacher's Name": "Miller, Craig",
+    "A": "AC Thu Rm: 207",
+    "B": "Humanities 1a-03\nRm: 36L-152 (106)",
+    "C": "Sub Coverage WED",
+    "D": "Immersive Prep\n(Hum2)",
+    "E": "(H) Comp Government-01\nRm: 36L-152 (106)",
+    "F": "Hum 1a - PREP"
+  },
+  {
+    "Teacher's Name": "Owen, Kelly",
+    "A": "",
+    "B": "",
+    "C": "",
+    "D": "",
+    "E": "",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Pap, Terry",
+    "A": "",
+    "B": "",
+    "C": "",
+    "D": "",
+    "E": "",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Persau, Kyle",
+    "A": "Physics 1a-01\nRm: 301",
+    "B": "Physics 1a-02\nRm: 301",
+    "C": "Immersive Prep (Marine Bio)\nFlex THU Rm: 301",
+    "D": "Physics 1a-04\nRm: 300",
+    "E": "Physics 1a - PREP\nImmersive Prep (Marine Bio)",
+    "F": "Physics 1a-05\nRm: 300"
+  },
+  {
+    "Teacher's Name": "Pickford-Murray, Bree",
+    "A": "Math 3a-02\nRm: 230",
+    "B": "Math 2a - PREP\nMath 3a - PREP",
+    "C": "Math 2a-02\nRm: 219",
+    "D": "Math 3a-05\nRm: 230",
+    "E": "Math 3a-06\nRm: 230",
+    "F": "Flex WED Rm: 304"
+  },
+  {
+    "Teacher's Name": "Plantenberg, Aaron",
+    "A": "",
+    "B": "Spanish 2a-01\nRm: 310",
+    "C": "Spanish 2a-02\nRm: 310",
+    "D": "",
+    "E": "SST\nSpanish 2a - PREP",
+    "F": "Spanish 1a-02\nRm: 310"
+  },
+  {
+    "Teacher's Name": "Poling, Ryan",
+    "A": "(H) Chemistry 2a-01\nRm: 335",
+    "B": "Chemistry 1a-03\nRm: 331",
+    "C": "Chemistry 1a - PREP\nFlex THU Rm: 234",
+    "D": "(H) Chemistry 2a-02\nRm: 335",
+    "E": "Immersive Prep (Constr.)",
+    "F": "Chemistry 1a-07\nRm: 331"
+  },
+  {
+    "Teacher's Name": "Rathman, Daniel",
+    "A": "",
+    "B": "",
+    "C": "",
+    "D": "Flex MON Rm: 207",
+    "E": "",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Riley, Katherine",
+    "A": "AC Thu Rm: 207\nLT",
+    "B": "",
+    "C": "",
+    "D": "",
+    "E": "",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Santo Domingo, Lauren",
+    "A": "Earthquakes-01\nRm: 300",
+    "B": "Flex MON Rm: 230",
+    "C": "Chemistry 1a - PREP",
+    "D": "Chemistry 1a-04\nRm: 331",
+    "E": "Chemistry 1a-05\nRm: 335",
+    "F": "Chemistry 1a-06\nRm: 335"
+  },
+  {
+    "Teacher's Name": "Sapio, Jenni",
+    "A": "Flex TUE Rm: 310\nAC Thu Rm: 207",
+    "B": "",
+    "C": "(H) Decolonized Lit-01\nRm: 36L-150 (103)",
+    "D": "Immersive Prep\n(Hum2)",
+    "E": "",
+    "F": "(H) Adv Essay/Memoir-01\nRm: 36L-150 (103)"
+  },
+  {
+    "Teacher's Name": "Schulman, Miles",
+    "A": "(H) Calculus a-01\nRm: 227",
+    "B": "(H) Calculus a-02\nRm: 227",
+    "C": "AoF a-02\nRm: 227",
+    "D": "Calculus b - PREP\nAoF b - PREP",
+    "E": "(H) Calculus a-05\nRm: 225",
+    "F": "Immersive Prep (Buddhism)\nFlex WED Rm: 103"
+  },
+  {
+    "Teacher's Name": "Shea, Hayden",
+    "A": "(H) Human Physiology-01\nRm: 245",
+    "B": "Immersive Prep\n(Marine Biology)",
+    "C": "(H) Biology 2a-03\nRm: 245",
+    "D": "Biology 2a - PREP",
+    "E": "SST\nImmersive Prep (Marine Bio)",
+    "F": "Sub Coverage FRI"
+  },
+  {
+    "Teacher's Name": "Spector-Sprague, Julie",
+    "A": "AC Thu Rm: 207",
+    "B": "(H) Physics 2a-01\nRm: 300",
+    "C": "",
+    "D": "",
+    "E": "(H) Physics 2a-02\nRm: 300",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Taquechel, Roxana",
+    "A": "Spanish 3a - PREP\nImmersive Prep (Get Along)",
+    "B": "Spanish 3a-01\nRm: 317",
+    "C": "(H) SSS 3a\nRm: 317",
+    "D": "Flex MON Rm: 218",
+    "E": "Spanish 3a-05\nRm: 317",
+    "F": "Spanish 3a-06\nRm: 317"
+  },
+  {
+    "Teacher's Name": "Vargas, Ana Maria",
+    "A": "Spanish 4a-01\nRm: 319",
+    "B": "Spanish 4a - PREP",
+    "C": "(H) Adv Spanish 5a-01\nRm: 319",
+    "D": "Flex MON Rm: 319",
+    "E": "Spanish 4a-03\nRm: 319",
+    "F": "(H) Adv Spanish 5a-02\nRm: 319"
+  },
+  {
+    "Teacher's Name": "Vergara, Mariano",
+    "A": "Flex TUE Rm: 311",
+    "B": "",
+    "C": "",
+    "D": "",
+    "E": "",
+    "F": "Sub Coverage WED"
+  },
+  {
+    "Teacher's Name": "Villalvazo Cota, Paola",
+    "A": "Sub Coverage MON",
+    "B": "SSS 1a-01\nRm: 319",
+    "C": "",
+    "D": "Spanish 2a-03\nRm: 317",
+    "E": "SST\nSpanish 2a - PREP",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Wadhwani, Nikhil",
+    "A": "Humanities 1a-01\nRm: 103",
+    "B": "Humanities 1a-02\nRm: 103",
+    "C": "Adv Composition-01\nRm: 103",
+    "D": "Immersive Prep (Hum2)\nFlex FRI Rm: 319",
+    "E": "Adv Composition-02\nRm: 103",
+    "F": "Hum 1a - PREP"
+  },
+  {
+    "Teacher's Name": "Wagner, Hannah",
+    "A": "Hum 2a - PREP\nFlex THU Rm: 311",
+    "B": "Humanities 2a-01\nRm: 207",
+    "C": "Humanities 2a-02\nRm: 207",
+    "D": "Immersive Prep\n(Hum2)",
+    "E": "Creative Writing-01\nRm: 36L-150 (103)",
+    "F": "Humanities 2a-07\nRm: 207"
+  },
+  {
+    "Teacher's Name": "Walsh, Corey",
+    "A": "Math 3a-01\nRm: 304",
+    "B": "Math 3a - PREP",
+    "C": "Computer Science 2-01\nRm: 304",
+    "D": "Math 3a-04\nRm: 304",
+    "E": "Computer Science 1-01\nRm: 304",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Williams, Colin",
+    "A": "Jazz 1b-01 | (H) Jazz 2-01\nRm: B-11",
+    "B": "Flex THU Rm: 230",
+    "C": "",
+    "D": "Humanities 1a-04\nRm: 208",
+    "E": "Humanities 1a-05\nRm: 208",
+    "F": "Hum 1a - PREP"
+  },
+  {
+    "Teacher's Name": "Workman, Robin",
+    "A": "(H) Existentialism-01\nRm: 208",
+    "B": "Religion in US Politics-01\nRm: 208",
+    "C": "(H) Existentialism-02\nRm: 208",
+    "D": "Immersive Prep\n(Hum2)",
+    "E": "",
+    "F": ""
+  },
+  {
+    "Teacher's Name": "Yang, Dennis",
+    "A": "",
+    "B": "",
+    "C": "",
+    "D": "(H) Adv Mandarin a-01\nRm: 309",
+    "E": "(H) Mandarin 5a-01\nRm: 309",
+    "F": "Mandarin 2a-01\nRm: 309"
+  }
+]

@@ -27,33 +27,39 @@
           size="xl"
         />
         <div class="mt-4 space-y-2">
-          <p class="text-xl font-semibold">
-            {{ selectedTeacher.split(',')[1] }} {{ selectedTeacher.split(',')[0] }}
-          </p>
+          <div>
+            <p class="text-2xl font-semibold">
+              {{ selectedTeacher }}
+            </p>
+            <p class="text-lg">
+              Office: {{ selectedTeacherObject['Office'] }}
+            </p>
+          </div>
           <div
             v-for="(classInfo, block, index) in selectedTeacherObject"
             :key="block"
           >
             <div
-              v-if="index !== 0"
-              class="rounded-full p-1 text-lg ring-1 ring-gray-300"
+              v-if="index !== 0 && index !== Object.keys(selectedTeacherObject).length - 1"
+              class="text-lg"
             >
               <p class="ml-2">
                 {{ block }}: {{ classInfo === '' ? 'Free Period' : classInfo }}
               </p>
+              <UDivider class="w-3/4" />
             </div>
           </div>
         </div>
-        <div
-          class="flex flex-row justify-between gap-2 justify-self-end pt-4"
-        >
-          <div>
-            <UButton
-              size="lg"
-              label="Close"
-              @click="isOpen = false"
-            />
-          </div>
+      </div>
+      <div
+        class="flex flex-row justify-between justify-self-end p-4"
+      >
+        <div>
+          <UButton
+            size="lg"
+            label="Close"
+            @click="isOpen = false"
+          />
         </div>
       </div>
     </UModal>

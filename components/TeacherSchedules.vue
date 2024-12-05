@@ -14,7 +14,7 @@
         wrapper: 'z-25',
       }"
     >
-      <div class="min-h-[384px] w-full p-4">
+      <div class="min-h-[192px] w-full p-4">
         <p class="text-2xl font-semibold">
           Teacher Schedules
         </p>
@@ -27,12 +27,17 @@
           size="xl"
         />
         <div class="mt-4 space-y-2">
-          <div>
+          <div v-if="selectedTeacher">
             <p class="text-2xl font-semibold">
               {{ selectedTeacher }}
             </p>
             <p class="text-lg">
               Office: {{ selectedTeacherObject['Office'] }}
+            </p>
+          </div>
+          <div v-else>
+            <p class="text-center text-2xl font-semibold">
+              Select a teacher to view their schedule
             </p>
           </div>
           <div
@@ -52,7 +57,7 @@
         </div>
       </div>
       <div
-        class="flex flex-row justify-between justify-self-end p-4"
+        class="flex flex-row justify-between justify-self-end px-4 pb-4"
       >
         <div>
           <UButton

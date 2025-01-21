@@ -42,6 +42,12 @@
     >
       IMMERSIVE
     </div>
+    <div
+      v-if="showGraduationCountdown"
+      class="flex-row md:flex-col"
+    >
+      {{ daysUntilGraduation }} days until graduation
+    </div>
   </div>
 </template>
 
@@ -63,7 +69,7 @@ const date = useDateFormat(time, 'ddd MMMM D YYYY');
 const scheduleStore = useScheduleStore();
 const stylesStore = useStylesStore();
 const { schedule, isSpecialSchedule, isBreak, daysLeft, isImmersive } = storeToRefs(scheduleStore);
-const { showClock, showStatus, showDate, showIndicator, useDetailedTime }
+const { showClock, showStatus, showDate, showIndicator, useDetailedTime, showGraduationCountdown }
   = storeToRefs(stylesStore);
 
 const statusMessage = computed(() => {
@@ -118,6 +124,13 @@ const statusMessage = computed(() => {
     }
   }
   return 'Passing';
+});
+
+const graduationDate = new Date('2025/5/9');
+const daysUntilGraduation = computed(() => {
+  const timeNum = time.value.getTime();
+  const timeLeft = graduationDate.getTime() - timeNum;
+  return Math.ceil(timeLeft / 1000 / 60 / 60 / 24);
 });
 
 useHead({

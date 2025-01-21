@@ -44,6 +44,7 @@ onMounted(() => {
     stylesStore.progressColor = style.progressColor;
     stylesStore.isProgressRounded = style.isProgressRounded;
     stylesStore.buttonStyles = style.buttonStyles;
+    stylesStore.showGraduationCountdown = style.showGraduationCountdown;
     stylesStore.useDetailedTime = style.useDetailedTime;
     stylesStore.isDarkMode = colorMode.value === 'dark';
   }

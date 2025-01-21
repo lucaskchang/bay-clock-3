@@ -158,6 +158,7 @@ function getCurrentStylesState() {
       weekly: { ...stylesStore.buttonStyles.weekly },
     },
     useDetailedTime: stylesStore.useDetailedTime,
+    showGraduationCountdown: stylesStore.showGraduationCountdown,
     isDarkMode: stylesStore.isDarkMode,
   };
 }
@@ -217,6 +218,7 @@ function revert() {
     weekly: { ...initialStyles.buttonStyles.weekly },
   };
   stylesStore.useDetailedTime = initialStyles.useDetailedTime;
+  stylesStore.showGraduationCountdown = initialStyles.showGraduationCountdown;
   stylesStore.isDarkMode = initialStyles.isDarkMode;
 
   notification.add({

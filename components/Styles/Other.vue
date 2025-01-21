@@ -3,11 +3,15 @@
     <p class="text-xl font-semibold">
       Info
     </p>
-    <div class="flex flex-row items-center">
-      <p class="mr-2">
+    <div class="flex flex-row items-center space-x-2">
+      <p>
         Detailed Time Left
       </p>
       <UToggle v-model="useDetailedTime" />
+      <p>
+        Show Graduation Countdown
+      </p>
+      <UToggle v-model="showGraduationCountdown" />
     </div>
     <p class="text-xl font-semibold">
       Theme
@@ -27,7 +31,7 @@ import { useStylesStore } from '~/stores/styles';
 const colorMode = useColorMode();
 
 const stylesStore = useStylesStore();
-const { useDetailedTime, isDarkMode } = storeToRefs(stylesStore);
+const { useDetailedTime, showGraduationCountdown, isDarkMode } = storeToRefs(stylesStore);
 
 const isDark = computed({
   get() {

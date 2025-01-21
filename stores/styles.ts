@@ -87,6 +87,7 @@ export const useStylesStore = defineStore('styles', () => {
   });
 
   const useDetailedTime = ref(false);
+  const showGraduationCountdown = ref(false);
   const isDarkMode = ref(colorMode.value);
 
   function $reset() {
@@ -133,6 +134,7 @@ export const useStylesStore = defineStore('styles', () => {
     buttonStyles,
     buttonUIs,
     useDetailedTime,
+    showGraduationCountdown,
     isDarkMode,
     $reset,
   };

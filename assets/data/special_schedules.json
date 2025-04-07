@@ -1,80 +1,116 @@
 {
-  "2024/8/19": {
-    "Transfer Student Orientation": {
-      "start": {"hour": 9, "minute": 0},
-      "end": {"hour": 11, "minute": 30}
-    },
-    "11th Grade Orientation": {
-      "start": {"hour": 11, "minute": 30},
-      "end": {"hour": 15, "minute": 0}
-    }
-  },
-  "2024/8/20": {
-    "9th Grade Orientation": {
-      "start": {"hour": 9, "minute": 0},
-      "end": {"hour": 15, "minute": 0}
-    }
-  },
-  "2024/8/21": {
-    "9th Grade Orientation": {
-      "start": {"hour": 9, "minute": 0},
-      "end": {"hour": 12, "minute": 0}
-    },
-    "10th Grade Orientation": {
-      "start": {"hour": 10, "minute": 30},
-      "end": {"hour": 15, "minute": 0}
-    }
-  },
-  "2024/8/22": {
-    "Opening Day Morning Meeting": {
+  "2025/4/7": {
+    "Morning Meeting": {
       "start": {"hour": 8, "minute": 30},
-      "end": {"hour": 9, "minute": 15}
+      "end": {"hour": 8, "minute": 55}
     },
     "A": {
-      "start": {"hour": 9, "minute": 20},
-      "end": {"hour": 10, "minute": 10}
+      "start": {"hour": 9, "minute": 0},
+      "end": {"hour": 10, "minute": 30}
     },
     "B": {
-      "start": {"hour": 10, "minute": 15},
-      "end": {"hour": 11, "minute": 5}
+      "start": {"hour": 10, "minute": 40},
+      "end": {"hour": 12, "minute": 10}
+    },
+    "Lunch": {
+      "start": {"hour": 12, "minute": 10},
+      "end": {"hour": 13, "minute": 0}
     },
     "C": {
-      "start": {"hour": 11, "minute": 10},
-      "end": {"hour": 12, "minute": 0}
-    },
-    "Lunch": {
-      "start": {"hour": 12, "minute": 0},
-      "end": {"hour": 13, "minute": 0}
-    },
-    "Advisory-Student-Parent Conferences": {
       "start": {"hour": 13, "minute": 0},
-      "end": {"hour": 16, "minute": 0}
+      "end": {"hour": 14, "minute": 30}
     }
   },
-  "2024/8/23": {
-    "Testing Edits": {
+  "2025/4/8": {
+    "Class Meeting for 9/10/11 in Great Room": {
       "start": {"hour": 8, "minute": 30},
-      "end": {"hour": 9, "minute": 15}
+      "end": {"hour": 8, "minute": 55}
     },
     "D": {
-      "start": {"hour": 9, "minute": 20},
-      "end": {"hour": 10, "minute": 10}
+      "start": {"hour": 9, "minute": 0},
+      "end": {"hour": 10, "minute": 30}
     },
     "E": {
-      "start": {"hour": 10, "minute": 15},
-      "end": {"hour": 11, "minute": 5}
-    },
-    "F": {
-      "start": {"hour": 11, "minute": 10},
-      "end": {"hour": 12, "minute": 0}
+      "start": {"hour": 10, "minute": 40},
+      "end": {"hour": 12, "minute": 10}
     },
     "Lunch": {
-      "start": {"hour": 12, "minute": 0},
+      "start": {"hour": 12, "minute": 10},
       "end": {"hour": 13, "minute": 0}
     },
-    "Advisory-Student-Parent Conferences": {
+    "F": {
       "start": {"hour": 13, "minute": 0},
-      "end": {"hour": 16, "minute": 0}
+      "end": {"hour": 14, "minute": 30}
+    }
+  },
+  "2025/4/9": {
+    "Morning Meeting": {
+      "start": {"hour": 8, "minute": 30},
+      "end": {"hour": 8, "minute": 55}
+    },
+    "B": {
+      "start": {"hour": 9, "minute": 0},
+      "end": {"hour": 10, "minute": 30}
+    },
+    "A": {
+      "start": {"hour": 10, "minute": 40},
+      "end": {"hour": 12, "minute": 10}
+    },
+    "Lunch": {
+      "start": {"hour": 12, "minute": 10},
+      "end": {"hour": 13, "minute": 0}
+    },
+    "C": {
+      "start": {"hour": 13, "minute": 0},
+      "end": {"hour": 14, "minute": 30}
+    }
+  },
+  "2025/4/10": {
+    "12th grade ssp prep": {
+      "start": {"hour": 8, "minute": 30},
+      "end": {"hour": 9, "minute": 30}
+    },
+    "advisory check-in (11th in great room)": {
+      "start": {"hour": 9, "minute": 30},
+      "end": {"hour": 9, "minute": 45}
+    },
+    "SSP School-wide Exhibition": {
+      "start": {"hour": 9, "minute": 45},
+      "end": {"hour": 11, "minute": 30}
+    },
+    "Lunch": {
+      "start": {"hour": 11, "minute": 30},
+      "end": {"hour": 12, "minute": 10}
+    },
+    "advisory attendance / walk to Bay Day": {
+      "start": {"hour": 12, "minute": 10},
+      "end": {"hour": 12, "minute": 30}
+    },
+    "Bay Day": {
+      "start": {"hour": 12, "minute": 30},
+      "end": {"hour": 15, "minute": 0}
+    }
+  },
+  "2025/4/11": {
+    "Morning Meeting": {
+      "start": {"hour": 8, "minute": 30},
+      "end": {"hour": 8, "minute": 55}
+    },
+    "D": {
+      "start": {"hour": 9, "minute": 0},
+      "end": {"hour": 10, "minute": 30}
+    },
+    "F": {
+      "start": {"hour": 10, "minute": 40},
+      "end": {"hour": 12, "minute": 10}
+    },
+    "Lunch": {
+      "start": {"hour": 12, "minute": 10},
+      "end": {"hour": 13, "minute": 0}
+    },
+    "E": {
+      "start": {"hour": 13, "minute": 0},
+      "end": {"hour": 14, "minute": 30}
     }
   }
 }

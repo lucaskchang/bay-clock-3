@@ -26,7 +26,7 @@ export const useScheduleStore = defineStore('schedule', () => {
 
   const isWeekend = computed(() => {
     return time.value.getDay() === 0 || time.value.getDay() === 6;
-  })
+  });
   const isSpecialSchedule = ref(false);
   const isBreak = ref(false);
   const isImmersive = ref(false);

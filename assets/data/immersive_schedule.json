@@ -1,26 +1,44 @@
 {
-  "dates": [
-    {
-      "start": "2024/1/5",
-      "end": "2024/1/25"
-    },
-    {
-      "start": "2024/5/30",
-      "end": "2024/6/18"
+    "dates": [
+        {
+            "start": "2025/1/5",
+            "end": "2025/1/25"
+        },
+        {
+            "start": "2025/5/30",
+            "end": "2025/6/18"
+        }
+    ],
+    "schedule": {
+        "REMOVEImmersive": {
+            "start": {
+                "hour": 9,
+                "minute": 0
+            },
+            "end": {
+                "hour": 11,
+                "minute": 30
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 11,
+                "minute": 30
+            },
+            "end": {
+                "hour": 12,
+                "minute": 30
+            }
+        },
+        "DELETEImmersive": {
+            "start": {
+                "hour": 12,
+                "minute": 30
+            },
+            "end": {
+                "hour": 15,
+                "minute": 0
+            }
+        }
     }
-  ],
-  "schedule": {
-    "REMOVEImmersive": {
-      "start": {"hour": 9, "minute": 0},
-      "end": {"hour": 11, "minute": 30}
-    },
-    "Lunch": {
-      "start": {"hour": 11, "minute": 30},
-      "end": {"hour": 12, "minute": 30}
-    },
-    "DELETEImmersive": {
-      "start": {"hour": 12, "minute": 30},
-      "end": {"hour": 15, "minute": 0}
-    }
-  }
 }

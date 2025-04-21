@@ -16,7 +16,7 @@
     },
     {
         "label": "Announcement Digest",
-        "icon": "https://docs.google.com/document/d/1c5YzT06GTn5CdX_7X7jZ2Ghhd5pK1aHhRRbOY78cr2M/",
+        "icon": "https://docs.google.com/document/d/1qUeZrSuN4-_EZfQGieqM6UR50OrGl9mLbwGI28IL-aM/",
         "click": "Placeholder"
     },
     {
@@ -32,6 +32,11 @@
     {
         "label": "Library",
         "icon": "https://library.bayschoolsf.org",
+        "click": "Placeholder"
+    },
+    {
+        "label": "Belp",
+        "icon": "https://seankuwamoto.github.io/belp/",
         "click": "Placeholder"
     }
 ]

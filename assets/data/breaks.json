@@ -1,6 +1,22 @@
 {
-  "Summer Break": {
-    "start": "2024/6/14",
-    "end": "2024/8/18"
-  }
+    "Midterm Break": {
+        "start": "2024/10/10",
+        "end": "2024/10/12"
+    },
+    "Staffulty Professional Developement Day": {
+        "start": "2024/11/4",
+        "end": "2024/11/5"
+    },
+    "Immersive Break": {
+        "start": "2025/1/27",
+        "end": "2025/1/30"
+    },
+    "President's Day": {
+        "start": "2025/2/17",
+        "end": "2025/2/18"
+    },
+    "Teacher Workday": {
+        "start": "2025/3/14",
+        "end": "2025/3/15"
+    }
 }

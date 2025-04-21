@@ -14,13 +14,8 @@
       }"
     >
       <NuxtImg
-        v-for="image in menuImages"
-        :key="image"
-        provider="contentful"
-        format="webp"
-        :src="image"
+        src="/menu/menu.jpg"
         class="rounded-t-lg"
-        loading="lazy"
       />
       <a
         class="rounded-b-lg bg-white p-4"
@@ -38,12 +33,9 @@
 
 <script setup lang="ts">
 import { useStylesStore } from '~/stores/styles';
-import { useContentfulStore } from '~/stores/contentful';
 
 const stylesStore = useStylesStore();
-const contentfulStore = useContentfulStore();
 const { buttonUIs } = storeToRefs(stylesStore);
-const { menuImages } = storeToRefs(contentfulStore);
 
 const isOpen = ref(false);
 </script>

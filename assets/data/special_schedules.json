@@ -1,6 +1,450 @@
 {
-    "2025/5/8": {
-        "Group Advisory/1-on-1s": {
+    "2025/8/18": {
+        "Opening Day Morning Meeting": {
+            "start": {
+                "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 9,
+                "minute": 15
+            }
+        },
+        "A": {
+            "start": {
+                "hour": 9,
+                "minute": 20
+            },
+            "end": {
+                "hour": 10,
+                "minute": 10
+            }
+        },
+        "B": {
+            "start": {
+                "hour": 10,
+                "minute": 15
+            },
+            "end": {
+                "hour": 11,
+                "minute": 5
+            }
+        },
+        "C": {
+            "start": {
+                "hour": 11,
+                "minute": 10
+            },
+            "end": {
+                "hour": 12,
+                "minute": 0
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 12,
+                "minute": 0
+            },
+            "end": {
+                "hour": 13,
+                "minute": 0
+            }
+        },
+        "Advisor Parent Student Conferences": {
+            "start": {
+                "hour": 13,
+                "minute": 0
+            },
+            "end": {
+                "hour": 17,
+                "minute": 30
+            }
+        }
+    },
+    "2025/8/19": {
+        "Extended Morning Meeting": {
+            "start": {
+                "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 9,
+                "minute": 15
+            }
+        },
+        "D": {
+            "start": {
+                "hour": 9,
+                "minute": 20
+            },
+            "end": {
+                "hour": 10,
+                "minute": 10
+            }
+        },
+        "E": {
+            "start": {
+                "hour": 10,
+                "minute": 15
+            },
+            "end": {
+                "hour": 11,
+                "minute": 5
+            }
+        },
+        "F": {
+            "start": {
+                "hour": 11,
+                "minute": 10
+            },
+            "end": {
+                "hour": 12,
+                "minute": 0
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 12,
+                "minute": 0
+            },
+            "end": {
+                "hour": 13,
+                "minute": 0
+            }
+        },
+        "Advisor Parent Student Conferences": {
+            "start": {
+                "hour": 13,
+                "minute": 0
+            },
+            "end": {
+                "hour": 17,
+                "minute": 30
+            }
+        }
+    },
+    "2025/8/20": {
+        "9+11 group advisory (late start for 10+12)": {
+            "start": {
+                "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 8,
+                "minute": 55
+            }
+        },
+        "A": {
+            "start": {
+                "hour": 9,
+                "minute": 0
+            },
+            "end": {
+                "hour": 10,
+                "minute": 15
+            }
+        },
+        "B": {
+            "start": {
+                "hour": 10,
+                "minute": 20
+            },
+            "end": {
+                "hour": 11,
+                "minute": 35
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 11,
+                "minute": 35
+            },
+            "end": {
+                "hour": 12,
+                "minute": 30
+            }
+        },
+        "C": {
+            "start": {
+                "hour": 12,
+                "minute": 30
+            },
+            "end": {
+                "hour": 13,
+                "minute": 45
+            }
+        },
+        "D": {
+            "start": {
+                "hour": 13,
+                "minute": 50
+            },
+            "end": {
+                "hour": 15,
+                "minute": 5
+            }
+        },
+        "Tutorial": {
+            "start": {
+                "hour": 15,
+                "minute": 10
+            },
+            "end": {
+                "hour": 15,
+                "minute": 30
+            }
+        }
+    },
+    "2025/8/21": {
+        "10+12 group advisory (late start for 9+11)": {
+            "start": {
+                "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 8,
+                "minute": 55
+            }
+        },
+        "E": {
+            "start": {
+                "hour": 9,
+                "minute": 0
+            },
+            "end": {
+                "hour": 10,
+                "minute": 15
+            }
+        },
+        "F": {
+            "start": {
+                "hour": 10,
+                "minute": 20
+            },
+            "end": {
+                "hour": 11,
+                "minute": 35
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 11,
+                "minute": 35
+            },
+            "end": {
+                "hour": 12,
+                "minute": 30
+            }
+        },
+        "A": {
+            "start": {
+                "hour": 12,
+                "minute": 30
+            },
+            "end": {
+                "hour": 13,
+                "minute": 45
+            }
+        },
+        "B": {
+            "start": {
+                "hour": 13,
+                "minute": 50
+            },
+            "end": {
+                "hour": 15,
+                "minute": 5
+            }
+        },
+        "Tutorial": {
+            "start": {
+                "hour": 15,
+                "minute": 10
+            },
+            "end": {
+                "hour": 15,
+                "minute": 30
+            }
+        }
+    },
+    "2025/8/22": {
+        "Morning Meeting": {
+            "start": {
+                "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 8,
+                "minute": 55
+            }
+        },
+        "C": {
+            "start": {
+                "hour": 9,
+                "minute": 0
+            },
+            "end": {
+                "hour": 10,
+                "minute": 15
+            }
+        },
+        "D": {
+            "start": {
+                "hour": 10,
+                "minute": 20
+            },
+            "end": {
+                "hour": 11,
+                "minute": 35
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 11,
+                "minute": 35
+            },
+            "end": {
+                "hour": 12,
+                "minute": 30
+            }
+        },
+        "E": {
+            "start": {
+                "hour": 12,
+                "minute": 30
+            },
+            "end": {
+                "hour": 13,
+                "minute": 45
+            }
+        },
+        "F": {
+            "start": {
+                "hour": 13,
+                "minute": 50
+            },
+            "end": {
+                "hour": 15,
+                "minute": 5
+            }
+        }
+    },
+    "2025/9/2": {
+        "9+11 grp adv / 10+12 adv 1:1s": {
+            "start": {
+                "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 8,
+                "minute": 55
+            }
+        },
+        "A": {
+            "start": {
+                "hour": 9,
+                "minute": 0
+            },
+            "end": {
+                "hour": 10,
+                "minute": 30
+            }
+        },
+        "B": {
+            "start": {
+                "hour": 10,
+                "minute": 40
+            },
+            "end": {
+                "hour": 12,
+                "minute": 10
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 12,
+                "minute": 10
+            },
+            "end": {
+                "hour": 13,
+                "minute": 0
+            }
+        },
+        "C": {
+            "start": {
+                "hour": 13,
+                "minute": 0
+            },
+            "end": {
+                "hour": 14,
+                "minute": 30
+            }
+        }
+    },
+    "2025/9/3": {
+        "Morning Meeting": {
+            "start": {
+                "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 8,
+                "minute": 55
+            }
+        },
+        "D": {
+            "start": {
+                "hour": 9,
+                "minute": 0
+            },
+            "end": {
+                "hour": 10,
+                "minute": 30
+            }
+        },
+        "E": {
+            "start": {
+                "hour": 10,
+                "minute": 40
+            },
+            "end": {
+                "hour": 12,
+                "minute": 10
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 12,
+                "minute": 10
+            },
+            "end": {
+                "hour": 13,
+                "minute": 0
+            }
+        },
+        "F": {
+            "start": {
+                "hour": 13,
+                "minute": 0
+            },
+            "end": {
+                "hour": 14,
+                "minute": 30
+            }
+        },
+        "Tutorial": {
+            "start": {
+                "hour": 14,
+                "minute": 35
+            },
+            "end": {
+                "hour": 15,
+                "minute": 20
+            }
+        }
+    },
+    "2025/9/4": {
+        "9+11 adv 1:1s / 10+12 grp adv": {
             "start": {
                 "hour": 8,
                 "minute": 30
@@ -61,8 +505,122 @@
             }
         }
     },
-    "2025/4/18": {
-        "Morning Meeting": {
+    "2025/9/5": {
+        "D": {
+            "start": {
+                "hour": 9,
+                "minute": 0
+            },
+            "end": {
+                "hour": 10,
+                "minute": 30
+            }
+        },
+        "F": {
+            "start": {
+                "hour": 10,
+                "minute": 40
+            },
+            "end": {
+                "hour": 12,
+                "minute": 10
+            }
+        },
+        "Lunch / Club Fair": {
+            "start": {
+                "hour": 12,
+                "minute": 10
+            },
+            "end": {
+                "hour": 13,
+                "minute": 0
+            }
+        },
+        "E": {
+            "start": {
+                "hour": 13,
+                "minute": 0
+            },
+            "end": {
+                "hour": 14,
+                "minute": 30
+            }
+        }
+    },
+    "2025/9/11": {
+        "9+11 adv 1:1s / 10+12 grp adv": {
+            "start": {
+                "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 8,
+                "minute": 55
+            }
+        },
+        "A": {
+            "start": {
+                "hour": 9,
+                "minute": 0
+            },
+            "end": {
+                "hour": 10,
+                "minute": 15
+            }
+        },
+        "B": {
+            "start": {
+                "hour": 10,
+                "minute": 20
+            },
+            "end": {
+                "hour": 11,
+                "minute": 35
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 11,
+                "minute": 35
+            },
+            "end": {
+                "hour": 12,
+                "minute": 30
+            }
+        },
+        "C": {
+            "start": {
+                "hour": 12,
+                "minute": 30
+            },
+            "end": {
+                "hour": 13,
+                "minute": 45
+            }
+        },
+        "D": {
+            "start": {
+                "hour": 13,
+                "minute": 50
+            },
+            "end": {
+                "hour": 15,
+                "minute": 5
+            }
+        },
+        "Tutorial": {
+            "start": {
+                "hour": 15,
+                "minute": 10
+            },
+            "end": {
+                "hour": 15,
+                "minute": 40
+            }
+        }
+    },
+    "2025/9/12": {
+        "Beaker Bash Kickoff": {
             "start": {
                 "hour": 8,
                 "minute": 30
@@ -102,7 +660,7 @@
                 "minute": 30
             }
         },
-        "Staffulty Professional Development (No Classes)": {
+        "Fall Field Day": {
             "start": {
                 "hour": 12,
                 "minute": 30
@@ -111,66 +669,14 @@
                 "hour": 15,
                 "minute": 0
             }
-        }
-    },
-    "2025/5/9": {
-        "Morning Meeting": {
-            "start": {
-                "hour": 8,
-                "minute": 30
-            },
-            "end": {
-                "hour": 8,
-                "minute": 55
-            }
         },
-        "D": {
+        "Breaker Bash": {
             "start": {
-                "hour": 9,
-                "minute": 0
-            },
-            "end": {
-                "hour": 10,
-                "minute": 30
-            }
-        },
-        "F": {
-            "start": {
-                "hour": 10,
-                "minute": 40
-            },
-            "end": {
-                "hour": 12,
-                "minute": 10
-            }
-        },
-        "Lunch": {
-            "start": {
-                "hour": 12,
+                "hour": 15,
                 "minute": 10
             },
             "end": {
-                "hour": 13,
-                "minute": 0
-            }
-        },
-        "E": {
-            "start": {
-                "hour": 13,
-                "minute": 0
-            },
-            "end": {
-                "hour": 14,
-                "minute": 30
-            }
-        },
-        "Talent Show": {
-            "start": {
-                "hour": 14,
-                "minute": 30
-            },
-            "end": {
-                "hour": 16,
+                "hour": 17,
                 "minute": 0
             }
         }

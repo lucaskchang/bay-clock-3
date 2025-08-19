@@ -55,9 +55,9 @@
         <p class="text-2xl font-semibold">
           Credits
         </p>
-        <p>Managed by Sean Kuwamoto '25, Sam West '26, and Kainoa Newton '26</p>
+        <p>Managed by Sam West '26 and Kainoa Newton '26</p>
         <p>
-          Interested in helping out? Contact me at lucaskchang@gmail.com and/or read <a
+          Interested in helping out? Contact me at lucaskchang@gmail.com and read <a
             class="text-blue-400 hover:text-blue-500"
             href="https://lucaschang.notion.site/Bay-Clock-Guide-4b3b8d76ee0a428083cfd9cc37f1ca89"
             target="_blank"

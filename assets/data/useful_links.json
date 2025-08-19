@@ -33,10 +33,5 @@
         "label": "Library",
         "icon": "https://library.bayschoolsf.org",
         "click": "Placeholder"
-    },
-    {
-        "label": "Belp",
-        "icon": "https://seankuwamoto.github.io/belp/",
-        "click": "Placeholder"
     }
 ]

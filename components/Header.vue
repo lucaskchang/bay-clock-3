@@ -126,7 +126,7 @@ const statusMessage = computed(() => {
   return 'Passing';
 });
 
-const graduationDate = new Date('2025/5/9');
+const graduationDate = new Date('2026/5/6');
 const daysUntilGraduation = computed(() => {
   const timeNum = time.value.getTime();
   const timeLeft = graduationDate.getTime() - timeNum;

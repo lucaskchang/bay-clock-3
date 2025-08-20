@@ -124,7 +124,7 @@
         }
     },
     "2025/8/20": {
-        "9+11 group advisory (late start for 10+12)": {
+        "9+11 group advisory": {
             "start": {
                 "hour": 8,
                 "minute": 30
@@ -196,7 +196,7 @@
         }
     },
     "2025/8/21": {
-        "10+12 group advisory (late start for 9+11)": {
+        "10+12 group advisory": {
             "start": {
                 "hour": 8,
                 "minute": 30

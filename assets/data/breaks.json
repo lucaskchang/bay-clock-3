@@ -10,5 +10,9 @@
     "Faculty Work Day": {
         "start": "2025/10/10",
         "end": "2025/10/11"
+    },
+    "Immersive Prep Day": {
+        "start": "2025/11/21",
+        "end": "2025/11/22"
     }
 }

@@ -1,52 +1,128 @@
 {
-    "2025/11/13": {
-        "B": {
+    "2025/11/17": {
+        "Morning Meeting": {
             "start": {
                 "hour": 8,
                 "minute": 30
             },
             "end": {
-                "hour": 10,
-                "minute": 0
+                "hour": 8,
+                "minute": 55
             }
         },
-        "A": {
+        "Tutorial": {
             "start": {
-                "hour": 10,
-                "minute": 10
+                "hour": 9,
+                "minute": 0
             },
             "end": {
                 "hour": 11,
-                "minute": 40
+                "minute": 30
             }
         },
-        "Harvest Lunch 11+12": {
+        "Lunch": {
             "start": {
                 "hour": 11,
                 "minute": 30
             },
             "end": {
                 "hour": 12,
-                "minute": 20
+                "minute": 30
             }
         },
-        "Harvest Lunch 9+10": {
+        "A": {
             "start": {
                 "hour": 12,
-                "minute": 20
+                "minute": 30
             },
             "end": {
-                "hour": 1,
+                "hour": 15,
                 "minute": 0
+            }
+        }
+    },
+    "2025/11/18": {
+        "B": {
+            "start": {
+                "hour": 9,
+                "minute": 0
+            },
+            "end": {
+                "hour": 11,
+                "minute": 30
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 11,
+                "minute": 30
+            },
+            "end": {
+                "hour": 12,
+                "minute": 30
             }
         },
         "C": {
             "start": {
-                "hour": 1,
+                "hour": 12,
+                "minute": 30
+            },
+            "end": {
+                "hour": 15,
+                "minute": 0
+            }
+        }
+    },
+    "2025/11/19": {
+        "D": {
+            "start": {
+                "hour": 9,
                 "minute": 0
             },
             "end": {
-                "hour": 2,
+                "hour": 11,
+                "minute": 30
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 11,
+                "minute": 30
+            },
+            "end": {
+                "hour": 12,
+                "minute": 30
+            }
+        },
+        "E": {
+            "start": {
+                "hour": 12,
+                "minute": 30
+            },
+            "end": {
+                "hour": 15,
+                "minute": 0
+            }
+        }
+    },
+    "2025/11/20": {
+        "F": {
+            "start": {
+                "hour": 9,
+                "minute": 0
+            },
+            "end": {
+                "hour": 11,
+                "minute": 30
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 11,
+                "minute": 30
+            },
+            "end": {
+                "hour": 12,
                 "minute": 30
             }
         }

@@ -1,93 +1,39 @@
 {
-    "2025/11/17": {
+    "2026/1/14": {
         "Morning Meeting": {
             "start": {
-                "hour": 9,
-                "minute": 0
-            },
-            "end": {
-                "hour": 9,
-                "minute": 30
-            }
-        },
-        "Tutorial": {
-            "start": {
-                "hour": 9,
-                "minute": 0
-            },
-            "end": {
-                "hour": 11,
-                "minute": 30
-            }
-        },
-        "Lunch": {
-            "start": {
-                "hour": 11,
+                "hour": 8,
                 "minute": 30
             },
             "end": {
-                "hour": 12,
-                "minute": 30
-            }
-        },
-        "A": {
-            "start": {
-                "hour": 12,
-                "minute": 30
-            },
-            "end": {
-                "hour": 15,
-                "minute": 0
-            }
-        }
-    },
-    "2025/11/18": {
-        "B": {
-            "start": {
-                "hour": 9,
-                "minute": 0
-            },
-            "end": {
-                "hour": 11,
-                "minute": 30
-            }
-        },
-        "Lunch": {
-            "start": {
-                "hour": 11,
-                "minute": 30
-            },
-            "end": {
-                "hour": 12,
-                "minute": 30
+                "hour": 8,
+                "minute": 55
             }
         },
         "C": {
             "start": {
-                "hour": 12,
-                "minute": 30
-            },
-            "end": {
-                "hour": 15,
-                "minute": 0
-            }
-        }
-    },
-    "2025/11/19": {
-        "D": {
-            "start": {
                 "hour": 9,
                 "minute": 0
             },
             "end": {
+                "hour": 10,
+                "minute": 15
+            }
+        },
+        "D": {
+            "start": {
+                "hour": 10,
+                "minute": 20
+            },
+            "end": {
                 "hour": 11,
-                "minute": 30
+                "minute": 35
             }
         },
         "Lunch": {
             "start": {
                 "hour": 11,
-                "minute": 30
+                "minute": 35
             },
             "end": {
                 "hour": 12,
@@ -100,31 +46,93 @@
                 "minute": 30
             },
             "end": {
+                "hour": 13,
+                "minute": 45
+            }
+        },
+        "F": {
+            "start": {
+                "hour": 13,
+                "minute": 50
+            },
+            "end": {
                 "hour": 15,
-                "minute": 0
+                "minute": 05
+            }
+       },
+      "Advisory 1-on-1s": {
+            "start": {
+                "hour": 15,
+                "minute": 10
+            },
+            "end": {
+                "hour": 15,
+                "minute": 40
             }
         }
     },
-    "2025/11/20": {
-        "F": {
+ "2026/1/15": {
+        "Group Advisory/1-on-1s": {
+            "start": {
+                "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 8,
+                "minute": 55
+            }
+        },
+        "B": {
             "start": {
                 "hour": 9,
                 "minute": 0
             },
             "end": {
-                "hour": 11,
+                "hour": 10,
                 "minute": 30
+            }
+        },
+        "A": {
+            "start": {
+                "hour": 10,
+                "minute": 40
+            },
+            "end": {
+                "hour": 12,
+                "minute": 10
             }
         },
         "Lunch": {
             "start": {
-                "hour": 11,
-                "minute": 30
+                "hour": 12,
+                "minute": 10
             },
             "end": {
-                "hour": 12,
+                "hour": 13,
+                "minute": 0
+            }
+        },
+        "C": {
+            "start": {
+                "hour": 13,
+                "minute": 0
+            },
+            "end": {
+                "hour": 14,
                 "minute": 30
             }
+        },
+        "Advisory 1-on-1s": {
+            "start": {
+                "hour": 14,
+                "minute": 35
+            },
+            "end": {
+                "hour": 15,
+                "minute": 20
+            }
         }
-    }
+    },
 }
+
+

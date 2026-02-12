@@ -258,11 +258,11 @@
         },
         "tutorial": {
             "start": {
-               "hour": 13,
+               "hour": 15,
                "minute": 10
           },
           "end": {
-              "hour": 13,
+              "hour": 15,
               "minute": 40
             }
         }

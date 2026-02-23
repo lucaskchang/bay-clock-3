@@ -10,6 +10,10 @@
     "Faculty Work Day": {
         "start": "2026/2/17",
         "end": "2026/2/18"
+    },
+    "Teacher Work Day": {
+        "start": "2026/2/27",
+        "end": "2026/2/28"
     }
 }
 

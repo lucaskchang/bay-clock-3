@@ -93,7 +93,7 @@
                 "minute": 0
             }
         },
-        "C": {
+        "F": {
             "start": {
                 "hour": 13,
                 "minute": 0
@@ -111,58 +111,6 @@
             "end": {
                 "hour": 15,
                 "minute": 20
-            }
-        }
-    },
-    "2026/3/27": {
-        "Morning Meeting": {
-            "start": {
-                 "hour": 8,
-                "minute": 30
-            },
-            "end": {
-                "hour": 8,
-                "minute": 55
-            }
-        },
-        "D": {
-            "start": {
-                "hour": 9,
-                "minute": 0
-            },
-            "end": {
-                "hour": 10,
-                "minute": 15
-            }
-        },
-        "F": {
-            "start": {
-                "hour": 10,
-                "minute": 20
-            },
-            "end": {
-                "hour": 11,
-                "minute": 35
-            }
-        },
-        "Lunch": {
-            "start": {
-                "hour": 11,
-                "minute": 35
-            },
-            "end": {
-                "hour": 12,
-                "minute": 30
-            }
-        },
-        "E": {
-            "start": {
-                "hour": 12,
-                "minute": 30
-            },
-            "end": {
-                "hour": 13,
-                "minute": 45
             }
         }
     }

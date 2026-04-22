@@ -1,6 +1,6 @@
 
 {
-    "2026/4/14": {
+    "2026/4/23": {
         "Group Advisory/1-on-1's": {
             "start": {
                  "hour": 8,
@@ -18,41 +18,51 @@
             },
             "end": {
                 "hour": 10,
-                "minute": 30
+                "minute": 15
             }
         },
         "B": {
             "start": {
                 "hour": 10,
-                "minute": 40
+                "minute": 20
             },
             "end": {
-                "hour": 12,
-                "minute": 10
+                "hour": 11,
+                "minute": 35
             }
         },
         "Lunch": {
             "start": {
-                "hour": 12,
-                "minute": 10
+                "hour": 11,
+                "minute": 35
             },
             "end": {
-                "hour": 13,
-                "minute": 0
+                "hour": 12,
+                "minute": 30
             }
         },
-        "C": {
+        "Senior Projects Exhibitions": {
             "start": {
-                "hour": 13,
-                "minute": 0
+                "hour": 12,
+                "minute": 30
             },
             "end": {
                 "hour": 14,
                 "minute": 30
             }
+        },
+        "Tutorial":{
+            "start":{
+                "hour": 14,
+                "minute": 35
+            },
+            "end": {
+                "hour":15,
+                "minute": 20
+            }
         }
     },
-    "2026/4/15": {
+    "2026/4/24": {
         "Morning Meeting": {
             "start": {
                  "hour": 8,
@@ -63,54 +73,54 @@
                 "minute": 55
             }
         },
-        "D": {
+        "C": {
             "start": {
                 "hour": 9,
                 "minute": 0
             },
             "end": {
                 "hour": 10,
+                "minute": 15
+            }
+        },
+        "D": {
+            "start": {
+                "hour": 10,
+                "minute": 20
+            },
+            "end": {
+                "hour": 11,
+                "minute": 35
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 11,
+                "minute": 35
+            },
+            "end": {
+                "hour": 12,
                 "minute": 30
             }
         },
         "E": {
             "start": {
-                "hour": 10,
-                "minute": 40
-            },
-            "end": {
                 "hour": 12,
-                "minute": 10
-            }
-        },
-        "Lunch": {
-            "start": {
-                "hour": 12,
-                "minute": 10
+                "minute": 30
             },
             "end": {
                 "hour": 13,
-                "minute": 0
+                "minute": 45
             }
         },
         "F": {
             "start": {
                 "hour": 13,
-                "minute": 0
+                "minute": 50
             },
             "end": {
-                "hour": 14,
-                "minute": 30
-            }
-        },
-        "Tutorial": {
-            "start": {
                 "hour": 14,
                 "minute": 35
-            },
-            "end": {
-                "hour": 15,
-                "minute": 20
             }
         }
     }

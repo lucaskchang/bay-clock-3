@@ -1,30 +1,50 @@
 <template>
-  <div class="flex h-screen flex-col items-center justify-center text-center">
-    <p class="text-8xl font-bold">
-      {{ Math.floor((perimeter / windowPerimeter) * 10000) / 100
-      }}<span class="text-4xl">%</span>
-    </p>
-    <div
-      class="fixed left-0 top-0 h-8 w-full rounded-r"
-      :class="'bg-' + progressColor"
-      :style="{ width: `${topPercentage * width}px` }"
-    />
-    <div
-      class="fixed right-0 top-0 h-full w-8 rounded-b"
-      :class="'bg-' + progressColor"
-      :style="{ height: `${rightPercentage * height}px` }"
-    />
-    <div
-      class="fixed bottom-0 right-0 h-8 w-full rounded-l"
-      :class="'bg-' + progressColor"
-      :style="{ width: `${bottomPercentage * width}px` }"
-    />
-    <div
-      class="fixed bottom-0 left-0 h-full w-8 rounded-t"
-      :class="'bg-' + progressColor"
-      :style="{ height: `${leftPercentage * height}px` }"
-    />
-  </div>
+  <ClientOnly>
+    <div class="flex h-screen flex-col items-center justify-center text-center">
+      <p class="text-8xl font-bold tabular-nums">
+        {{ timeLeftDisplay }}<span
+          v-if="currentBlock"
+          class="text-4xl"
+        />
+      </p>
+      <p class="mt-4 text-3xl font-semibold text-gray-600 dark:text-gray-400">
+        {{ statusLabel }}
+      </p>
+      <Transition name="fade">
+        <UButton
+          v-if="showControls"
+          :ui="buttonUIs.links"
+          to="/"
+          label="Home"
+          size="lg"
+          class="mt-8"
+        />
+      </Transition>
+      <div
+        class="fixed left-0 top-0 h-8 w-full rounded-r"
+        :class="'bg-' + progressColor"
+        :style="{ width: `${topPercentage * width}px` }"
+      />
+      <div
+        class="fixed right-0 top-0 h-full w-8 rounded-b"
+        :class="'bg-' + progressColor"
+        :style="{ height: `${rightPercentage * height}px` }"
+      />
+      <div
+        class="fixed bottom-0 right-0 h-8 w-full rounded-l"
+        :class="'bg-' + progressColor"
+        :style="{ width: `${bottomPercentage * width}px` }"
+      />
+      <div
+        class="fixed bottom-0 left-0 h-full w-8 rounded-t"
+        :class="'bg-' + progressColor"
+        :style="{ height: `${leftPercentage * height}px` }"
+      />
+    </div>
+    <template #fallback>
+      <div class="h-screen" />
+    </template>
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">
@@ -43,27 +63,80 @@ useSeoMeta({
 });
 
 const stylesStore = useStylesStore();
-const { progressColor } = storeToRefs(stylesStore);
+const { progressColor, buttonUIs } = storeToRefs(stylesStore);
 const nowStore = useNowStore();
 const { time } = storeToRefs(nowStore);
 const scheduleStore = useScheduleStore();
-const { schedule } = storeToRefs(scheduleStore);
+const { schedule, isImmersive, isBreak, breakName, isWeekend } = storeToRefs(scheduleStore);
 
 const { width, height } = useWindowSize();
 const windowPerimeter = computed(() => width.value * 2 + height.value * 2);
 
-const perimeter = computed(() => {
+const currentBlock = computed(() => {
   const timeNum = time.value.getTime();
-  for (const timeframe of Object.values(schedule.value)) {
+  for (const [name, timeframe] of Object.entries(schedule.value)) {
     if (timeNum >= timeframe.start && timeNum <= timeframe.end) {
-      const percentDone
-        = (timeNum - timeframe.start) / (timeframe.end - timeframe.start);
-      const perimeterDone = Math.floor(percentDone * windowPerimeter.value);
-      return perimeterDone;
+      return { name, timeframe };
     }
   }
-  return 0;
+  return null;
 });
+
+const blockLabel = computed(() => {
+  if (!currentBlock.value) return '';
+  const name = currentBlock.value.name;
+  if (isImmersive.value && (name.slice(0, 6) === 'REMOVE' || name.slice(0, 6) === 'DELETE')) {
+    return name.slice(6);
+  }
+  return name;
+});
+
+const statusLabel = computed(() => {
+  if (isBreak.value) return breakName.value;
+  if (isWeekend.value) return 'Weekend';
+  if (currentBlock.value) return blockLabel.value;
+  return 'Passing';
+});
+
+const timeLeftDisplay = computed(() => {
+  if (!currentBlock.value) return '--:--';
+  const totalSeconds = Math.max(
+    0,
+    Math.floor((currentBlock.value.timeframe.end - time.value.getTime()) / 1000),
+  );
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  const paddedSeconds = seconds.toString().padStart(2, '0');
+  if (hours > 0) {
+    return `${hours}:${minutes.toString().padStart(2, '0')}:${paddedSeconds}`;
+  }
+  return `${minutes}:${paddedSeconds}`;
+});
+
+const showControls = ref(false);
+let hideControlsTimeout: ReturnType<typeof setTimeout> | null = null;
+
+function revealControls() {
+  showControls.value = true;
+  if (hideControlsTimeout) clearTimeout(hideControlsTimeout);
+  hideControlsTimeout = setTimeout(() => {
+    showControls.value = false;
+  }, 2000);
+}
+
+useEventListener('mousemove', revealControls);
+
+onUnmounted(() => {
+  if (hideControlsTimeout) clearTimeout(hideControlsTimeout);
+});
+
+const timeframeProgress = computed(() => {
+  if (!currentBlock.value) return 0;
+  const { start, end } = currentBlock.value.timeframe;
+  return (time.value.getTime() - start) / (end - start);
+});
+const perimeter = computed(() => Math.floor(timeframeProgress.value * windowPerimeter.value));
 const topPercentage = computed(() => {
   if (perimeter.value >= width.value) {
     return 1;
@@ -109,3 +182,14 @@ const leftPercentage = computed(() => {
   }
 });
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

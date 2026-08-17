@@ -1,30 +1,17 @@
 <template>
   <div class="mx-auto py-8 text-center text-lg">
     <p>
-      Created by
-      <a
-        href="https://www.lucaskchang.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-blue-400 hover:text-blue-500"
-      >
-        Lucas Chang '24
-      </a>
+      Created by Lucas Chang '24
     </p>
     <p>
-      <!-- <a
-        class="font-semibold text-blue-400 hover:text-blue-500"
+      <a
+        class="text-blue-400 hover:text-blue-500"
         href="https://github.com/lucaskchang/bay-clock-3"
         target="_blank"
+        rel="noopener noreferrer"
       >
         Code
-      </a> -->
-      <span
-        class="cursor-pointer text-blue-400 hover:text-blue-500"
-        @click="isChangelogOpen = true"
-      >
-        Code
-      </span>
+      </a>
       /
       <span
         class="cursor-pointer text-blue-400 hover:text-blue-500"
@@ -32,15 +19,6 @@
       >
         Tools
       </span>
-      /
-      <a
-        class="text-blue-400 hover:text-blue-500"
-        href="https://forms.gle/khAXGXiUMoAoskKQA"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Feedback
-      </a>
       /
       <span
         class="cursor-pointer text-blue-400 hover:text-blue-500"
@@ -55,7 +33,9 @@
         <p class="text-2xl font-semibold">
           Credits
         </p>
-        <p>Managed by Sam West '26 and Kainoa Newton '26</p>
+        <p>Managers: Suriya Bou '27, Ryan Chow '27, and Pat Nuchitsiripattara '28</p>
+        <p>Previous Managers: Sam West '26 and Kainoa Newton '26</p>
+        <p>Special thanks to Joel Krauska (2030 dad) and Kainoa Newton for contributing to the project.</p>
         <p>
           Interested in helping out? Contact me at lucaskchang@gmail.com and read <a
             class="text-blue-400 hover:text-blue-500"
@@ -63,57 +43,6 @@
             target="_blank"
             rel="noopener noreferrer"
           >this guide</a>.
-        </p>
-        <p>Created by Lucas Chang with inspiration from:</p>
-        <p>
-          <a
-            class="text-blue-400 hover:text-blue-500"
-            href="https://lucaskchang.github.io/bay-clock-2/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            https://lucaskchang.github.io/bay-clock-2/
-          </a> (deprecated June 14, 2024)
-        </p>
-        <p>
-          <a
-            class="text-blue-400 hover:text-blue-500"
-            href="https://lucaskchang.github.io/clock/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            https://lucaskchang.github.io/clock/
-          </a> (deprecated February 2, 2023)
-        </p>
-        <p>
-          <a
-            class="text-blue-400 hover:text-blue-500"
-            href="https://lucaskchang.github.io/bay-clock/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            https://lucaskchang.github.io/bay-clock/
-          </a> (deprecated October 16, 2021)
-        </p>
-        <p>
-          <a
-            class="text-blue-400 hover:text-blue-500"
-            href="https://baysf.github.io/clock/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            https://baysf.github.io/clock/
-          </a> (deprecated May 15, 2021 or maybe never actually worked)
-        </p>
-        <p>
-          <a
-            class="text-blue-400 hover:text-blue-500"
-            href="http://clock.bayschoolsf.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            http://clock.bayschoolsf.org/
-          </a> (deprecated June 11, 2016)
         </p>
       </div>
     </UModal>
@@ -148,7 +77,7 @@
                     Baydle Game
                   </p>
                   <p>
-                    A Bay School themed Wordle game. Guess the teacher in ten tries or less based on their room number and subject.
+                    A Bay School themed Wordle game. Guess the teacher (that taught in 2024) in ten tries or less based on their room number and subject.
                   </p>
                 </div>
               </div>
@@ -205,89 +134,10 @@
         </div>
       </div>
     </UModal>
-    <UModal
-      v-model="isChangelogOpen"
-      :ui="{
-        width: 'sm:max-w-2xl',
-      }"
-    >
-      <div class="space-y-2 p-4">
-        <p class="text-2xl font-semibold">
-          Code
-        </p>
-        <p>
-          <a
-            class="text-blue-400 hover:text-blue-500"
-            href="https://github.com/lucaskchang/bay-clock-3"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Bay Clock 3
-          </a>
-        </p>
-        <p>
-          <a
-            class="text-blue-400 hover:text-blue-500"
-            href="https://github.com/lucaskchang/bay-clock-2"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Bay Clock 2
-          </a>
-        </p>
-        <p>
-          <a
-            class="text-blue-400 hover:text-blue-500"
-            href="https://github.com/lucaskchang/bay-clock"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Bay Clock
-          </a>
-        </p>
-        <p class="text-2xl font-semibold">
-          Changelog
-        </p>
-        <p class="mt-4 text-xl font-bold">
-          New in v3.0
-        </p>
-        <p class="text-lg font-semibold">
-          Features
-        </p>
-        <p>
-          🔗 Reverted useful links dashboard to dropdown (sometimes simpler is
-          better)
-        </p>
-        <p>
-          🥪 Zoomable lunch menu (I don't know why this was not possible
-          previously)
-        </p>
-        <p>✍️ Option to add custom names for tutorial and morning meeting</p>
-        <p>💪 Customizable 'special flex class'</p>
-        <p>🧑‍🤝‍🧑 Option to specify which day you have group advisory</p>
-        <p>🖌️ New color palette (36 more colors)</p>
-        <p>🔵 Added option for unrounded progress bars and buttons</p>
-        <p>🌙 Automatic dark mode</p>
-        <p>🔔 Notifications for saving, cancelling, and resetting customizations</p>
-        <p>📐 Option to add custom useful links</p>
-        <p>🔍 Easier to find in search results</p>
-        <p>📱 Better mobile formatting</p>
-        <p class="text-lg font-semibold">
-          Code Upgrades
-        </p>
-        <p>📦 Upgraded all packages to latest versions</p>
-        <p>
-          ⚡ Switched to Nuxt for maximum performance and developer experience
-        </p>
-        <p>🎨 Switched to TailwindCSS + NuxtUI for more customizability</p>
-        <p>🦾 Added VueUse and Pinia for more functionality</p>
-      </div>
-    </UModal>
   </div>
 </template>
 
 <script setup lang="ts">
 const isCreditsOpen = ref(false);
 const isToolsOpen = ref(false);
-const isChangelogOpen = ref(false);
 </script>

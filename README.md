@@ -1,6 +1,6 @@
 # Bay Clock 3
 
-Third and possibly final iteration of Bay Clock.
+Bay Clock is a customizable website that shows the current schedule for The Bay School of San Francisco.
 
 [Visit Here](https://bayclock.org)
 

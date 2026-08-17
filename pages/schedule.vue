@@ -60,12 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCustomScheduleStore } from '~/stores/customSchedule';
 import { useNowStore } from '~/stores/now';
-import regularScheduleJSON from '~/assets/data/regular_schedule.json';
-import specialSchedules from '~/assets/data/special_schedules.json';
-import immersiveSchedule from '~/assets/data/immersive_schedule.json';
-import breaks from '~/assets/data/breaks.json';
 
 const useDefaultSchedule = ref(true);
 const useCustomNames = ref(false);
@@ -78,35 +73,9 @@ function print() {
   }, 1000);
 }
 const printing = ref(false);
-const customScheduleStore = useCustomScheduleStore();
 const nowStore = useNowStore();
-const {
-  blockNames,
-  clubs,
-  activityDays,
-  activitySchedule,
-  activityName,
-  immersiveName,
-  hasSpecialFlex,
-  flexBlock,
-  specialFlexDay,
-  specialFlexName,
-  customSpecialFlexName,
-  advisoryDay,
-  showOneOnOnes,
-} = storeToRefs(customScheduleStore);
 const { time } = storeToRefs(nowStore);
-
-const regularSchedule = regularScheduleJSON as Record<
-  string,
-  Record<
-    string,
-    {
-      start: { hour: number, minute: number }
-      end: { hour: number, minute: number }
-    }
-  >
->;
+const { getDaySchedule } = useDaySchedule();
 
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 const colors = [
@@ -133,168 +102,46 @@ const colorKeyIndex = ref(0);
 
 const isImmersive = ref(false);
 
-const weeklySchedule = computed(() => {
-  const output = {} as Record<
-    string,
-    Record<
-      string,
-      {
-        start: string
-        end: string
-      }
-    >
-  >;
+function formatHour(hour: number, minute: number) {
+  return `${hour > 12 ? hour - 12 : hour}:${minute.toString().padStart(2, '0')}`;
+}
+
+type WeekSchedule = Record<string, Record<string, { start: string, end: string }>>;
+
+// a plain ref updated in a watchEffect, rather than a computed, because
+// building it also has to grow the shared colorKey/isImmersive state
+const weeklySchedule = ref({}) as Ref<WeekSchedule>;
+
+watchEffect(() => {
+  const output: WeekSchedule = {};
   for (const dayOfWeek of days) {
     const dayDate = new Date(time.value);
-    const today = dayDate.getDay() === 0 ? 7 : dayDate.getDay();
-    const diff = dayDate.getDate() - today + days.indexOf(dayOfWeek) + 1;
+    const dayOfMonth = dayDate.getDay() === 0 ? 7 : dayDate.getDay();
+    const diff = dayDate.getDate() - dayOfMonth + days.indexOf(dayOfWeek) + 1;
     dayDate.setDate(diff);
 
-    const day = useDateFormat(dayDate, 'dddd');
-    let isBreak = false;
-    let unparsedSchedule: Record<
-      string,
-      {
-        start: { hour: number, minute: number }
-        end: { hour: number, minute: number }
-      }
-    > = {};
-
-    // load regular schedule
-    for (const [name, timeframe] of Object.entries(
-      regularSchedule[day.value],
-    )) {
-      if (name === 'Group Advisory/1-on-1s') {
-        if (!advisoryDay.value) {
-          unparsedSchedule[name] = timeframe;
-        }
-        else if (day.value === advisoryDay.value) {
-          unparsedSchedule['Group Advisory'] = timeframe;
-        }
-        else if (showOneOnOnes.value === 'Yes') {
-          unparsedSchedule['Advisor 1-on-1'] = timeframe;
-        }
-      }
-      else if (name === flexBlock.value) {
-        if (
-          hasSpecialFlex.value === 'Yes'
-          && day.value === specialFlexDay.value
-        ) {
-          unparsedSchedule[
-            customSpecialFlexName.value || specialFlexName.value
-          ] = timeframe;
-        }
-        else {
-          unparsedSchedule[name] = timeframe;
-        }
-      }
-      else {
-        unparsedSchedule[name] = timeframe;
-      }
+    const dayResult = getDaySchedule(dayDate, {
+      applyOverrides: !useDefaultSchedule.value,
+      applyCustomNames: useCustomNames.value,
+    });
+    if (dayResult.isImmersive) {
+      isImmersive.value = true;
     }
 
-    if (!useDefaultSchedule.value) {
-    // check for special schedule
-      for (const [date, specialSchedule] of Object.entries(specialSchedules)) {
-        const specialScheduleDate = new Date(date);
-        if (dayDate.toDateString() === specialScheduleDate.toDateString()) {
-          unparsedSchedule = specialSchedule;
-        }
-      }
-
-      // check for immersives
-      for (const date of immersiveSchedule.dates) {
-        const startDate = new Date(date.start);
-        const endDate = new Date(date.end);
-        if (dayDate >= startDate && dayDate <= endDate) {
-          unparsedSchedule = immersiveSchedule.schedule;
-          isImmersive.value = true;
-        }
-      }
-
-      // check for breaks
-      for (const [name, timeframe] of Object.entries(breaks)) {
-        const breakStart = new Date(timeframe.start);
-        const breakEnd = new Date(timeframe.end);
-        if (dayDate >= breakStart && dayDate <= breakEnd) {
-          unparsedSchedule = {
-            [name]: {
-              start: {
-                hour: 0,
-                minute: 0,
-              },
-              end: {
-                hour: 23,
-                minute: 59,
-              },
-            },
-          };
-          isBreak = true;
-        }
-      }
-    }
-    // convert schedule to timestamps
-    const parsedSchedule: Record<
-      string,
-      {
-        start: string
-        end: string
-      }
-    > = {};
-    for (const [block, timeframe] of Object.entries(unparsedSchedule)) {
-      let blockName = block;
-      if (blockNames.value[blockName] && useCustomNames.value) {
-        blockName = blockNames.value[blockName];
-      }
-      else if (blockName === 'Lunch' && useCustomNames.value) {
-        if (clubs.value[day.value]) {
-          blockName = clubs.value[day.value];
-        }
-      }
-      else if (blockName === 'REMOVEImmersive' && immersiveName.value && useCustomNames.value) {
-        blockName = `REMOVE${immersiveName.value}`;
-      }
-      else if (blockName === 'DELETEImmersive' && immersiveName.value && useCustomNames.value) {
-        blockName = `DELETE${immersiveName.value}`;
-      }
+    // convert schedule to display strings
+    const parsedSchedule: Record<string, { start: string, end: string }> = {};
+    for (const [blockName, timeframe] of Object.entries(dayResult.schedule)) {
       parsedSchedule[blockName] = {
-        start: `${
-          timeframe.start.hour > 12
-            ? timeframe.start.hour - 12
-            : timeframe.start.hour
-        }:${timeframe.start.minute.toString().padStart(2, '0')}`,
-        end: `${
-          timeframe.end.hour > 12 ? timeframe.end.hour - 12 : timeframe.end.hour
-        }:${timeframe.end.minute.toString().padStart(2, '0')}`,
+        start: formatHour(timeframe.start.hour, timeframe.start.minute),
+        end: formatHour(timeframe.end.hour, timeframe.end.minute),
       };
       if (!colorKey.value[blockName]) {
         colorKey.value[blockName] = colors[colorKeyIndex.value];
         colorKeyIndex.value++;
       }
     }
-
-    // check for activities
-    if (activityDays.value[day.value] && !isBreak) {
-      parsedSchedule[activityName.value || 'Activities + Sports/Drama'] = {
-        start: `${
-          Number(activitySchedule.value[day.value].start.split(':')[0]) > 12
-            ? Number(activitySchedule.value[day.value].start.split(':')[0]) - 12
-            : Number(activitySchedule.value[day.value].start.split(':')[0])
-        }:${activitySchedule.value[day.value].start.split(':')[1].padStart(2, '0')}`,
-        end: `${
-          Number(activitySchedule.value[day.value].end.split(':')[0]) > 12
-            ? Number(activitySchedule.value[day.value].end.split(':')[0]) - 12
-            : Number(activitySchedule.value[day.value].end.split(':')[0])
-        }:${activitySchedule.value[day.value].end.split(':')[1].padStart(2, '0')}`,
-      };
-      if (!colorKey.value[activityName.value || 'Activities + Sports/Drama']) {
-        colorKey.value[activityName.value || 'Activities + Sports/Drama']
-          = colors[colorKeyIndex.value];
-        colorKeyIndex.value++;
-      }
-    }
     output[dayOfWeek] = parsedSchedule;
   }
-  return output;
+  weeklySchedule.value = output;
 });
 </script>

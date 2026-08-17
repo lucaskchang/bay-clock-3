@@ -1,10 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  modules: [
+    '@nuxt/ui',
+    '@nuxt/image',
+    '@pinia/nuxt',
+    '@vueuse/nuxt',
+    'nuxt-gtag',
+    '@nuxt/eslint',
+  ],
   devtools: { enabled: true },
-
-  runtimeConfig: {
-    contentfulKey: '',
-  },
 
   app: {
     head: {
@@ -24,31 +28,14 @@ export default defineNuxtConfig({
 
   css: ['@/assets/styles/main.scss'],
 
-  typescript: {
-    strict: true,
-  },
-
-  modules: [
-    '@nuxt/ui',
-    '@nuxt/image',
-    '@pinia/nuxt',
-    '@vueuse/nuxt',
-    'nuxt-gtag',
-    '@nuxt/eslint',
-  ],
-
-  image: {
-    contentful: {
-      baseURL: 'https://images.ctfassets.net/',
-    },
-  },
-
   colorMode: {
     classSuffix: '',
   },
 
-  gtag: {
-    id: 'G-FVNXPL0FCK',
+  compatibilityDate: '2025-01-20',
+
+  typescript: {
+    strict: true,
   },
 
   eslint: {
@@ -57,5 +44,7 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: '2025-01-20',
+  gtag: {
+    id: 'G-FVNXPL0FCK',
+  },
 });

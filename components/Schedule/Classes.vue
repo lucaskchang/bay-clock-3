@@ -4,7 +4,7 @@
       Classes
     </p>
     <UInput
-      v-for="name in Object.keys(blockNames).splice(0, 6)"
+      v-for="name in Object.keys(blockNames).slice(0, 6)"
       :key="name"
       v-model="blockNames[name]"
       :placeholder="name"
@@ -14,7 +14,7 @@
       Other
     </p>
     <UInput
-      v-for="name in Object.keys(blockNames).splice(6, 9)"
+      v-for="name in Object.keys(blockNames).slice(6, 9)"
       :key="name"
       v-model="blockNames[name]"
       :placeholder="name"

@@ -56,7 +56,7 @@ const blockProgresses = computed(() => {
     ) {
       progresses[blockName]
         = Math.round(((time.value.getTime() - timeframe.start)
-        / (timeframe.end - timeframe.start))
+          / (timeframe.end - timeframe.start))
         * 1000) / 10;
     }
     else if (time.value.getTime() < timeframe.start) {

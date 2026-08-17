@@ -49,6 +49,8 @@
 <script setup lang="ts">
 import { useStylesStore } from '~/stores/styles';
 
+defineEmits<{ (e: 'preset-applied'): void }>();
+
 const stylesStore = useStylesStore();
 const { buttonStyles, progressColor } = storeToRefs(stylesStore);
 

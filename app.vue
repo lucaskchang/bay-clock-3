@@ -32,6 +32,7 @@ onMounted(() => {
       customScheduleStore.hasSpecialFlex = schedule.hasSpecialFlex;
       customScheduleStore.flexBlock = schedule.flexBlock;
       customScheduleStore.specialFlexDay = schedule.specialFlexDay;
+      customScheduleStore.customSpecialFlexName = schedule.customSpecialFlexName ?? '';
       customScheduleStore.advisoryDay = schedule.advisoryDay;
       customScheduleStore.showOneOnOnes = schedule.showOneOnOnes;
     }

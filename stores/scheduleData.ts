@@ -5,7 +5,7 @@ import activityScheduleJSON from '~/assets/data/activity_schedule.json';
 import breaksJSON from '~/assets/data/breaks.json';
 import usefulLinksJSON from '~/assets/data/useful_links.json';
 
-export const useContentfulStore = defineStore('contentful', () => {
+export const useScheduleDataStore = defineStore('scheduleData', () => {
   const activitySchedule = ref(activityScheduleJSON);
   const breaks = ref(breaksJSON);
   const specialSchedules = ref(specialSchedulesJSON);

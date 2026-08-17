@@ -33,16 +33,7 @@ const colorMode = useColorMode();
 const stylesStore = useStylesStore();
 const { useDetailedTime, showGraduationCountdown, isDarkMode } = storeToRefs(stylesStore);
 
-const isDark = computed({
-  get() {
-    return colorMode.value === 'dark';
-  },
-  set() {
-    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
-  },
-});
-
-watch(isDarkMode, () => {
-  isDark.value = isDarkMode.value;
+watch(isDarkMode, (value) => {
+  colorMode.preference = value ? 'dark' : 'light';
 });
 </script>

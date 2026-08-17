@@ -180,6 +180,7 @@ function getCurrentScheduleState() {
     hasSpecialFlex: customScheduleStore.hasSpecialFlex,
     flexBlock: customScheduleStore.flexBlock,
     specialFlexDay: customScheduleStore.specialFlexDay,
+    customSpecialFlexName: customScheduleStore.customSpecialFlexName,
     advisoryDay: customScheduleStore.advisoryDay,
     showOneOnOnes: customScheduleStore.showOneOnOnes,
   };
@@ -247,6 +248,7 @@ function revert() {
   customScheduleStore.hasSpecialFlex = initialSchedule.hasSpecialFlex;
   customScheduleStore.flexBlock = initialSchedule.flexBlock;
   customScheduleStore.specialFlexDay = initialSchedule.specialFlexDay;
+  customScheduleStore.customSpecialFlexName = initialSchedule.customSpecialFlexName;
   customScheduleStore.advisoryDay = initialSchedule.advisoryDay;
   customScheduleStore.showOneOnOnes = initialSchedule.showOneOnOnes;
   isOpen.value = false;

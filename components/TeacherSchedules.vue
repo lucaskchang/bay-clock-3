@@ -41,11 +41,11 @@
             </p>
           </div>
           <div
-            v-for="(classInfo, block, index) in selectedTeacherObject"
+            v-for="(classInfo, block) in selectedTeacherObject"
             :key="block"
           >
             <div
-              v-if="index !== 0 && index !== Object.keys(selectedTeacherObject).length - 1"
+              v-if="block !== 'Teacher\'s Name' && block !== 'Office'"
               class="text-lg"
             >
               <p class="ml-2">

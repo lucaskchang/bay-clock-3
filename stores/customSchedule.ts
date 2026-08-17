@@ -1,8 +1,8 @@
-import { useContentfulStore } from './contentful';
+import { useScheduleDataStore } from './scheduleData';
 
 export const useCustomScheduleStore = defineStore('customSchedule', () => {
-  const contentfulStore = useContentfulStore();
-  const { activitySchedule } = storeToRefs(contentfulStore);
+  const scheduleDataStore = useScheduleDataStore();
+  const { activitySchedule } = storeToRefs(scheduleDataStore);
 
   const blockNames: Ref<Record<string, string>> = ref({
     'A': 'A',

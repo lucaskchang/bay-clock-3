@@ -82,12 +82,12 @@
 
 <script setup lang="ts">
 import { useStylesStore } from '~/stores/styles';
-import { useContentfulStore } from '~/stores/contentful';
+import { useScheduleDataStore } from '~/stores/scheduleData';
 
 const stylesStore = useStylesStore();
-const contentfulStore = useContentfulStore();
+const scheduleDataStore = useScheduleDataStore();
 const { buttonUIs } = storeToRefs(stylesStore);
-const { usefulLinks } = storeToRefs(contentfulStore);
+const { usefulLinks } = storeToRefs(scheduleDataStore);
 
 const isOpen = ref(false);
 const url = ref('');

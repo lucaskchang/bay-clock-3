@@ -31,6 +31,7 @@
             <ScheduleActivities v-else-if="item.label === 'Activities'" />
             <ScheduleImmersives v-else-if="item.label === 'Immersives'" />
             <ScheduleExtras v-else-if="item.label === 'Extras'" />
+            <ScheduleShare v-else-if="item.label === 'Share'" />
             <div
               class="flex flex-row justify-between gap-2 justify-self-end pt-4"
             >
@@ -153,37 +154,12 @@ const tabs = [
   { label: 'Activities' },
   { label: 'Immersives' },
   { label: 'Extras' },
+  { label: 'Share' },
 ];
 const notification = useToast();
 
 function getCurrentScheduleState() {
-  return {
-    blockNames: {
-      ...customScheduleStore.blockNames,
-    },
-    clubs: {
-      ...customScheduleStore.clubs,
-    },
-    activityDays: {
-      ...customScheduleStore.activityDays,
-    },
-    activitySchedule: {
-      Monday: { ...customScheduleStore.activitySchedule.Monday },
-      Tuesday: { ...customScheduleStore.activitySchedule.Tuesday },
-      Wednesday: { ...customScheduleStore.activitySchedule.Wednesday },
-      Thursday: { ...customScheduleStore.activitySchedule.Thursday },
-      Friday: { ...customScheduleStore.activitySchedule.Friday },
-    },
-    activityName: customScheduleStore.activityName,
-    immersiveName: customScheduleStore.immersiveName,
-    grade: customScheduleStore.grade,
-    hasSpecialFlex: customScheduleStore.hasSpecialFlex,
-    flexBlock: customScheduleStore.flexBlock,
-    specialFlexDay: customScheduleStore.specialFlexDay,
-    customSpecialFlexName: customScheduleStore.customSpecialFlexName,
-    advisoryDay: customScheduleStore.advisoryDay,
-    showOneOnOnes: customScheduleStore.showOneOnOnes,
-  };
+  return customScheduleStore.getExportableState();
 }
 
 function resetSchedule() {
@@ -226,31 +202,7 @@ function cancelChanges() {
 }
 
 function revert() {
-  customScheduleStore.blockNames = {
-    ...initialSchedule.blockNames,
-  };
-  customScheduleStore.clubs = {
-    ...initialSchedule.clubs,
-  };
-  customScheduleStore.activityDays = {
-    ...initialSchedule.activityDays,
-  };
-  customScheduleStore.activitySchedule = {
-    Monday: { ...initialSchedule.activitySchedule.Monday },
-    Tuesday: { ...initialSchedule.activitySchedule.Tuesday },
-    Wednesday: { ...initialSchedule.activitySchedule.Wednesday },
-    Thursday: { ...initialSchedule.activitySchedule.Thursday },
-    Friday: { ...initialSchedule.activitySchedule.Friday },
-  };
-  customScheduleStore.activityName = initialSchedule.activityName;
-  customScheduleStore.immersiveName = initialSchedule.immersiveName;
-  customScheduleStore.grade = initialSchedule.grade;
-  customScheduleStore.hasSpecialFlex = initialSchedule.hasSpecialFlex;
-  customScheduleStore.flexBlock = initialSchedule.flexBlock;
-  customScheduleStore.specialFlexDay = initialSchedule.specialFlexDay;
-  customScheduleStore.customSpecialFlexName = initialSchedule.customSpecialFlexName;
-  customScheduleStore.advisoryDay = initialSchedule.advisoryDay;
-  customScheduleStore.showOneOnOnes = initialSchedule.showOneOnOnes;
+  customScheduleStore.applySchedule(initialSchedule);
   isOpen.value = false;
   notification.add({
     icon: 'i-heroicons-x-circle',

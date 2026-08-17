@@ -4,15 +4,7 @@
       Page not found
     </p>
     <p class="text-xl font-semibold md:text-3xl">
-      Uh oh, we can't find the page you're looking for. If you think this is a mistake, please fill out
-      <a
-        href="https://forms.gle/khAXGXiUMoAoskKQA"
-        target="_blank"
-        class="font-semibold text-blue-400 hover:text-blue-500"
-        rel="noopener noreferrer"
-      >
-        this form
-      </a> or email lucaskchang@gmail.com.
+      Uh oh, we can't find the page you're looking for. If you think this is a mistake, email lucaskchang@gmail.com.
     </p>
     <UButton
       size="lg"

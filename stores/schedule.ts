@@ -27,11 +27,49 @@ export const useScheduleStore = defineStore('schedule', () => {
   const isWeekend = computed(() => {
     return time.value.getDay() === 0 || time.value.getDay() === 6;
   });
-  const isSpecialSchedule = ref(false);
-  const isBreak = ref(false);
-  const isImmersive = ref(false);
-  const breakName = ref('');
-  const daysLeft = ref(0);
+
+  const activeSpecialSchedule = computed(() => {
+    let match = null;
+    for (const [date, specialSchedule] of Object.entries(specialSchedules.value)) {
+      const specialScheduleDate = new Date(date);
+      if (time.value.toDateString() === specialScheduleDate.toDateString()) {
+        match = specialSchedule;
+      }
+    }
+    return match;
+  });
+  const isSpecialSchedule = computed(() => activeSpecialSchedule.value !== null);
+
+  const activeImmersive = computed(() => {
+    let match = null;
+    for (const date of immersiveSchedule.value.dates) {
+      const startDate = new Date(date.start);
+      const endDate = new Date(date.end);
+      if (time.value >= startDate && time.value <= endDate) {
+        match = immersiveSchedule.value.schedule;
+      }
+    }
+    return match;
+  });
+  const isImmersive = computed(() => activeImmersive.value !== null);
+
+  const activeBreak = computed(() => {
+    let match: { name: string, end: Date } | null = null;
+    for (const [name, timeframe] of Object.entries(breaks.value)) {
+      const breakStart = new Date(timeframe.start);
+      const breakEnd = new Date(timeframe.end);
+      if (time.value >= breakStart && time.value <= breakEnd) {
+        match = { name, end: breakEnd };
+      }
+    }
+    return match;
+  });
+  const isBreak = computed(() => activeBreak.value !== null);
+  const breakName = computed(() => activeBreak.value?.name ?? '');
+  const daysLeft = computed(() => activeBreak.value
+    ? Math.ceil((activeBreak.value.end.getTime() - time.value.getTime()) / (1000 * 3600 * 24))
+    : 0);
+
   const schedule = computed(() => {
     const day = useDateFormat(time.value, 'dddd');
     let unparsedSchedule: Record<
@@ -76,36 +114,18 @@ export const useScheduleStore = defineStore('schedule', () => {
     }
 
     // check for special schedule
-    for (const [date, specialSchedule] of Object.entries(specialSchedules.value)) {
-      const specialScheduleDate = new Date(date);
-      if (time.value.toDateString() === specialScheduleDate.toDateString()) {
-        unparsedSchedule = specialSchedule;
-        isSpecialSchedule.value = true;
-      }
+    if (activeSpecialSchedule.value) {
+      unparsedSchedule = activeSpecialSchedule.value;
     }
 
     // check for immersives
-    for (const date of immersiveSchedule.value.dates) {
-      const startDate = new Date(date.start);
-      const endDate = new Date(date.end);
-      if (time.value >= startDate && time.value <= endDate) {
-        unparsedSchedule = immersiveSchedule.value.schedule;
-        isImmersive.value = true;
-      }
+    if (activeImmersive.value) {
+      unparsedSchedule = activeImmersive.value;
     }
 
     // check for breaks
-    for (const [name, timeframe] of Object.entries(breaks.value)) {
-      const breakStart = new Date(timeframe.start);
-      const breakEnd = new Date(timeframe.end);
-      if (time.value >= breakStart && time.value <= breakEnd) {
-        daysLeft.value = Math.ceil(
-          (breakEnd.getTime() - time.value.getTime()) / (1000 * 3600 * 24),
-        );
-        breakName.value = name;
-        isBreak.value = true;
-        unparsedSchedule = {};
-      }
+    if (isBreak.value) {
+      unparsedSchedule = {};
     }
 
     // convert schedule to timestamps
@@ -134,7 +154,7 @@ export const useScheduleStore = defineStore('schedule', () => {
           0,
           0,
         ),
-        end: new Date().setHours(timeframe.end.hour, timeframe.end.minute, 0),
+        end: new Date().setHours(timeframe.end.hour, timeframe.end.minute, 0, 0),
       };
     }
 

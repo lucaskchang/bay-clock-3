@@ -58,11 +58,6 @@ import { useNowStore } from '~/stores/now';
 
 const nowStore = useNowStore();
 const { time } = storeToRefs(nowStore);
-const { updateTimeLoop } = nowStore;
-
-onMounted(() => {
-  updateTimeLoop();
-});
 
 const clock = useDateFormat(time, 'h:mm:ss A');
 const date = useDateFormat(time, 'ddd MMMM D YYYY');

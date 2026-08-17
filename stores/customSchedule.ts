@@ -88,6 +88,7 @@ export const useCustomScheduleStore = defineStore('customSchedule', () => {
     hasSpecialFlex.value = 'No';
     flexBlock.value = '';
     specialFlexDay.value = '';
+    customSpecialFlexName.value = '';
     advisoryDay.value = '';
     showOneOnOnes.value = 'No';
   }

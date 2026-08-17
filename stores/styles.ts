@@ -88,7 +88,7 @@ export const useStylesStore = defineStore('styles', () => {
 
   const useDetailedTime = ref(false);
   const showGraduationCountdown = ref(false);
-  const isDarkMode = ref(colorMode.value);
+  const isDarkMode = ref(colorMode.value === 'dark');
 
   function $reset() {
     showClock.value = true;
@@ -120,7 +120,8 @@ export const useStylesStore = defineStore('styles', () => {
       },
     };
     useDetailedTime.value = false;
-    isDarkMode.value = false;
+    showGraduationCountdown.value = false;
+    isDarkMode.value = colorMode.value === 'dark';
   }
 
   return {

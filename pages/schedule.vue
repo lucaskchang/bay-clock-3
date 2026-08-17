@@ -95,7 +95,7 @@ const {
   advisoryDay,
   showOneOnOnes,
 } = storeToRefs(customScheduleStore);
-const time = nowStore.time;
+const { time } = storeToRefs(nowStore);
 
 const regularSchedule = regularScheduleJSON as Record<
   string,
@@ -145,8 +145,8 @@ const weeklySchedule = computed(() => {
     >
   >;
   for (const dayOfWeek of days) {
-    const dayDate = new Date(time);
-    const today = dayDate.getDay();
+    const dayDate = new Date(time.value);
+    const today = dayDate.getDay() === 0 ? 7 : dayDate.getDay();
     const diff = dayDate.getDate() - today + days.indexOf(dayOfWeek) + 1;
     dayDate.setDate(diff);
 
@@ -251,12 +251,11 @@ const weeklySchedule = computed(() => {
           blockName = clubs.value[day.value];
         }
       }
-      else if (
-        (blockName === 'Immersive Morning'
-        || blockName === 'Immersive Afternoon')
-        && immersiveName.value && useCustomNames.value
-      ) {
-        blockName = immersiveName.value;
+      else if (blockName === 'REMOVEImmersive' && immersiveName.value && useCustomNames.value) {
+        blockName = `REMOVE${immersiveName.value}`;
+      }
+      else if (blockName === 'DELETEImmersive' && immersiveName.value && useCustomNames.value) {
+        blockName = `DELETE${immersiveName.value}`;
       }
       parsedSchedule[blockName] = {
         start: `${

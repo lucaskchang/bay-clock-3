@@ -32,7 +32,17 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
 
+  routeRules: {
+    '/**': { prerender: true },
+  },
+
   compatibilityDate: '2025-01-20',
+
+  nitro: {
+    prerender: {
+      routes: ['/', '/focus', '/schedule'],
+    },
+  },
 
   typescript: {
     strict: true,

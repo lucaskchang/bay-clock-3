@@ -62,6 +62,16 @@
 <script setup lang="ts">
 import { useNowStore } from '~/stores/now';
 
+useSeoMeta({
+  title: 'Weekly Schedule - Bay Clock',
+  description: 'View and print the full weekly class schedule for The Bay School of San Francisco.',
+  ogTitle: 'Weekly Schedule - Bay Clock',
+  ogDescription: 'View and print the full weekly class schedule for The Bay School of San Francisco.',
+  ogUrl: 'https://bayclock.org/schedule',
+  twitterTitle: 'Weekly Schedule - Bay Clock',
+  twitterDescription: 'View and print the full weekly class schedule for The Bay School of San Francisco.',
+});
+
 const useDefaultSchedule = ref(true);
 const useCustomNames = ref(false);
 

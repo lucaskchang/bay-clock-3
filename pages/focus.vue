@@ -32,6 +32,16 @@ import { useScheduleStore } from '~/stores/schedule';
 import { useNowStore } from '~/stores/now';
 import { useStylesStore } from '~/stores/styles';
 
+useSeoMeta({
+  title: 'Focus Mode - Bay Clock',
+  description: 'A distraction-free, full-screen view of how much class time remains for students at The Bay School of San Francisco.',
+  ogTitle: 'Focus Mode - Bay Clock',
+  ogDescription: 'A distraction-free, full-screen view of how much class time remains for students at The Bay School of San Francisco.',
+  ogUrl: 'https://bayclock.org/focus',
+  twitterTitle: 'Focus Mode - Bay Clock',
+  twitterDescription: 'A distraction-free, full-screen view of how much class time remains for students at The Bay School of San Francisco.',
+});
+
 const stylesStore = useStylesStore();
 const { progressColor } = storeToRefs(stylesStore);
 const nowStore = useNowStore();

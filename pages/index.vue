@@ -21,6 +21,18 @@ useHead({
       href: '/favicon.ico',
     },
   ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        'name': 'Bay Clock',
+        'url': 'https://bayclock.org/',
+        'description': 'Bay Clock is a customizable schedule viewer for students at The Bay School of San Francisco.',
+      }),
+    },
+  ],
 });
 
 useSeoMeta({

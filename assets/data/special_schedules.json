@@ -52,20 +52,20 @@
         }
     }
   "2026/8/20": {
-       "Group Advisory/1-on-1s" {
+       "Group Advisory/1-on-1s": {
             "start": {
                 "hour": 8,
                 "minute": 30
             },
             "end": {
                 "hour": 9,
-                "minute": 00 
+                "minute": 
             }
         },
         "B": {
             "start": {
                 "hour": 9,
-                "minute": 05
+                "minute": 5
             },
             "end": {
                 "hour": 10,

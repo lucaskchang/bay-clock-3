@@ -2,7 +2,7 @@
     "2026/8/19": {
         "Morning Meeting": {
             "start": {
-                 "hour": 8,
+                 "hour": ,
                 "minute": 30
             },
             "end": {
@@ -44,6 +44,58 @@
             "start": {
                 "hour": 12,
                 "minute": 30
+            },
+            "end": {
+                "hour": 13,
+                "minute": 30
+            }
+        }
+    }
+  "2026/8/20": {
+       "Group Advisory/1-on-1s" {
+            "start": {
+                 "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 9,
+                "minute": 00 
+            }
+        },
+        "B": {
+            "start": {
+                "hour": 9,
+                "minute": 05
+            },
+            "end": {
+                "hour": 10,
+                "minute": 10
+            }
+        },
+        "A": {
+            "start": {
+                "hour": 10,
+                "minute": 20
+            },
+            "end": {
+                "hour": 11,
+                "minute": 25
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 11,
+                "minute": 25
+            },
+            "end": {
+                "hour": 12,
+                "minute": 25
+            }
+        },
+        "C": {
+            "start": {
+                "hour": 12,
+                "minute": 25
             },
             "end": {
                 "hour": 13,

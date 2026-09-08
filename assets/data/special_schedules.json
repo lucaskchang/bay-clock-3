@@ -1,5 +1,5 @@
 {
-    "2026/8/19": {
+    "2026/9/8": {
         "Morning Meeting": {
             "start": {
                 "hour": 8,
@@ -10,43 +10,43 @@
                 "minute": 55
             }
         },
-        "D": {
+        "A": {
             "start": {
                 "hour": 9,
-                "minute": 20
+                "minute": 0
             },
             "end": {
                 "hour": 10,
-                "minute": 20
+                "minute": 30
             }
         },
-        "E": {
+        "B": {
             "start": {
                 "hour": 10,
-                "minute": 30
+                "minute": 40
             },
             "end": {
-                "hour": 11,
-                "minute": 30
+                "hour": 12,
+                "minute": 10
             }
         },
         "Lunch": {
             "start": {
-                "hour": 11,
-                "minute": 30
+                "hour": 12,
+                "minute": 10
             },
             "end": {
-                "hour": 12,
-                "minute": 30
+                "hour": 13,
+                "minute": 0
             }
         },
         "F": {
             "start": {
-                "hour": 12,
-                "minute": 30
+                "hour": 13,
+                "minute": 0
             },
             "end": {
-                "hour": 13,
+                "hour": 14,
                 "minute": 30
             }
         }

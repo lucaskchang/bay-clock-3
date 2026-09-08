@@ -101,6 +101,16 @@
                 "hour": 14,
                 "minute": 30
             }
+        },
+        "Tutorial": {
+            "start": {
+                "hour": 14,
+                "minute": 35
+            },
+            "end": {
+                "hour": 15,
+                "minute": 20
+            }
         }
     },
   "2026/9/10": {
@@ -152,6 +162,16 @@
             "end": {
                 "hour": 15,
                 "minute": 5
+            }
+        },
+        "Tutorial": {
+            "start": {
+                "hour": 15,
+                "minute": 10
+            },
+            "end": {
+                "hour": 15,
+                "minute": 40
             }
         }
     },

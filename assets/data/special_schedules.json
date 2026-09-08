@@ -114,44 +114,44 @@
                 "minute": 0
             }
         },
-        "D": {
+        "A": {
             "start": {
                 "hour": 9,
-                "minute": 5
+                "minute": 0
             },
             "end": {
                 "hour": 10,
-                "minute": 10
+                "minute": 15
             }
         },
-        "F": {
+        "B": {
             "start": {
                 "hour": 10,
                 "minute": 20
             },
             "end": {
                 "hour": 11,
-                "minute": 25
+                "minute": 35
             }
         },
         "Lunch": {
             "start": {
                 "hour": 11,
-                "minute": 25
+                "minute": 35
             },
             "end": {
                 "hour": 12,
-                "minute": 25
+                "minute": 30
             }
         },
-        "E": {
+        "Field Day": {
             "start": {
                 "hour": 12,
-                "minute": 25
+                "minute": 30
             },
             "end": {
-                "hour": 13,
-                "minute": 30
+                "hour": 15,
+                "minute": 5
             }
         }
     }

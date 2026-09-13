@@ -1,5 +1,5 @@
 {
-    "2026/9/8": {
+    "2026/9/14": {
         "Morning Meeting": {
             "start": {
                 "hour": 8,
@@ -8,120 +8,6 @@
             "end": {
                 "hour": 8,
                 "minute": 55
-            }
-        },
-        "A": {
-            "start": {
-                "hour": 9,
-                "minute": 0
-            },
-            "end": {
-                "hour": 10,
-                "minute": 30
-            }
-        },
-        "B": {
-            "start": {
-                "hour": 10,
-                "minute": 40
-            },
-            "end": {
-                "hour": 12,
-                "minute": 10
-            }
-        },
-        "Lunch": {
-            "start": {
-                "hour": 12,
-                "minute": 10
-            },
-            "end": {
-                "hour": 13,
-                "minute": 0
-            }
-        },
-        "C": {
-            "start": {
-                "hour": 13,
-                "minute": 0
-            },
-            "end": {
-                "hour": 14,
-                "minute": 30
-            }
-        }
-    },
-    "2026/9/9": {
-       "Morning Meeting": {
-            "start": {
-                "hour": 8,
-                "minute": 30
-            },
-            "end": {
-                "hour": 8,
-                "minute": 55
-            }
-        },
-        "D": {
-            "start": {
-                "hour": 9,
-                "minute": 0
-            },
-            "end": {
-                "hour": 10,
-                "minute": 30
-            }
-        },
-        "E": {
-            "start": {
-                "hour": 10,
-                "minute": 40
-            },
-            "end": {
-                "hour": 12,
-                "minute": 10
-            }
-        },
-        "Lunch": {
-            "start": {
-                "hour": 12,
-                "minute": 10
-            },
-            "end": {
-                "hour": 13,
-                "minute": 0
-            }
-        },
-        "F": {
-            "start": {
-                "hour": 13,
-                "minute": 0
-            },
-            "end": {
-                "hour": 14,
-                "minute": 30
-            }
-        },
-        "Tutorial": {
-            "start": {
-                "hour": 14,
-                "minute": 35
-            },
-            "end": {
-                "hour": 15,
-                "minute": 20
-            }
-        }
-    },
-  "2026/9/10": {
-       "Morning Meeting": {
-            "start": {
-                "hour": 8,
-                "minute": 30
-            },
-            "end": {
-                "hour": 9,
-                "minute": 0
             }
         },
         "A": {
@@ -154,10 +40,20 @@
                 "minute": 30
             }
         },
-        "Field Day": {
+        "C": {
             "start": {
                 "hour": 12,
                 "minute": 30
+            },
+            "end": {
+                "hour": 13,
+                "minute": 45
+            }
+        },
+        "D": {
+            "start": {
+                "hour": 13,
+                "minute": 50
             },
             "end": {
                 "hour": 15,
@@ -175,15 +71,87 @@
             }
         }
     },
-  "2026/9/11": {
-       "Morning Meeting": {
+    "2026/9/15": {
+        "Group Advisory/1-on-1s": {
             "start": {
                 "hour": 8,
                 "minute": 30
             },
             "end": {
+                "hour": 8,
+                "minute": 55
+            }
+        },
+        "E": {
+            "start": {
                 "hour": 9,
                 "minute": 0
+            },
+            "end": {
+                "hour": 10,
+                "minute": 15
+            }
+        },
+        "F": {
+            "start": {
+                "hour": 10,
+                "minute": 20
+            },
+            "end": {
+                "hour": 11,
+                "minute": 35
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 11,
+                "minute": 35
+            },
+            "end": {
+                "hour": 12,
+                "minute": 30
+            }
+        },
+        "A": {
+            "start": {
+                "hour": 12,
+                "minute": 30
+            },
+            "end": {
+                "hour": 13,
+                "minute": 45
+            }
+        },
+        "B": {
+            "start": {
+                "hour": 13,
+                "minute": 50
+            },
+            "end": {
+                "hour": 15,
+                "minute": 5
+            }
+        },
+        "Staffulty Mtg": {
+            "start": {
+                "hour": 15,
+                "minute": 15
+            },
+            "end": {
+                "hour": 16,
+                "minute": 30
+            }
+        }
+    },
+    "2026/9/16": {
+        "Morning Meeting": {
+            "start": {
+                "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 8,
+                "minute": 55
             }
         },
         "C": {
@@ -234,6 +202,130 @@
             "end": {
                 "hour": 15,
                 "minute": 5
+            }
+        },
+        "Tutorial": {
+            "start": {
+                "hour": 15,
+                "minute": 10
+            },
+            "end": {
+                "hour": 15,
+                "minute": 40
+            }
+        }
+    },
+    "2026/9/17": {
+        "Group Advisory/1-on-1s": {
+            "start": {
+                "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 8,
+                "minute": 55
+            }
+        },
+        "A": {
+            "start": {
+                "hour": 9,
+                "minute": 0
+            },
+            "end": {
+                "hour": 10,
+                "minute": 15
+            }
+        },
+        "B": {
+            "start": {
+                "hour": 10,
+                "minute": 20
+            },
+            "end": {
+                "hour": 11,
+                "minute": 35
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 11,
+                "minute": 35
+            },
+            "end": {
+                "hour": 12,
+                "minute": 30
+            }
+        },
+        "C": {
+            "start": {
+                "hour": 12,
+                "minute": 30
+            },
+            "end": {
+                "hour": 13,
+                "minute": 45
+            }
+        },
+        "D": {
+            "start": {
+                "hour": 13,
+                "minute": 50
+            },
+            "end": {
+                "hour": 15,
+                "minute": 5
+            }
+        },
+        "Tutorial": {
+            "start": {
+                "hour": 15,
+                "minute": 10
+            },
+            "end": {
+                "hour": 15,
+                "minute": 40
+            }
+        }
+    },
+    "2026/9/18": {
+        "Morning Meeting": {
+            "start": {
+                "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 8,
+                "minute": 55
+            }
+        },
+        "E": {
+            "start": {
+                "hour": 9,
+                "minute": 0
+            },
+            "end": {
+                "hour": 10,
+                "minute": 15
+            }
+        },
+        "F": {
+            "start": {
+                "hour": 10,
+                "minute": 20
+            },
+            "end": {
+                "hour": 11,
+                "minute": 35
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 11,
+                "minute": 35
+            },
+            "end": {
+                "hour": 12,
+                "minute": 30
             }
         }
     }

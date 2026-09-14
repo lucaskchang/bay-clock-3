@@ -131,16 +131,6 @@
                 "hour": 15,
                 "minute": 5
             }
-        },
-        "Staffulty Mtg": {
-            "start": {
-                "hour": 15,
-                "minute": 15
-            },
-            "end": {
-                "hour": 16,
-                "minute": 30
-            }
         }
     },
     "2026/9/16": {

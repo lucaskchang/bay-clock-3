@@ -33,7 +33,7 @@
         <p class="text-2xl font-semibold">
           Credits
         </p>
-        <p>Managers: Suriya Bou '27, Ryan Chow '27, and Pat Nuchitsiripattara '28</p>
+        <p>Managers: Suriya Bou '27, Ryan Chow '27, Felix, Sakira Mosley-Wise '27, and Pat Nuchitsiripattara '28</p>
         <p>Previous Managers: Sam West '26 and Kainoa Newton '26</p>
         <p>Special thanks to Joel Krauska (2030 dad) and Kainoa Newton for contributing to the project.</p>
         <p>

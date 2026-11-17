@@ -1,5 +1,119 @@
 {
-    "2026/11/9": {
+    "2026/11/16": {
+        "Morning Meeting": {
+            "start": {
+                "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 8,
+                "minute": 55
+            }
+        },
+        "A": {
+            "start": {
+                "hour": 9,
+                "minute": 0
+            },
+            "end": {
+                "hour": 10,
+                "minute": 30
+            }
+        },
+        "B": {
+            "start": {
+                "hour": 10,
+                "minute": 40
+            },
+            "end": {
+                "hour": 12,
+                "minute": 10
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 12,
+                "minute": 10
+            },
+            "end": {
+                "hour": 13,
+                "minute": 0
+            }
+        },
+        "C": {
+            "start": {
+                "hour": 13,
+                "minute": 0
+            },
+            "end": {
+                "hour": 14,
+                "minute": 30
+            }
+        },
+        "Tutorial": {
+            "start": {
+                "hour": 14,
+                "minute": 35
+            },
+            "end": {
+                "hour": 15,
+                "minute": 20
+            }
+        }
+    },
+    "2026/11/17": {
+        "Group Advisory/1-on-1s": {
+            "start": {
+                "hour": 8,
+                "minute": 30
+            },
+            "end": {
+                "hour": 8,
+                "minute": 55
+            }
+        },
+        "D": {
+            "start": {
+                "hour": 9,
+                "minute": 0
+            },
+            "end": {
+                "hour": 10,
+                "minute": 30
+            }
+        },
+        "E": {
+            "start": {
+                "hour": 10,
+                "minute": 40
+            },
+            "end": {
+                "hour": 12,
+                "minute": 10
+            }
+        },
+        "Lunch": {
+            "start": {
+                "hour": 12,
+                "minute": 10
+            },
+            "end": {
+                "hour": 13,
+                "minute": 0
+            }
+        },
+        "F": {
+            "start": {
+                "hour": 13,
+                "minute": 0
+            },
+            "end": {
+                "hour": 14,
+                "minute": 30
+            }
+        }
+    },
+    "2026/11/18": {
         "Morning Meeting": {
             "start": {
                 "hour": 8,
@@ -71,80 +185,8 @@
             }
         }
     },
-    "2026/11/10": {
-        "E": {
-            "start": {
-                "hour": 8,
-                "minute": 30
-            },
-            "end": {
-                "hour": 9,
-                "minute": 45
-            }
-        },
-        "F": {
-            "start": {
-                "hour": 9,
-                "minute": 50
-            },
-            "end": {
-                "hour": 11,
-                "minute": 5
-            }
-        },
-        "Lunch": {
-            "start": {
-                "hour": 11,
-                "minute": 5
-            },
-            "end": {
-                "hour": 12,
-                "minute": 0
-            }
-        },
-        "A": {
-            "start": {
-                "hour": 12,
-                "minute": 0
-            },
-            "end": {
-                "hour": 13,
-                "minute": 15
-            }
-        },
-        "B": {
-            "start": {
-                "hour": 13,
-                "minute": 20
-            },
-            "end": {
-                "hour": 14,
-                "minute": 35
-            }
-        },
-        "December Immersive Pre-Course Meetings": {
-            "start": {
-                "hour": 14,
-                "minute": 40
-            },
-            "end": {
-                "hour": 15,
-                "minute": 10
-            }
-        },
-        "Staffulty Mtg": {
-            "start": {
-                "hour": 15,
-                "minute": 15
-            },
-            "end": {
-                "hour": 16,
-                "minute": 30
-            }
-        }
-    },
-    "2026/11/11": {
-        "Morning Meeting": {
+    "2026/11/19": {
+        "Group Advisory/1-on-1s": {
             "start": {
                 "hour": 8,
                 "minute": 30
@@ -154,7 +196,7 @@
                 "minute": 55
             }
         },
-        "C": {
+        "E": {
             "start": {
                 "hour": 9,
                 "minute": 0
@@ -164,7 +206,7 @@
                 "minute": 15
             }
         },
-        "D": {
+        "F": {
             "start": {
                 "hour": 10,
                 "minute": 20
@@ -183,139 +225,17 @@
                 "hour": 12,
                 "minute": 30
             }
-        },
-        "E": {
+        }
+    },
+    "2026/11/20": {
+        "Immersive Prep Day (No School)": {
             "start": {
-                "hour": 12,
+                "hour": 8,
                 "minute": 30
-            },
-            "end": {
-                "hour": 13,
-                "minute": 45
-            }
-        },
-        "F": {
-            "start": {
-                "hour": 13,
-                "minute": 50
             },
             "end": {
                 "hour": 15,
                 "minute": 5
-            }
-        },
-        "Tutorial": {
-            "start": {
-                "hour": 15,
-                "minute": 10
-            },
-            "end": {
-                "hour": 15,
-                "minute": 40
-            }
-        }
-    },
-    "2026/11/12": {
-        "B": {
-            "start": {
-                "hour": 8,
-                "minute": 30
-            },
-            "end": {
-                "hour": 10,
-                "minute": 0
-            }
-        },
-        "A": {
-            "start": {
-                "hour": 10,
-                "minute": 10
-            },
-            "end": {
-                "hour": 11,
-                "minute": 40
-            }
-        },
-        "Harvest Lunch": {
-            "start": {
-                "hour": 11,
-                "minute": 40
-            },
-            "end": {
-                "hour": 13,
-                "minute": 0
-            }
-        },
-        "C": {
-            "start": {
-                "hour": 13,
-                "minute": 0
-            },
-            "end": {
-                "hour": 14,
-                "minute": 30
-            }
-        },
-        "Tutorial": {
-            "start": {
-                "hour": 14,
-                "minute": 35
-            },
-            "end": {
-                "hour": 15,
-                "minute": 20
-            }
-        }
-    },
-    "2026/11/13": {
-        "Morning Meeting": {
-            "start": {
-                "hour": 8,
-                "minute": 30
-            },
-            "end": {
-                "hour": 8,
-                "minute": 55
-            }
-        },
-        "D": {
-            "start": {
-                "hour": 9,
-                "minute": 0
-            },
-            "end": {
-                "hour": 10,
-                "minute": 30
-            }
-        },
-        "F": {
-            "start": {
-                "hour": 10,
-                "minute": 40
-            },
-            "end": {
-                "hour": 12,
-                "minute": 10
-            }
-        },
-        "Lunch": {
-            "start": {
-                "hour": 12,
-                "minute": 10
-            },
-            "end": {
-                "hour": 13,
-                "minute": 0
-            }
-        },
-        "E": {
-            "start": {
-                "hour": 13,
-                "minute": 0
-            },
-            "end": {
-                "hour": 14,
-                "minute": 30
             }
         }
     }
